@@ -1,6 +1,8 @@
 import React from 'react';
 import GridItem from '../components/GridItem';
 import { Typography, Grid, Box } from '@mui/material';
+import RestaurantIcon from '@mui/icons-material/Restaurant';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 
 const QuestionOne = () => {
     return (
@@ -15,11 +17,14 @@ const QuestionOne = () => {
                 justifyContent='center'
                 container
             >
-                <GridItem />
-                <GridItem />
-                <GridItem />
-                <GridItem />
-                <GridItem />
+                <GridItem
+                    answer='Retail'
+                    image={<ShoppingBagIcon sx={{ fontSize: 60 }} />}
+                />
+                <GridItem
+                    answer='Hospitality'
+                    image={<RestaurantIcon sx={{ fontSize: 60 }} />}
+                />
             </Grid>
         </Box>
     );

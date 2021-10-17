@@ -1,13 +1,18 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Container } from '@mui/material';
 
 import QuestionOne from './Pages/QuestionOne';
 
 const App = () => {
     return (
-        <Container maxWidth='md'>
-            <QuestionOne />
-        </Container>
+        <Router>
+            <Switch>
+                <Container maxWidth='md'>
+                    <Route path='/q1' component={QuestionOne} />
+                </Container>
+            </Switch>
+        </Router>
     );
 };
 
