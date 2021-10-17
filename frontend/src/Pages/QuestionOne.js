@@ -1,8 +1,8 @@
 import React from 'react';
 import GridItem from '../components/GridItem';
 import { Typography, Grid, Box } from '@mui/material';
-import RestaurantIcon from '@mui/icons-material/Restaurant';
-import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import { BsShop } from 'react-icons/bs';
+import { IoRestaurantOutline } from 'react-icons/io5';
 
 const QuestionOne = () => {
     return (
@@ -19,11 +19,11 @@ const QuestionOne = () => {
             >
                 <GridItem
                     answer='Retail'
-                    image={<ShoppingBagIcon sx={{ fontSize: 60 }} />}
+                    image={<BsShop sx={{ fontSize: 60 }} />}
                 />
                 <GridItem
                     answer='Hospitality'
-                    image={<RestaurantIcon sx={{ fontSize: 60 }} />}
+                    image={<IoRestaurantOutline sx={{ fontSize: 60 }} />}
                 />
             </Grid>
         </Box>

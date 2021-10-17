@@ -1,8 +1,18 @@
 import { React, useState } from 'react';
+import { makeStyles } from '@mui/styles';
+import { CardActionArea, Card, Grid, Typography } from '@mui/material';
+import { green } from '@mui/material/colors';
 
-import { CardActionArea, Card, Grid, Typography, Box } from '@mui/material';
+const useStyles = makeStyles((theme) => ({
+    customBorder: {
+        border: `3px solid ${green[500]}`,
+        boxShadow: 1
+    }
+}));
 
 const GridItem = (props) => {
+    const classes = useStyles();
+
     const [clicked, setClicked] = useState(false);
     const clickHandler = (e) => {
         if (!clicked) {
@@ -24,11 +34,13 @@ const GridItem = (props) => {
                 }}
             >
                 <Card
+                    className={clicked && classes.customBorder}
                     elevation='0'
                     sx={{
                         width: '100%',
                         height: '100%',
-                        boxShadow: '1'
+                        boxShadow: '1',
+                        borderColor: 'green'
                     }}
                     onClick={clickHandler}
                 >
