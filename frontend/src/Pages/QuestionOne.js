@@ -3,8 +3,7 @@ import GridItem from '../components/GridItem';
 import { Typography, Grid, Stack } from '@mui/material';
 import { BiShoppingBag } from 'react-icons/bi';
 import { IoRestaurantOutline } from 'react-icons/io5';
-import NextButton from '../components/NextButton';
-import BackButton from '../components/BackButton';
+import NavButton from '../components/NavButton';
 
 const QuestionOne = () => {
     return (
@@ -33,8 +32,8 @@ const QuestionOne = () => {
                 alignContent='center'
                 display='flex'
             >
-                <BackButton />
-                <NextButton link='/q2' />
+                <NavButton link='/' variant='back' />
+                <NavButton link='/q2' variant='next' />
             </Stack>
         </Stack>
     );

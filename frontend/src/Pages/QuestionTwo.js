@@ -2,13 +2,12 @@ import React from 'react';
 import GridItem from '../components/GridItem';
 import { Typography, Grid, Stack } from '@mui/material';
 import { BiBuilding, BiBuildings } from 'react-icons/bi';
-import NextButton from '../components/NextButton';
-import BackButton from '../components/BackButton';
+import NavButton from '../components/NavButton';
 
 const QuestionTwo = () => {
     return (
         <Stack display='flex' justifyContent='center' alignContent='center'>
-            <Typography align='center' m='2%' paddingRight='5%'>
+            <Typography align='center' m='2%'>
                 Does your company have multiple venues?
             </Typography>
 
@@ -30,8 +29,8 @@ const QuestionTwo = () => {
                 alignContent='center'
                 display='flex'
             >
-                <BackButton link='/q1' />
-                <NextButton link='/q2' />
+                <NavButton link='/q1' variant='back' />
+                <NavButton link='/q3' variant='next' />
             </Stack>
         </Stack>
     );
