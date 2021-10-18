@@ -1,28 +1,25 @@
 import React from 'react';
 import GridItem from '../components/GridItem';
 import { Typography, Grid, Stack } from '@mui/material';
-import { BiShoppingBag } from 'react-icons/bi';
-import { IoRestaurantOutline } from 'react-icons/io5';
+import { BiBuilding, BiBuildings } from 'react-icons/bi';
 import NextButton from '../components/NextButton';
 import BackButton from '../components/BackButton';
 
-const QuestionOne = () => {
+const QuestionTwo = () => {
     return (
         <Stack display='flex' justifyContent='center' alignContent='center'>
-            <Typography align='center' m='2%'>
-                Grid Options system
+            <Typography align='center' m='2%' paddingRight='5%'>
+                Does your company have multiple venues?
             </Typography>
 
-            <Grid spacing={0} align='center' justifyContent='center' container>
+            <Grid spacing={1} align='center' justifyContent='center' container>
                 <GridItem
-                    answer='Retail'
-                    image={
-                        <BiShoppingBag sx={{ fontSize: 60 }} moreInfo={true} />
-                    }
+                    answer='Single Venue'
+                    image={<BiBuilding sx={{ fontSize: 60 }} />}
                 />
                 <GridItem
-                    answer='Hospitality'
-                    image={<IoRestaurantOutline sx={{ fontSize: 60 }} />}
+                    answer='Multiple Venues'
+                    image={<BiBuildings sx={{ fontSize: 60 }} />}
                 />
             </Grid>
             <Stack
@@ -33,11 +30,11 @@ const QuestionOne = () => {
                 alignContent='center'
                 display='flex'
             >
-                <BackButton />
+                <BackButton link='/q1' />
                 <NextButton link='/q2' />
             </Stack>
         </Stack>
     );
 };
 
-export default QuestionOne;
+export default QuestionTwo;

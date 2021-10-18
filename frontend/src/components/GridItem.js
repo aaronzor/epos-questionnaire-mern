@@ -1,6 +1,13 @@
 import { React, useState } from 'react';
 import { makeStyles } from '@mui/styles';
-import { CardActionArea, Card, Grid, Typography } from '@mui/material';
+import {
+    CardActionArea,
+    Card,
+    Grid,
+    Typography,
+    Collapse,
+    CardContent
+} from '@mui/material';
 import { green } from '@mui/material/colors';
 
 const useStyles = makeStyles((theme) => ({
@@ -39,8 +46,7 @@ const GridItem = (props) => {
                     sx={{
                         width: '100%',
                         height: '100%',
-                        boxShadow: '1',
-                        borderColor: 'green'
+                        boxShadow: '1'
                     }}
                     onClick={clickHandler}
                 >
@@ -50,6 +56,22 @@ const GridItem = (props) => {
                     <Typography align='center' marginTop='11%' variant='h2'>
                         {props.image}
                     </Typography>
+                    {props.moreInfo && (
+                        <Collapse in={clicked} timeout='auto'>
+                            <CardContent>
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut
+                                enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum
+                                dolore eu fugiat nulla pariatur. Excepteur sint
+                                occaecat cupidatat non proident, sunt in culpa
+                                qui officia deserunt mollit anim id est laborum.
+                            </CardContent>
+                        </Collapse>
+                    )}
                 </Card>
             </CardActionArea>
         </Grid>
