@@ -22,11 +22,8 @@ const GridItem = (props) => {
 
     const [clicked, setClicked] = useState(false);
     const clickHandler = (e) => {
-        if (!clicked) {
-            setClicked(true);
-        } else {
-            setClicked(false);
-        }
+        setClicked((prev) => !prev);
+        props.otherText && props.otherText((prev) => !prev);
     };
 
     return (

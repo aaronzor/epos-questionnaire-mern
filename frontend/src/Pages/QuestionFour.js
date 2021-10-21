@@ -1,30 +1,27 @@
 import React from 'react';
 import GridItem from '../components/GridItem';
 import { Typography, Grid, Stack } from '@mui/material';
-import { BiShoppingBag } from 'react-icons/bi';
-import { IoRestaurantOutline } from 'react-icons/io5';
+import { FaCashRegister } from 'react-icons/fa';
+
 import NavButton from '../components/NavButton';
 
-const QuestionOne = () => {
+const QuestionThree = () => {
     return (
         <Stack display='flex' justifyContent='center' alignContent='center'>
             <Typography align='center' m='2%'>
-                Industry
+                Do you require more than one till?
             </Typography>
 
-            <Grid spacing={0} align='center' justifyContent='center' container>
+            <Grid spacing={1} align='center' justifyContent='center' container>
                 <GridItem
-                    answer='Retail'
-                    image={
-                        <BiShoppingBag sx={{ fontSize: 60 }} moreInfo={true} />
-                    }
+                    answer='Single Till'
+                    image={<FaCashRegister sx={{ fontSize: 60 }} />}
                 />
                 <GridItem
-                    answer='Hospitality'
-                    image={<IoRestaurantOutline sx={{ fontSize: 60 }} />}
+                    answer='Multiple Tills'
+                    image={<FaCashRegister sx={{ fontSize: 60 }} />}
                 />
             </Grid>
-
             <Stack
                 direction='row'
                 spacing={1}
@@ -33,11 +30,11 @@ const QuestionOne = () => {
                 alignContent='center'
                 display='flex'
             >
-                <NavButton link='/' variant='back' />
-                <NavButton link='/q2' variant='next' />
+                <NavButton link='/q3' variant='back' />
+                <NavButton link='/q5' variant='next' />
             </Stack>
         </Stack>
     );
 };
 
-export default QuestionOne;
+export default QuestionThree;

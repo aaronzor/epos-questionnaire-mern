@@ -1,30 +1,28 @@
 import React from 'react';
 import GridItem from '../components/GridItem';
 import { Typography, Grid, Stack } from '@mui/material';
-import { BiShoppingBag } from 'react-icons/bi';
-import { IoRestaurantOutline } from 'react-icons/io5';
+import { BsPhone } from 'react-icons/bs';
+import { GiTabletopPlayers } from 'react-icons/gi';
+
 import NavButton from '../components/NavButton';
 
-const QuestionOne = () => {
+const QuestionThree = () => {
     return (
         <Stack display='flex' justifyContent='center' alignContent='center'>
             <Typography align='center' m='2%'>
-                Industry
+                Do you require?
             </Typography>
 
-            <Grid spacing={0} align='center' justifyContent='center' container>
+            <Grid spacing={1} align='center' justifyContent='center' container>
                 <GridItem
-                    answer='Retail'
-                    image={
-                        <BiShoppingBag sx={{ fontSize: 60 }} moreInfo={true} />
-                    }
+                    answer='Table Ordering'
+                    image={<GiTabletopPlayers sx={{ fontSize: 60 }} />}
                 />
                 <GridItem
-                    answer='Hospitality'
-                    image={<IoRestaurantOutline sx={{ fontSize: 60 }} />}
+                    answer='Online Ordering'
+                    image={<BsPhone sx={{ fontSize: 60 }} />}
                 />
             </Grid>
-
             <Stack
                 direction='row'
                 spacing={1}
@@ -33,11 +31,11 @@ const QuestionOne = () => {
                 alignContent='center'
                 display='flex'
             >
-                <NavButton link='/' variant='back' />
-                <NavButton link='/q2' variant='next' />
+                <NavButton link='/q4' variant='back' />
+                <NavButton link='/q6' variant='next' />
             </Stack>
         </Stack>
     );
 };
 
-export default QuestionOne;
+export default QuestionThree;
