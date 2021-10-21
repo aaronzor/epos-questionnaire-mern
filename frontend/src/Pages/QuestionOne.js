@@ -7,7 +7,12 @@ import NavButton from '../components/NavButton';
 
 const QuestionOne = () => {
     return (
-        <Stack display='flex' justifyContent='center' alignContent='center'>
+        <Stack
+            display='flex'
+            justifyContent='center'
+            alignContent='center'
+            height='100%'
+        >
             <Typography align='center' m='2%'>
                 Industry
             </Typography>
@@ -28,7 +33,7 @@ const QuestionOne = () => {
             <Stack
                 direction='row'
                 spacing={1}
-                marginTop='20%'
+                marginTop={20}
                 justifyContent='space-around'
                 alignContent='center'
                 display='flex'

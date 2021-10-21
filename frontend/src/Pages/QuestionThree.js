@@ -57,7 +57,7 @@ const QuestionThree = () => {
             <Stack
                 direction='row'
                 spacing={1}
-                marginTop='20%'
+                marginTop={50}
                 justifyContent='space-around'
                 alignContent='center'
                 display='flex'

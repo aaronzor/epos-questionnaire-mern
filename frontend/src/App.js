@@ -14,13 +14,11 @@ const App = () => {
         <Router>
             <Layout>
                 <Switch>
-                    <Container>
-                        <Route path='/q1' component={QuestionOne} />
-                        <Route path='/q2' component={QuestionTwo} />
-                        <Route path='/q3' component={QuestionThree} />
-                        <Route path='/q4' component={QuestionFour} />
-                        <Route path='/q5' component={QuestionFive} />
-                    </Container>
+                    <Route path='/q1' component={QuestionOne} />
+                    <Route path='/q2' component={QuestionTwo} />
+                    <Route path='/q3' component={QuestionThree} />
+                    <Route path='/q4' component={QuestionFour} />
+                    <Route path='/q5' component={QuestionFive} />
                 </Switch>
             </Layout>
         </Router>
