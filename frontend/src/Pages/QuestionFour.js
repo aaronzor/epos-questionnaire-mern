@@ -25,10 +25,11 @@ const QuestionThree = () => {
             <Stack
                 direction='row'
                 spacing={1}
-                marginTop='20%'
+                marginTop={20}
                 justifyContent='space-around'
                 alignContent='center'
                 display='flex'
+                sx={{ position: 'relative', bottom: -400 }}
             >
                 <NavButton link='/q3' variant='back' />
                 <NavButton link='/q5' variant='next' />

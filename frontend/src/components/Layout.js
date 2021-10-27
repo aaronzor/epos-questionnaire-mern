@@ -12,7 +12,6 @@ const Layout = ({ children }) => {
                 {children}
                 <Toolbar />
             </Container>
-            <Footer />
         </Box>
     );
 };

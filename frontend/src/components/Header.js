@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Container, Toolbar, Link } from '@mui/material';
+import { AppBar, Container, Toolbar } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import qube from '../assets/qube-final.png';
 

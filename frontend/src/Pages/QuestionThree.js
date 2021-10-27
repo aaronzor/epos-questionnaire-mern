@@ -19,8 +19,15 @@ const QuestionThree = () => {
 
     return (
         <Stack display='flex' justifyContent='center' alignContent='center'>
-            <Typography align='center' m='2%'>
-                What kind of business do you have?
+            <Typography
+                variant='h6'
+                sx={{ marginTop: '5%', marginBottom: '2%' }}
+            >
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa
+            </Typography>
+
+            <Typography align='center' m='6%' variant='h6'>
+                Sed ut perspiciatis unde omnis?
             </Typography>
 
             <Grid spacing={1} align='center' justifyContent='center' container>
@@ -42,8 +49,8 @@ const QuestionThree = () => {
                 <Grow in={grow}>
                     <TextField
                         sx={{
-                            marginLeft: '10%',
-                            marginRight: '10%',
+                            marginLeft: '7%',
+                            marginRight: '7%',
                             marginTop: '10%',
                             textDecoration: 'none',
                             boxShadow: 0
@@ -57,10 +64,11 @@ const QuestionThree = () => {
             <Stack
                 direction='row'
                 spacing={1}
-                marginTop={50}
+                marginTop={20}
                 justifyContent='space-around'
                 alignContent='center'
                 display='flex'
+                sx={{ position: 'static', bottom: 0 }}
             >
                 <NavButton link='/q2' variant='back' />
                 <NavButton link='/q4' variant='next' />

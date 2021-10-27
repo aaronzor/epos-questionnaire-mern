@@ -9,12 +9,11 @@ const NavButton = (props) => {
             <Link
                 to={props.link}
                 style={{
-                    textDecoration: 'none',
-                    boxShadow: 'none'
+                    textDecoration: 'none'
                 }}
             >
                 <Button
-                    variant='contained'
+                    variant='outlined'
                     disableElevation
                     sx={{ height: '58px', width: '96px' }}
                 >
@@ -30,12 +29,11 @@ const NavButton = (props) => {
             <Link
                 to={props.link}
                 style={{
-                    textDecoration: 'none',
-                    boxShadow: 'none'
+                    textDecoration: 'none'
                 }}
             >
                 <Button
-                    variant='contained'
+                    variant='outlined'
                     disableElevation
                     sx={{ height: '58px', width: '96px' }}
                 >

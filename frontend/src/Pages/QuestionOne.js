@@ -7,17 +7,25 @@ import NavButton from '../components/NavButton';
 
 const QuestionOne = () => {
     return (
-        <Stack
-            display='flex'
-            justifyContent='center'
-            alignContent='center'
-            height='100%'
-        >
-            <Typography align='center' m='2%'>
-                Industry
+        <Stack display='flex' justifyContent='center' alignContent='center'>
+            <Typography
+                variant='h6'
+                sx={{ marginTop: '5%', marginBottom: '2%' }}
+            >
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa
+            </Typography>
+            <Typography
+                sx={{ marginTop: '5%', marginBottom: '5%' }}
+                align='right'
+            >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore
+            </Typography>
+            <Typography align='center' m='6%' variant='h6'>
+                Sed ut perspiciatis unde omnis?
             </Typography>
 
-            <Grid spacing={0} align='center' justifyContent='center' container>
+            <Grid spacing={1} align='center' justifyContent='center' container>
                 <GridItem
                     answer='Retail'
                     image={
@@ -37,6 +45,7 @@ const QuestionOne = () => {
                 justifyContent='space-around'
                 alignContent='center'
                 display='flex'
+                sx={{ position: 'relative', bottom: 0 }}
             >
                 <NavButton link='/' variant='back' />
                 <NavButton link='/q2' variant='next' />

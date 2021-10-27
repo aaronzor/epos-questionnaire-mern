@@ -7,8 +7,21 @@ import NavButton from '../components/NavButton';
 const QuestionTwo = () => {
     return (
         <Stack display='flex' justifyContent='center' alignContent='center'>
-            <Typography align='center' m='2%'>
-                Does your company have multiple venues?
+            <Typography
+                variant='h6'
+                sx={{ marginTop: '5%', marginBottom: '2%' }}
+            >
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa
+            </Typography>
+            <Typography
+                sx={{ marginTop: '5%', marginBottom: '5%' }}
+                align='right'
+            >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore
+            </Typography>
+            <Typography align='center' m='6%' variant='h6'>
+                Sed ut perspiciatis unde omnis?
             </Typography>
 
             <Grid spacing={1} align='center' justifyContent='center' container>
@@ -24,10 +37,11 @@ const QuestionTwo = () => {
             <Stack
                 direction='row'
                 spacing={1}
-                marginTop='20%'
+                marginTop={20}
                 justifyContent='space-around'
                 alignContent='center'
                 display='flex'
+                sx={{ position: 'relative', bottom: 0 }}
             >
                 <NavButton link='/q1' variant='back' />
                 <NavButton link='/q3' variant='next' />
