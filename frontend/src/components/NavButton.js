@@ -2,8 +2,16 @@ import React from 'react';
 import { Button, Typography } from '@mui/material';
 import { FaAngleRight, FaAngleLeft } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 const NavButton = (props) => {
+    // const dispatch = useDispatch();
+    // const currentAnswer = useSelector((state) => state.currentAnswer.value);
+
+    // const clickHandler = () => {
+    //     dispatch(props.setter(currentAnswer));
+    // };
+
     if (props.variant === 'next') {
         return (
             <Link
@@ -15,6 +23,7 @@ const NavButton = (props) => {
                 <Button
                     variant='outlined'
                     disableElevation
+                    // onClick={clickHandler}
                     sx={{ height: '58px', width: '96px' }}
                 >
                     <Typography paddingRight='10%' marginTop='5%'>

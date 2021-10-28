@@ -1,14 +1,12 @@
 import { React, useState } from 'react';
 import { makeStyles } from '@mui/styles';
-import {
-    CardActionArea,
-    Card,
-    Grid,
-    Typography,
-    Collapse,
-    CardContent
-} from '@mui/material';
+import { CardActionArea, Card, Grid, Typography } from '@mui/material';
 import { green } from '@mui/material/colors';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+    setCurrentAnswer,
+    filterCurrentAnswer
+} from '../features/currentAnswer';
 
 const useStyles = makeStyles((theme) => ({
     customBorder: {
@@ -20,12 +18,28 @@ const useStyles = makeStyles((theme) => ({
 const GridItem = (props) => {
     const classes = useStyles();
 
+    // Redux global state
+    const dispatch = useDispatch();
+    const currentAnswer = useSelector((state) => state.currentAnswer.value);
+
+    // Local state
     const [clicked, setClicked] = useState(false);
-    let [answer, setAnswer] = useState({});
+    const [answer, setAnswer] = useState('');
+
+    // Use this to find index location of answers in global state array
+    const index = (element) => element === answer;
+
     const clickHandler = (e) => {
         setClicked((prev) => !prev);
+
         props.otherText && props.otherText((prev) => !prev);
-        !clicked ? setAnswer(props.answer) : setAnswer({});
+        !clicked
+            ? Promise.resolve(setAnswer(props.answer)).then(
+                  dispatch(setCurrentAnswer(props.answer))
+              )
+            : Promise.resolve(setAnswer(props.answer)).then(
+                  dispatch(filterCurrentAnswer(currentAnswer.findIndex(index)))
+              );
     };
 
     return (

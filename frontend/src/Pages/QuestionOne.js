@@ -5,6 +5,8 @@ import { BiShoppingBag } from 'react-icons/bi';
 import { IoRestaurantOutline } from 'react-icons/io5';
 import NavButton from '../components/NavButton';
 
+import { setOne } from '../features/result';
+
 const QuestionOne = () => {
     return (
         <Stack display='flex' justifyContent='center' alignContent='center'>
@@ -48,7 +50,7 @@ const QuestionOne = () => {
                 sx={{ position: 'relative', bottom: 0 }}
             >
                 <NavButton link='/' variant='back' />
-                <NavButton link='/q2' variant='next' />
+                <NavButton link='/q2' variant='next' setter={setOne} />
             </Stack>
         </Stack>
     );
