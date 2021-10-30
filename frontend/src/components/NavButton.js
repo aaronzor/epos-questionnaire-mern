@@ -3,14 +3,20 @@ import { Button, Typography } from '@mui/material';
 import { FaAngleRight, FaAngleLeft } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { clearCurrentAnswer } from '../features/currentAnswer';
+
+import { pushCurrentAnswer } from '../features/result';
 
 const NavButton = (props) => {
-    // const dispatch = useDispatch();
-    // const currentAnswer = useSelector((state) => state.currentAnswer.value);
+    const dispatch = useDispatch();
+    const currentAnswer = useSelector((state) => state.currentAnswer);
+    console.log(currentAnswer);
 
-    // const clickHandler = () => {
-    //     dispatch(props.setter(currentAnswer));
-    // };
+    const clickHandler = () => {
+        Promise.resolve(dispatch(pushCurrentAnswer(currentAnswer))).then(
+            dispatch(clearCurrentAnswer([]))
+        );
+    };
 
     if (props.variant === 'next') {
         return (
@@ -23,7 +29,7 @@ const NavButton = (props) => {
                 <Button
                     variant='outlined'
                     disableElevation
-                    // onClick={clickHandler}
+                    onClick={clickHandler}
                     sx={{ height: '58px', width: '96px' }}
                 >
                     <Typography paddingRight='10%' marginTop='5%'>

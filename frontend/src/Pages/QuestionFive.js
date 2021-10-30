@@ -33,7 +33,7 @@ const QuestionThree = () => {
                 sx={{ position: 'relative', bottom: -400 }}
             >
                 <NavButton link='/q4' variant='back' />
-                <NavButton link='/q6' variant='next' />
+                <NavButton link='/userdetails' variant='next' />
             </Stack>
         </Stack>
     );

@@ -9,13 +9,29 @@ import QuestionFour from './Pages/QuestionFour';
 import QuestionFive from './Pages/QuestionFive';
 import Layout from './components/Layout';
 import Landing from './Pages/Landing';
+import UserDetails from './Pages/UserDetails';
+import EndPage from './Pages/EndPage';
 
 const darkMode = createTheme({
     palette: {
-        mode: 'dark',
+        type: 'dark',
         primary: {
-            main: '#fe234a'
+            main: '#424242',
+            light: '#6d6d6d',
+            dark: '#1b1b1b'
+        },
+        secondary: {
+            main: '#4a148c',
+            light: '#7c43bd',
+            dark: '#12005e'
+        },
+        text: {
+            primary: '#ffffff',
+            secondary: '#ffffff'
         }
+    },
+    shape: {
+        borderRadius: 1
     }
 });
 
@@ -31,6 +47,8 @@ const App = () => {
                         <Route path='/q3' component={QuestionThree} />
                         <Route path='/q4' component={QuestionFour} />
                         <Route path='/q5' component={QuestionFive} />
+                        <Route path='/userdetails' component={UserDetails} />
+                        <Route path='/endpage' component={EndPage} />
                     </Switch>
                 </Layout>
             </Router>
