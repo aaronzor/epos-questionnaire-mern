@@ -10,7 +10,6 @@ import { pushCurrentAnswer } from '../features/result';
 const NavButton = (props) => {
     const dispatch = useDispatch();
     const currentAnswer = useSelector((state) => state.currentAnswer);
-    console.log(currentAnswer);
 
     const clickHandler = () => {
         Promise.resolve(dispatch(pushCurrentAnswer(currentAnswer))).then(
@@ -27,7 +26,7 @@ const NavButton = (props) => {
                 }}
             >
                 <Button
-                    variant='outlined'
+                    variant='contained'
                     disableElevation
                     onClick={clickHandler}
                     sx={{ height: '58px', width: '96px' }}
@@ -48,7 +47,7 @@ const NavButton = (props) => {
                 }}
             >
                 <Button
-                    variant='outlined'
+                    variant='contained'
                     disableElevation
                     sx={{ height: '58px', width: '96px' }}
                 >

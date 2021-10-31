@@ -1,9 +1,5 @@
 import React from 'react';
-import GridItem from '../components/GridItem';
-import { Typography, Grid, Stack, Button } from '@mui/material';
-import { BiShoppingBag } from 'react-icons/bi';
-import { IoRestaurantOutline } from 'react-icons/io5';
-import NavButton from '../components/NavButton';
+import { Typography, Stack, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const QuestionOne = () => {

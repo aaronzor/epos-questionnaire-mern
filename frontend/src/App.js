@@ -26,8 +26,8 @@ const darkMode = createTheme({
             dark: '#12005e'
         },
         text: {
-            primary: '#ffffff',
-            secondary: '#ffffff'
+            primary: '#000000',
+            secondary: '#000000'
         }
     },
     shape: {
