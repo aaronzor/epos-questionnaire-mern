@@ -30,7 +30,10 @@ export const login = asyncHandler(async (req, res, next) => {
     // Email and password validation
     if (!email || !password) {
         return next(
-            new ErrorResponse('Please provide an email and password', 404)
+            new ErrorResponse(
+                'Your password or email is incorrect, please try again',
+                404
+            )
         );
     }
 
@@ -53,7 +56,7 @@ export const login = asyncHandler(async (req, res, next) => {
 });
 
 // @desc      Log user out / Clear cookie
-// @route     GET /api/v1/auth/me
+// @route     GET /api/v1/auth/logout
 // @access    Private
 export const logout = asyncHandler(async (req, res, next) => {
     res.cookie('token', 'none', {
@@ -84,7 +87,7 @@ export const getMe = asyncHandler(async (req, res, next) => {
 // @access    Private
 export const updateDetails = asyncHandler(async (req, res, next) => {
     const fieldsToUpdate = {
-        name: req.body.name,
+        name: req.body.userName,
         email: req.body.email
     };
 

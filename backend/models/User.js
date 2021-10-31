@@ -4,9 +4,8 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 const UserSchema = new mongoose.Schema({
-    name: {
+    userName: {
         type: String,
-        unique: [true, 'A user with that name already exists'],
         required: [true, 'You must specify a username']
     },
     email: {
@@ -18,7 +17,7 @@ const UserSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ['user', 'moderator', 'admin'],
+        enum: ['user', 'admin'],
         default: 'user'
         // For this application the user role 'admin' will mostly be used, however because of
         // the privilages tied to user accounts with admin roles, this role

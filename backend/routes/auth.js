@@ -24,8 +24,8 @@ router.post('/login', login);
 router.post('/forgotpassword', forgotPassword);
 router.put('/resetpassword/:resetToken', resetPassword);
 router.get('/me', protect, getMe);
-router.put('/updatedetails', protect, updateDetails);
-router.put('/updatepassword', protect, updatePassword);
-router.get('/logout', protect, logout);
+router.put('/updatedetails/:id', protect, updateDetails);
+router.put('/updatepassword/:id', protect, updatePassword);
+router.get('/logout/', protect, logout);
 
 export { router as auth };

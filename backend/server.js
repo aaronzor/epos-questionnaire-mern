@@ -3,7 +3,6 @@ import express from 'express';
 import dotenv from 'dotenv';
 import colors from 'colors';
 import connectDB from './config/db.js';
-import bodyParser from 'body-parser';
 
 // Load env variables
 dotenv.config();
@@ -19,11 +18,11 @@ import { auth } from './routes/auth.js';
 const app = express();
 
 app.use(
-    bodyParser.urlencoded({
+    express.urlencoded({
         extended: true
     })
 );
-app.use(bodyParser.json());
+app.use(express.json());
 
 // Connect to Database
 connectDB();
