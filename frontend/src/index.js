@@ -8,10 +8,15 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import resultReducer from './features/result';
 import currentAnswerReducer from './features/currentAnswer';
+import testAnswerReducer from './features/testAnswer';
 
 // DEFINE STORE
 const store = configureStore({
-    reducer: { result: resultReducer, currentAnswer: currentAnswerReducer }
+    reducer: {
+        result: resultReducer,
+        currentAnswer: currentAnswerReducer,
+        testAnswer: testAnswerReducer
+    }
 });
 
 ReactDOM.render(

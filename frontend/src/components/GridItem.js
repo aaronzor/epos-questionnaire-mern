@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useState, useContext } from 'react';
 import { makeStyles } from '@mui/styles';
 import { CardActionArea, Card, Grid, Typography } from '@mui/material';
 import { green } from '@mui/material/colors';
@@ -7,6 +7,8 @@ import {
     setCurrentAnswer,
     filterCurrentAnswer
 } from '../features/currentAnswer';
+import { setTestAnswer } from '../features/testAnswer';
+import { ResultContext } from '../contexts/ResultContext';
 
 const useStyles = makeStyles((theme) => ({
     customBorder: {
@@ -16,6 +18,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const GridItem = (props) => {
+    const { object, setObject } = useContext(ResultContext);
+
     const classes = useStyles();
 
     // Redux global state
@@ -29,22 +33,18 @@ const GridItem = (props) => {
     // Use this to find index location of answers in global state array
     const index = (element) => element === answer;
 
-    const clickHandler = (e) => {
+    const clickHandler = () => {
         setClicked((prev) => !prev);
 
         props.otherText && props.otherText((prev) => !prev);
-        !clicked
-            ? Promise.resolve(setAnswer(props.answer)).then(
-                  dispatch(setCurrentAnswer(props.answer))
-              )
-            : Promise.resolve(setAnswer(props.answer)).then(
-                  dispatch(filterCurrentAnswer(currentAnswer.findIndex(index)))
-              );
+
+        setObject({ ...object, [props.answer]: !clicked });
     };
 
     return (
         // From 0-960px wide (tablets and smartphones), Items take up 6 out of 12 columns, so 2 columns fit the screen.
         // From 960px wide and above, Items take up 25% of the device (3/12), so 4 columns fit the screen.
+
         <Grid item xs={6} sm={3} md={3}>
             <CardActionArea
                 sx={{
@@ -62,6 +62,7 @@ const GridItem = (props) => {
                         boxShadow: '1'
                     }}
                     onClick={clickHandler}
+                    name={props.answer}
                 >
                     <Typography variant='h6' align='center' marginTop='6%'>
                         {props.answer}
@@ -76,3 +77,16 @@ const GridItem = (props) => {
 };
 
 export default GridItem;
+
+// const handleOnChange = (event) => {
+//     const { name, value } = event.target;
+//     setDetails({ ...details, [name]: value });
+// };
+
+// !clicked
+//     ? Promise.resolve(setAnswer(props.answer)).then(
+//           dispatch(setCurrentAnswer(props.answer))
+//       )
+//     : Promise.resolve(setAnswer(props.answer)).then(
+//           dispatch(filterCurrentAnswer(currentAnswer.findIndex(index)))
+//       );
