@@ -20,7 +20,15 @@ const UserDetails = () => {
         setObject({ ...object, [name]: value });
     };
 
-    const clickHandler = () => {};
+    const clickHandler = () => {
+        try {
+            Promise.resolve(
+                axios.post('http://localhost:5000/api/v1/results', object)
+            );
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     return (
         <Container>

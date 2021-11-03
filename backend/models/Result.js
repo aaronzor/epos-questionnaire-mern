@@ -1,23 +1,53 @@
 import mongoose from 'mongoose';
 
 const ResultSchema = new mongoose.Schema({
-    question1: {
+    Retail: {
+        type: Boolean
+    },
+    Hospitality: {
+        type: Boolean
+    },
+    'Single Venue': {
+        type: Boolean
+    },
+    Bar: {
+        type: Boolean
+    },
+    Resturant: {
+        type: Boolean
+    },
+    Other: {
+        type: Boolean
+    },
+    'Other business info': {
         type: String
     },
-    question2: {
+    'Single Till': {
+        type: Boolean
+    },
+    'Multiple Tills': {
+        type: Boolean
+    },
+    'Table Ordering': {
+        type: Boolean
+    },
+    'Online Ordering': {
+        type: Boolean
+    },
+    Company: {
         type: String
     },
-    question3: {
+    Name: {
         type: String
     },
-    question4: {
+    Email: {
         type: String
     },
-    question5: {
+    Phone: {
         type: String
     },
-    question6: {
-        type: String
+    Contacted: {
+        type: Boolean
     },
     submittedAt: {
         type: Date,

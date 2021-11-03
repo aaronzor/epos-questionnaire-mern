@@ -9,6 +9,7 @@ dotenv.config();
 
 // import middlewares
 import errorHandler from './middleware/errorHandler.js';
+import cors from 'cors';
 
 // Import Routes
 import { results } from './routes/result.js';
@@ -31,6 +32,16 @@ connectDB();
 app.use('/api/v1/results', results);
 app.use('/api/v1/users', users);
 app.use('/api/v1/auth', auth);
+
+// Security Middleware
+
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    credentials: true, //access-control-allow-credentials:true
+    optionSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
 
 // Error handling middleware
 app.use(errorHandler);
