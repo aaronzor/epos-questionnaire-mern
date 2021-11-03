@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import GridItem from '../components/GridItem';
 import { Typography, Grid, Stack, Grow, TextField } from '@mui/material';
 import { BiDrink } from 'react-icons/bi';
 import { GrRestaurant } from 'react-icons/gr';
 import { BsQuestionLg } from 'react-icons/bs';
 import NavButton from '../components/NavButton';
+import { ResultContext } from '../contexts/ResultContext';
 
 const QuestionThree = () => {
+    const { object, setObject } = useContext(ResultContext);
+
     const [grow, setGrow] = useState(false);
 
     const handleTextGrow = () => {
@@ -15,6 +18,11 @@ const QuestionThree = () => {
         } else {
             setGrow(false);
         }
+    };
+
+    const handleOnChange = (event) => {
+        const { name, value } = event.target;
+        setObject({ ...object, [name]: value });
     };
 
     return (
@@ -48,6 +56,8 @@ const QuestionThree = () => {
             <Stack alignContent='center' justifyContent='center'>
                 <Grow in={grow}>
                     <TextField
+                        name='Other business info'
+                        onChange={handleOnChange}
                         sx={{
                             marginLeft: '7%',
                             marginRight: '7%',

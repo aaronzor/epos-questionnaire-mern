@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Container, Typography, TextField, Stack, Button } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import NavButton from '../components/NavButton';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { ResultContext } from '../contexts/ResultContext';
 import {
     clearCurrentAnswer,
     setCurrentAnswer
@@ -16,28 +17,30 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const UserDetails = () => {
+    const { object, setObject } = useContext(ResultContext);
+
     const dispatch = useDispatch();
     const currentAnswer = useSelector((state) => state.currentAnswer);
     const result = useSelector((state) => state.result.value);
 
     const classes = useStyles();
 
-    const [details, setDetails] = useState({
-        company: '',
-        name: '',
-        email: '',
-        phone: ''
-    });
+    // const [object, setObject] = useState({
+    //     company: '',
+    //     name: '',
+    //     email: '',
+    //     phone: ''
+    // });
 
     const handleOnChange = (event) => {
         const { name, value } = event.target;
-        setDetails({ ...details, [name]: value });
+        setObject({ ...object, [name]: value });
     };
 
     const clickHandler = () => {
-        Promise.resolve(setDetails(details)).then(
-            dispatch(setCurrentAnswer(details))
-        );
+        // Promise.resolve(setDetails(details)).then(
+        //     dispatch(setCurrentAnswer(details))
+        // );
     };
 
     return (
@@ -49,28 +52,28 @@ const UserDetails = () => {
                         you
                     </Typography>
                     <TextField
-                        name='company'
+                        name='Company'
                         onChange={handleOnChange}
                         id='company'
                         label='Company Name'
                         className={classes.formInput}
                     />
                     <TextField
-                        name='name'
+                        name='Name'
                         onChange={handleOnChange}
                         id='name'
                         label='Contact Name'
                         className={classes.formInput}
                     />
                     <TextField
-                        name='email'
+                        name='Email'
                         onChange={handleOnChange}
                         id='email'
                         label='Email'
                         className={classes.formInput}
                     />
                     <TextField
-                        name='phone'
+                        name='Phone'
                         onChange={handleOnChange}
                         id='phone'
                         label='Contact Number'

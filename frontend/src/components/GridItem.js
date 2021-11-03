@@ -38,7 +38,10 @@ const GridItem = (props) => {
 
         props.otherText && props.otherText((prev) => !prev);
 
-        setObject({ ...object, [props.answer]: !clicked });
+        setObject({
+            ...object,
+            [props.answer]: !clicked
+        });
     };
 
     return (
