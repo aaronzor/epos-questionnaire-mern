@@ -66,7 +66,8 @@ export const logout = asyncHandler(async (req, res, next) => {
 
     res.status(200).json({
         success: true,
-        data: {}
+        data: {},
+        req: req
     });
 });
 
@@ -74,11 +75,11 @@ export const logout = asyncHandler(async (req, res, next) => {
 // @route     POST /api/v1/auth/me
 // @access    Private
 export const getMe = asyncHandler(async (req, res, next) => {
-    const user = await User.findById(req.user.id);
+    const loggedIn = await User.findById(req.user.id);
 
     res.status(200).json({
         success: true,
-        data: user
+        data: loggedIn
     });
 });
 
