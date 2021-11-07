@@ -7,6 +7,11 @@ import { GiTabletopPlayers } from 'react-icons/gi';
 import NavButton from '../components/NavButton';
 
 const QuestionThree = () => {
+    const clear = {
+        'Single Till': false,
+        'Multiple Tills': false
+    };
+
     return (
         <Stack display='flex' justifyContent='center' alignContent='center'>
             <Typography align='center' m='2%'>
@@ -32,7 +37,7 @@ const QuestionThree = () => {
                 display='flex'
                 sx={{ position: 'relative', bottom: -400 }}
             >
-                <NavButton link='/q4' variant='back' />
+                <NavButton link='/q4' variant='back' clear={clear} />
                 <NavButton link='/userdetails' variant='next' />
             </Stack>
         </Stack>

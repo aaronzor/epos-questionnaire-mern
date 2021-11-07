@@ -1,13 +1,18 @@
 export const resultObject = {
     Retail: false,
     Hospitality: false,
-    SingleVenue: false,
-    MultipleVenues: false,
+    'Single Venue': false,
+    'Multiple Venues': false,
     Bar: false,
     Restaurant: false,
     Other: false,
-    SingleTill: false,
-    MultipleTills: false,
-    TableOrdering: false,
-    OnlineOrdering: false
+    'Other business info': '',
+    'Single Till': false,
+    'Multiple Tills': false,
+    'Table Ordering': false,
+    'Online Ordering': false,
+    Company: '',
+    Name: '',
+    Email: '',
+    Phone: ''
 };

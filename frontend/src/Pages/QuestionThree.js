@@ -8,6 +8,11 @@ import NavButton from '../components/NavButton';
 import { ResultContext } from '../contexts/ResultContext';
 
 const QuestionThree = () => {
+    const clear = {
+        'Single Venue': false,
+        'Multiple Venues': false
+    };
+
     const { object, setObject } = useContext(ResultContext);
 
     const [grow, setGrow] = useState(false);
@@ -80,7 +85,7 @@ const QuestionThree = () => {
                 display='flex'
                 sx={{ position: 'static', bottom: 0 }}
             >
-                <NavButton link='/q2' variant='back' />
+                <NavButton link='/q2' variant='back' clear={clear} />
                 <NavButton link='/q4' variant='next' />
             </Stack>
         </Stack>

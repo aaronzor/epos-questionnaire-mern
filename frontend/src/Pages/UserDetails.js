@@ -11,6 +11,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const UserDetails = () => {
+    const clear = {
+        'Online Ordering': false,
+        'Table Ordering': false
+    };
+
     const { object, setObject } = useContext(ResultContext);
 
     const classes = useStyles();
@@ -75,7 +80,7 @@ const UserDetails = () => {
                         display='flex'
                         sx={{ position: 'relative', bottom: 0 }}
                     >
-                        <NavButton variant='back' link='/q5' />
+                        <NavButton variant='back' link='/q5' clear={clear} />
                         <Link to='/endpage' style={{ textDecoration: 'none' }}>
                             <Button
                                 variant='contained'

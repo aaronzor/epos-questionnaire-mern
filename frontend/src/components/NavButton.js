@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Typography } from '@mui/material';
 import { FaAngleRight, FaAngleLeft } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { ResultContext } from '../contexts/ResultContext';
 
 const NavButton = (props) => {
+    const { object, setObject } = useContext(ResultContext);
+
+    let { clear } = props;
+
+    const clearHandler = () => {
+        setObject({ ...object, ...clear });
+    };
+
     if (props.variant === 'next') {
         return (
             <Link
@@ -33,6 +42,8 @@ const NavButton = (props) => {
                 }}
             >
                 <Button
+                    onClick={clearHandler}
+                    clear={props.clear}
                     variant='contained'
                     disableElevation
                     sx={{ height: '58px', width: '96px' }}

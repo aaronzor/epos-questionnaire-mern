@@ -6,6 +6,11 @@ import { IoRestaurantOutline } from 'react-icons/io5';
 import NavButton from '../components/NavButton';
 
 const QuestionOne = () => {
+    const clear = {
+        Retail: false,
+        Hospitality: false
+    };
+
     return (
         <Stack display='flex' justifyContent='center' alignContent='center'>
             <Typography
@@ -47,7 +52,7 @@ const QuestionOne = () => {
                 display='flex'
                 sx={{ position: 'relative', bottom: 0 }}
             >
-                <NavButton link='/' variant='back' />
+                <NavButton link='/' variant='back' clear={clear} />
                 <NavButton link='/q2' variant='next' />
             </Stack>
         </Stack>

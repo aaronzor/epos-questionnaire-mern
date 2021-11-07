@@ -5,6 +5,11 @@ import { BiBuilding, BiBuildings } from 'react-icons/bi';
 import NavButton from '../components/NavButton';
 
 const QuestionTwo = () => {
+    const clear = {
+        Retail: false,
+        Hospitality: false
+    };
+
     return (
         <Stack display='flex' justifyContent='center' alignContent='center'>
             <Typography
@@ -43,7 +48,7 @@ const QuestionTwo = () => {
                 display='flex'
                 sx={{ position: 'relative', bottom: 0 }}
             >
-                <NavButton link='/q1' variant='back' />
+                <NavButton link='/q1' variant='back' clear={clear} />
                 <NavButton link='/q3' variant='next' />
             </Stack>
         </Stack>

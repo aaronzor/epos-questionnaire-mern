@@ -38,7 +38,7 @@ const darkMode = createTheme({
 });
 
 const App = () => {
-    const [object, setObject] = useState({});
+    const [object, setObject] = useState(resultObject);
 
     return (
         <ResultContext.Provider value={{ object, setObject }}>
