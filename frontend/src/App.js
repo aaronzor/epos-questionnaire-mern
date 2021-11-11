@@ -13,6 +13,7 @@ import Layout from './components/Layout';
 import Landing from './Pages/Landing';
 import UserDetails from './Pages/UserDetails';
 import EndPage from './Pages/EndPage';
+import TestQuestion from './Pages/TestQuestion';
 
 const darkMode = createTheme({
     palette: {
@@ -52,6 +53,7 @@ const App = () => {
                             <Route path='/q3' component={QuestionThree} />
                             <Route path='/q4' component={QuestionFour} />
                             <Route path='/q5' component={QuestionFive} />
+                            <Route path='/test' component={TestQuestion} />
                             <Route
                                 path='/userdetails'
                                 component={UserDetails}

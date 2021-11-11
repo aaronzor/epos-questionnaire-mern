@@ -24,12 +24,16 @@ const NavButton = (props) => {
                 <Button
                     variant='contained'
                     disableElevation
-                    sx={{ height: '58px', width: '96px' }}
+                    sx={{ height: '55px', width: '100%' }}
                 >
-                    <Typography paddingRight='10%' marginTop='5%'>
+                    <Typography
+                        paddingRight='10%'
+                        marginTop='4%'
+                        fontSize='20px'
+                    >
                         Next
                     </Typography>
-                    <FaAngleRight fontSize={25} />
+                    <FaAngleRight fontSize={35} style={{ marginTop: '1%' }} />
                 </Button>
             </Link>
         );
@@ -46,10 +50,10 @@ const NavButton = (props) => {
                     clear={props.clear}
                     variant='contained'
                     disableElevation
-                    sx={{ height: '58px', width: '96px' }}
+                    sx={{ height: '55px', width: '100%' }}
                 >
-                    <FaAngleLeft fontSize={25} />
-                    <Typography marginLeft='10%' marginTop='5%'>
+                    <FaAngleLeft fontSize={35} style={{ marginTop: '1%' }} />
+                    <Typography marginLeft='10%' marginTop='4%' fontSize='20px'>
                         Back
                     </Typography>
                 </Button>

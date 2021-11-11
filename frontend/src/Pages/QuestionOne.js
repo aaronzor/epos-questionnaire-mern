@@ -1,18 +1,28 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import GridItem from '../components/GridItem';
-import { Typography, Grid, Stack } from '@mui/material';
+import { Typography, Grid, Stack, Button } from '@mui/material';
 import { BiShoppingBag } from 'react-icons/bi';
 import { IoRestaurantOutline } from 'react-icons/io5';
 import NavButton from '../components/NavButton';
+import { ResultContext } from '../contexts/ResultContext';
 
 const QuestionOne = () => {
+    //const { object } = useContext(ResultContext);
+    //const [proceed, setProceed] = useState(false);
+
+    // const checkObject = () => {
+    //     if (Object.values({ ...object }).includes(!clear.values)) {
+    //         setProceed(true);
+    //     } else setProceed(false);
+    // };
+
     const clear = {
         Retail: false,
         Hospitality: false
     };
 
     return (
-        <Stack display='flex' justifyContent='center' alignContent='center'>
+        <Stack justifyContent='center' alignContent='center'>
             <Typography
                 variant='h6'
                 sx={{ marginTop: '5%', marginBottom: '2%' }}
@@ -45,12 +55,11 @@ const QuestionOne = () => {
 
             <Stack
                 direction='row'
-                spacing={1}
+                spacing={10}
                 marginTop={20}
-                justifyContent='space-around'
+                justifyContent='center'
                 alignContent='center'
-                display='flex'
-                sx={{ position: 'relative', bottom: 0 }}
+                //display='flex'
             >
                 <NavButton link='/' variant='back' clear={clear} />
                 <NavButton link='/q2' variant='next' />

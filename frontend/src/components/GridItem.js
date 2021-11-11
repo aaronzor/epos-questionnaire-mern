@@ -1,15 +1,7 @@
 import { React, useState, useContext } from 'react';
-import { makeStyles } from '@mui/styles';
 import { CardActionArea, Card, Grid, Typography } from '@mui/material';
-import { green } from '@mui/material/colors';
 import { ResultContext } from '../contexts/ResultContext';
-
-const useStyles = makeStyles((theme) => ({
-    customBorder: {
-        border: `3px solid ${green[500]}`,
-        boxShadow: 1
-    }
-}));
+import useStyles from '../styles/makeStyle';
 
 const GridItem = (props) => {
     const { object, setObject } = useContext(ResultContext);
@@ -36,20 +28,16 @@ const GridItem = (props) => {
 
         <Grid item xs={6} sm={3} md={3}>
             <CardActionArea
-                sx={{
-                    m: 0.2,
-                    width: 156,
-                    height: 156
-                }}
+            // className={clicked && classes.customBorder}
+            // sx={{
+            //     m: 0.2,
+            //     width: 156,
+            //     height: 156
+            // }}
             >
                 <Card
-                    className={clicked && classes.customBorder}
+                    className={classes.gridOption}
                     elevation={0}
-                    sx={{
-                        width: '100%',
-                        height: '100%',
-                        boxShadow: '1'
-                    }}
                     onClick={clickHandler}
                     name={props.answer}
                 >
