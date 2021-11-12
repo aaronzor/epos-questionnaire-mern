@@ -14,10 +14,7 @@ const TestQuestion = () => {
     const classes = useStyles();
 
     return (
-        <Container disableGutters>
-            <Typography align='center' className={classes.subTitle}>
-                Reliable EPOS Solutions
-            </Typography>
+        <Container disableGutters maxWidth='xs'>
             <Grid
                 spacing={2}
                 align='center'
@@ -34,18 +31,17 @@ const TestQuestion = () => {
                 <GridItem answer='Hospitality' />
                 <GridItem answer='Hospitality' />
                 <GridItem answer='Hospitality' />
-                <Stack
-                    direction='row'
-                    spacing={10}
-                    marginTop={20}
-                    justifyContent='center'
-                    alignContent='center'
-                    //display='flex'
-                >
-                    <NavButton link='/' variant='back' clear={clear} />
-                    <NavButton link='/q2' variant='next' />
-                </Stack>
             </Grid>
+            <Stack
+                direction='row'
+                marginTop={5}
+                justifyContent='space-between'
+                alignContent='space-between'
+                //display='flex'
+            >
+                <NavButton link='/' variant='back' clear={clear} />
+                <NavButton link='/q2' variant='next' />
+            </Stack>
         </Container>
     );
 };

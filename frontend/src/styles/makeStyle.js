@@ -18,7 +18,9 @@ const useStyles = makeStyles((theme) => ({
         height: '116px',
         boxShadow: 1,
         borderRadius: '0',
-        border: `3px solid ${grey[400]}`
+        border: `3px solid ${grey[400]}`,
+        borderTop: 'none',
+        marginTop: '-40px'
     },
     root: {
         flexGrow: 1
@@ -27,6 +29,21 @@ const useStyles = makeStyles((theme) => ({
     subTitle: {
         align: 'center',
         fontSize: '20px'
+    },
+    // App Bar
+    appbar: {
+        alignItems: 'center'
+    },
+
+    logo: {
+        width: '10rem'
+    },
+    // Progress Bar
+    progress: {
+        width: '101.4%',
+        height: '7px',
+        position: 'relative',
+        marginTop: '15px'
     }
 }));
 

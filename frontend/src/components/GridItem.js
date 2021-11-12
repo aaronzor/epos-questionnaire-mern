@@ -26,7 +26,7 @@ const GridItem = (props) => {
         // From 0-960px wide (tablets and smartphones), Items take up 6 out of 12 columns, so 2 columns fit the screen.
         // From 960px wide and above, Items take up 25% of the device (3/12), so 4 columns fit the screen.
 
-        <Grid item xs={6} sm={3} md={3}>
+        <Grid item xs={6}>
             <CardActionArea
             // className={clicked && classes.customBorder}
             // sx={{
