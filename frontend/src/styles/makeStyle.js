@@ -13,6 +13,13 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: '0',
         border: `3px solid ${grey[400]}`
     },
+    gridOptionGreen: {
+        width: '100%',
+        height: '155px',
+        boxShadow: 1,
+        borderRadius: '0',
+        border: `3.5px solid ${green[400]}`
+    },
     gridQuestion: {
         width: '100%',
         height: '116px',

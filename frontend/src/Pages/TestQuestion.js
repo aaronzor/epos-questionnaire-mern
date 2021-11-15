@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router';
 import { Stack, Typography, Grid, Container } from '@mui/material';
 import GridItem from '../components/GridItem';
 import NavButton from '../components/NavButton';
@@ -10,6 +11,12 @@ const TestQuestion = () => {
         Retail: false,
         Hospitality: false
     };
+
+    let location = useLocation();
+
+    useEffect(() => {
+        console.log(location);
+    }, []);
 
     const classes = useStyles();
 

@@ -36,7 +36,9 @@ const GridItem = (props) => {
             // }}
             >
                 <Card
-                    className={classes.gridOption}
+                    className={
+                        !clicked ? classes.gridOption : classes.gridOptionGreen
+                    }
                     elevation={0}
                     onClick={clickHandler}
                     name={props.answer}
