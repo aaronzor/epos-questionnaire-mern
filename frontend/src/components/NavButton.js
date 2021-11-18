@@ -3,8 +3,11 @@ import { Button, Typography } from '@mui/material';
 import { FaAngleRight, FaAngleLeft } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { ResultContext } from '../contexts/ResultContext';
+import useStyles from '../styles/makeStyle';
 
 const NavButton = (props) => {
+    const classes = useStyles();
+
     const { object, setObject } = useContext(ResultContext);
 
     let { clear } = props;
@@ -22,6 +25,7 @@ const NavButton = (props) => {
                 }}
             >
                 <Button
+                    className={classes.navButton}
                     variant='contained'
                     disableElevation
                     sx={{ height: '55px', width: '100%' }}
@@ -46,6 +50,7 @@ const NavButton = (props) => {
                 }}
             >
                 <Button
+                    className={classes.navButton}
                     onClick={clearHandler}
                     clear={props.clear}
                     variant='contained'

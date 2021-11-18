@@ -1,94 +1,43 @@
-import React, { useState, useContext } from 'react';
+import React from 'react';
 import GridItem from '../components/GridItem';
-import { Typography, Grid, Stack, Grow, TextField } from '@mui/material';
-import { BiDrink } from 'react-icons/bi';
-import { GrRestaurant } from 'react-icons/gr';
-import { BsQuestionLg } from 'react-icons/bs';
+import GridQuestion from '../components/GridQuestion';
+import { Grid, Stack, Container } from '@mui/material';
 import NavButton from '../components/NavButton';
-import { ResultContext } from '../contexts/ResultContext';
 
 const QuestionThree = () => {
     const clear = {
-        'Single Venue': false,
-        'Multiple Venues': false
-    };
-
-    const { object, setObject } = useContext(ResultContext);
-
-    const [grow, setGrow] = useState(false);
-
-    const handleTextGrow = () => {
-        if (!grow) {
-            setGrow(true);
-        } else {
-            setGrow(false);
-        }
-    };
-
-    const handleOnChange = (event) => {
-        const { name, value } = event.target;
-        setObject({ ...object, [name]: value });
+        'Online Ordering': false,
+        'Card Readers': false,
+        'Cloud Software': false
     };
 
     return (
-        <Stack display='flex' justifyContent='center' alignContent='center'>
-            <Typography
-                variant='h6'
-                sx={{ marginTop: '5%', marginBottom: '2%' }}
+        <Container disableGutters maxWidth='xs'>
+            <Grid
+                spacing={2}
+                align='center'
+                justifyContent='center'
+                container
+                marginTop='5%'
             >
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa
-            </Typography>
-
-            <Typography align='center' m='6%' variant='h6'>
-                Sed ut perspiciatis unde omnis?
-            </Typography>
-
-            <Grid spacing={1} align='center' justifyContent='center' container>
-                <GridItem
-                    answer='Bar'
-                    image={<BiDrink sx={{ fontSize: 60 }} />}
+                <GridQuestion
+                    question='question1'
+                    questionText='Please select anything else you would like information/quotations for'
                 />
-                <GridItem
-                    answer='Restaurant'
-                    image={<GrRestaurant sx={{ fontSize: 60 }} />}
-                />
-                <GridItem
-                    answer='Other'
-                    image={<BsQuestionLg sx={{ fontSize: 60 }} />}
-                    otherText={handleTextGrow}
-                />
+                <GridItem answer='Online Ordering' />
+                <GridItem answer='Card Readers' />
+                <GridItem answer='Cloud Software' />
             </Grid>
-            <Stack alignContent='center' justifyContent='center'>
-                <Grow in={grow}>
-                    <TextField
-                        name='Other business info'
-                        onChange={handleOnChange}
-                        sx={{
-                            marginLeft: '7%',
-                            marginRight: '7%',
-                            marginTop: '10%',
-                            textDecoration: 'none',
-                            boxShadow: 0
-                        }}
-                        label='Tell us about your business'
-                        multiline
-                        rows={4}
-                    />
-                </Grow>
-            </Stack>
             <Stack
                 direction='row'
-                spacing={1}
-                marginTop={20}
-                justifyContent='space-around'
-                alignContent='center'
-                display='flex'
-                sx={{ position: 'static', bottom: 0 }}
+                marginTop={5}
+                justifyContent='space-between'
+                alignContent='space-between'
             >
                 <NavButton link='/q2' variant='back' clear={clear} />
                 <NavButton link='/q4' variant='next' />
             </Stack>
-        </Stack>
+        </Container>
     );
 };
 

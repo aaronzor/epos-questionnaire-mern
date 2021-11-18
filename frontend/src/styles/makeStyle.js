@@ -6,6 +6,12 @@ const useStyles = makeStyles((theme) => ({
     customBorder: {
         border: `3px solid ${green[500]}`
     },
+    gridBox: {
+        width: '100%',
+        height: '100%',
+        boxShadow: 0,
+        borderRadius: '0'
+    },
     gridOption: {
         width: '100%',
         height: '155px',
@@ -51,7 +57,9 @@ const useStyles = makeStyles((theme) => ({
         height: '7px',
         position: 'relative',
         marginTop: '15px'
-    }
+    },
+    // Buttons
+    navButton: {}
 }));
 
 export default useStyles;

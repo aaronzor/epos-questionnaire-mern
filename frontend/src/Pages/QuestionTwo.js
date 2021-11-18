@@ -1,57 +1,82 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import GridItem from '../components/GridItem';
-import { Typography, Grid, Stack } from '@mui/material';
-import { BiBuilding, BiBuildings } from 'react-icons/bi';
+import GridQuestion from '../components/GridQuestion';
+import { Grid, Stack, Container, Grow, TextField, Box } from '@mui/material';
 import NavButton from '../components/NavButton';
+import { ResultContext } from '../contexts/ResultContext';
+import useStyles from '../styles/makeStyle';
 
 const QuestionTwo = () => {
+    const classes = useStyles();
+
     const clear = {
         Retail: false,
-        Hospitality: false
+        Hospitality: false,
+        Other: false,
+        'Other business info': false
+    };
+
+    const { object, setObject } = useContext(ResultContext);
+
+    const [grow, setGrow] = useState(false);
+
+    const handleTextGrow = () => {
+        if (!grow) {
+            setGrow(true);
+        } else {
+            setGrow(false);
+        }
+    };
+
+    const handleOnChange = (event) => {
+        const { name, value } = event.target;
+        setObject({ ...object, [name]: value });
     };
 
     return (
-        <Stack display='flex' justifyContent='center' alignContent='center'>
-            <Typography
-                variant='h6'
-                sx={{ marginTop: '5%', marginBottom: '2%' }}
+        <Container disableGutters maxWidth='xs'>
+            <Grid
+                spacing={2}
+                align='center'
+                justifyContent='center'
+                container
+                marginTop='5%'
             >
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa
-            </Typography>
-            <Typography
-                sx={{ marginTop: '5%', marginBottom: '5%' }}
-                align='right'
-            >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore
-            </Typography>
-            <Typography align='center' m='6%' variant='h6'>
-                Sed ut perspiciatis unde omnis?
-            </Typography>
+                <GridQuestion
+                    question='question1'
+                    questionText='Which industry best describes your business?'
+                />
+                <GridItem answer='Retail' />
+                <GridItem answer='Hospitality' />
 
-            <Grid spacing={1} align='center' justifyContent='center' container>
-                <GridItem
-                    answer='Single Venue'
-                    image={<BiBuilding sx={{ fontSize: 60 }} />}
-                />
-                <GridItem
-                    answer='Multiple Venues'
-                    image={<BiBuildings sx={{ fontSize: 60 }} />}
-                />
+                <GridItem answer='Other' otherText={handleTextGrow} />
             </Grid>
+            <Grow in={grow}>
+                <TextField
+                    name='Other business info'
+                    onChange={handleOnChange}
+                    sx={{
+                        marginLeft: '7%',
+                        marginRight: '7%',
+                        marginTop: '10%',
+                        textDecoration: 'none',
+                        boxShadow: 0
+                    }}
+                    label='Tell us about your business'
+                    multiline
+                    rows={4}
+                />
+            </Grow>
             <Stack
                 direction='row'
-                spacing={1}
-                marginTop={20}
-                justifyContent='space-around'
-                alignContent='center'
-                display='flex'
-                sx={{ position: 'relative', bottom: 0 }}
+                marginTop={5}
+                justifyContent='space-between'
+                alignContent='space-between'
             >
                 <NavButton link='/q1' variant='back' clear={clear} />
                 <NavButton link='/q3' variant='next' />
             </Stack>
-        </Stack>
+        </Container>
     );
 };
 

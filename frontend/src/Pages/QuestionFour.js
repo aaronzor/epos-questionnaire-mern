@@ -1,47 +1,70 @@
-import React from 'react';
-import GridItem from '../components/GridItem';
-import { Typography, Grid, Stack } from '@mui/material';
-import { FaCashRegister } from 'react-icons/fa';
-
+import React, { useContext } from 'react';
+import GridQuestion from '../components/GridQuestion';
+import { Grid, Stack, Container, TextField } from '@mui/material';
+import { ResultContext } from '../contexts/ResultContext';
 import NavButton from '../components/NavButton';
 
 const QuestionThree = () => {
     const clear = {
-        Bar: false,
-        Restaurant: false,
-        Other: false,
-        'Other business info': ''
+        'Company Name': false,
+        'Position In Company': false
+    };
+
+    const { object, setObject } = useContext(ResultContext);
+
+    const handleOnChange = (event) => {
+        const { name, value } = event.target;
+        setObject({ ...object, [name]: value });
     };
 
     return (
-        <Stack display='flex' justifyContent='center' alignContent='center'>
-            <Typography align='center' m='2%'>
-                Do you require more than one till?
-            </Typography>
-
-            <Grid spacing={1} align='center' justifyContent='center' container>
-                <GridItem
-                    answer='Single Till'
-                    image={<FaCashRegister sx={{ fontSize: 60 }} />}
+        <Container disableGutters maxWidth='xs'>
+            <Grid
+                spacing={2}
+                align='center'
+                justifyContent='center'
+                container
+                marginTop='5%'
+            >
+                <GridQuestion
+                    question='question4'
+                    questionText='What is the name of your business?'
                 />
-                <GridItem
-                    answer='Multiple Tills'
-                    image={<FaCashRegister sx={{ fontSize: 60 }} />}
+                <Grid Item xs={12}>
+                    <TextField
+                        name='Company Name'
+                        onChange={handleOnChange}
+                        label='Tell us about your business'
+                        multiline
+                        rows={4}
+                    />
+                </Grid>
+                <GridQuestion
+                    question='question4-2'
+                    questionText='What is your position within the business?'
+                />
+                <TextField
+                    name='Position In Company'
+                    onChange={handleOnChange}
+                    label='Tell us about your business'
+                    multiline
+                    rows={4}
+                />
+                <GridQuestion
+                    question='question4-3'
+                    questionText='Are you currently trading?'
                 />
             </Grid>
             <Stack
                 direction='row'
-                spacing={1}
-                marginTop={20}
-                justifyContent='space-around'
-                alignContent='center'
-                display='flex'
-                sx={{ position: 'relative', bottom: -400 }}
+                marginTop={5}
+                justifyContent='space-between'
+                alignContent='space-between'
             >
-                <NavButton link='/q3' variant='back' clear={clear} />
-                <NavButton link='/q5' variant='next' />
+                <NavButton link='/q2' variant='back' clear={clear} />
+                <NavButton link='/q4' variant='next' />
             </Stack>
-        </Stack>
+        </Container>
     );
 };
 
