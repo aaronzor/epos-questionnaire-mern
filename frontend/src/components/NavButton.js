@@ -1,12 +1,17 @@
 import React, { useContext } from 'react';
-import { Button, Typography } from '@mui/material';
-import { FaAngleRight, FaAngleLeft } from 'react-icons/fa';
+import { Button, Typography, Grid, useMediaQuery } from '@mui/material';
+import {
+    MdOutlineArrowBackIosNew,
+    MdOutlineArrowForwardIos
+} from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { ResultContext } from '../contexts/ResultContext';
 import useStyles from '../styles/makeStyle';
 
 const NavButton = (props) => {
     const classes = useStyles();
+
+    const breakPoint = useMediaQuery((theme) => theme.breakpoints.up('sm'));
 
     const { object, setObject } = useContext(ResultContext);
 
@@ -18,51 +23,51 @@ const NavButton = (props) => {
 
     if (props.variant === 'next') {
         return (
-            <Link
-                to={props.link}
-                style={{
-                    textDecoration: 'none'
-                }}
-            >
-                <Button
-                    className={classes.navButton}
-                    variant='contained'
-                    disableElevation
-                    sx={{ height: '55px', width: '100%' }}
+            <Grid item xs={6}>
+                <Link
+                    to={props.link}
+                    style={{
+                        textDecoration: 'none'
+                    }}
                 >
-                    <Typography
-                        paddingRight='10%'
-                        marginTop='4%'
-                        fontSize='20px'
+                    <Button
+                        className={
+                            !breakPoint
+                                ? classes.navButton
+                                : classes.navButtonLg
+                        }
+                        variant='contained'
+                        endIcon={<MdOutlineArrowForwardIos />}
                     >
                         Next
-                    </Typography>
-                    <FaAngleRight fontSize={35} style={{ marginTop: '1%' }} />
-                </Button>
-            </Link>
+                    </Button>
+                </Link>
+            </Grid>
         );
     } else if (props.variant === 'back') {
         return (
-            <Link
-                to={props.link}
-                style={{
-                    textDecoration: 'none'
-                }}
-            >
-                <Button
-                    className={classes.navButton}
-                    onClick={clearHandler}
-                    clear={props.clear}
-                    variant='contained'
-                    disableElevation
-                    sx={{ height: '55px', width: '100%' }}
+            <Grid item xs={6}>
+                <Link
+                    to={props.link}
+                    style={{
+                        textDecoration: 'none'
+                    }}
                 >
-                    <FaAngleLeft fontSize={35} style={{ marginTop: '1%' }} />
-                    <Typography marginLeft='10%' marginTop='4%' fontSize='20px'>
+                    <Button
+                        className={
+                            !breakPoint
+                                ? classes.navButton
+                                : classes.navButtonLg
+                        }
+                        onClick={clearHandler}
+                        clear={props.clear}
+                        variant='contained'
+                        startIcon={<MdOutlineArrowBackIosNew />}
+                    >
                         Back
-                    </Typography>
-                </Button>
-            </Link>
+                    </Button>
+                </Link>
+            </Grid>
         );
     }
 };

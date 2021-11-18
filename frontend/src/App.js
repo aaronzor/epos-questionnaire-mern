@@ -32,9 +32,6 @@ const darkMode = createTheme({
             primary: '#000000',
             secondary: '#000000'
         }
-    },
-    shape: {
-        borderRadius: 1
     }
 });
 

@@ -1,12 +1,21 @@
 import { React, useState, useContext } from 'react';
-import { CardActionArea, Card, Grid, Typography } from '@mui/material';
+import {
+    CardActionArea,
+    Card,
+    Grid,
+    Typography,
+    useMediaQuery
+} from '@mui/material';
 import { ResultContext } from '../contexts/ResultContext';
 import useStyles from '../styles/makeStyle';
+import useBreakPoint from '../utility/breakPointHelper';
 
 const GridItem = (props) => {
     const { object, setObject } = useContext(ResultContext);
 
     const classes = useStyles();
+    const breakPoint = useMediaQuery((theme) => theme.breakpoints.up('sm'));
+    console.log(breakPoint);
 
     // Local state
     const [clicked, setClicked] = useState(false);
@@ -37,7 +46,7 @@ const GridItem = (props) => {
             >
                 <Card
                     className={
-                        !clicked ? classes.gridOption : classes.gridOptionGreen
+                        !breakPoint ? classes.gridOption : classes.gridOptionLg
                     }
                     elevation={0}
                     onClick={clickHandler}

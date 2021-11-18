@@ -7,33 +7,57 @@ const useStyles = makeStyles((theme) => ({
         border: `3px solid ${green[500]}`
     },
     gridBox: {
-        width: '100%',
+        width: '155px',
         height: '100%',
         boxShadow: 0,
         borderRadius: '0'
     },
     gridOption: {
-        width: '100%',
-        height: '155px',
+        width: '160px',
+        height: '160px',
+        boxShadow: 1,
+        borderRadius: '0',
+        border: `3px solid ${grey[400]}`
+    },
+    gridOptionLg: {
+        width: '205px',
+        height: '205px',
         boxShadow: 1,
         borderRadius: '0',
         border: `3px solid ${grey[400]}`
     },
     gridOptionGreen: {
-        width: '100%',
+        width: '155px',
         height: '155px',
         boxShadow: 1,
         borderRadius: '0',
         border: `3.5px solid ${green[400]}`
     },
+    gridOptionGreenLg: {
+        width: '200px',
+        height: '200px',
+        boxShadow: 1,
+        borderRadius: '0',
+        border: `3.5px solid ${green[400]}`
+    },
+    gridQuestionLg: {
+        width: '436px',
+        height: '136px',
+        boxShadow: 1,
+        borderRadius: '0',
+        border: `3px solid ${grey[400]}`,
+        //borderTop: 'none'
+        marginTop: '60px',
+        marginLeft: '1px'
+    },
     gridQuestion: {
-        width: '100%',
+        width: '345px',
         height: '116px',
         boxShadow: 1,
         borderRadius: '0',
         border: `3px solid ${grey[400]}`,
-        borderTop: 'none',
-        marginTop: '-40px'
+        //borderTop: 'none'
+        marginTop: '40px'
     },
     root: {
         flexGrow: 1
@@ -59,7 +83,22 @@ const useStyles = makeStyles((theme) => ({
         marginTop: '15px'
     },
     // Buttons
-    navButton: {}
+    navButton: {
+        width: '162px',
+        height: '55px',
+        marginTop: '25px',
+        alignItems: 'center',
+        color: `${grey[800]}`,
+        borderRadius: '4px'
+    },
+    navButtonLg: {
+        width: '206px',
+        height: '55px',
+        marginTop: '25px',
+        alignItems: 'center',
+        color: `${grey[800]}`,
+        borderRadius: '4px'
+    }
 }));
 
 export default useStyles;

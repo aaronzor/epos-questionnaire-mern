@@ -38,17 +38,9 @@ const QuestionOne = () => {
                 <GridItem answer='Software Only' />
                 <GridItem answer='System & Applications' />
                 <GridItem answer='Unsure, Need Advice' />
-            </Grid>
-            <Stack
-                direction='row'
-                marginTop={5}
-                justifyContent='space-between'
-                alignContent='space-between'
-                //display='flex'
-            >
                 <NavButton link='/' variant='back' clear={clear} />
                 <NavButton link='/q2' variant='next' />
-            </Stack>
+            </Grid>
         </Container>
     );
 };
