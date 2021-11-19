@@ -1,7 +1,7 @@
 import React from 'react';
 import GridItem from '../components/GridItem';
 import GridQuestion from '../components/GridQuestion';
-import { Grid, Stack, Container } from '@mui/material';
+import { Grid, Container } from '@mui/material';
 import NavButton from '../components/NavButton';
 
 const QuestionOne = () => {

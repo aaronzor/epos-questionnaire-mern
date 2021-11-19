@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import GridItem from '../components/GridItem';
 import GridQuestion from '../components/GridQuestion';
-import { Grid, Stack, Container, Grow, TextField, Box } from '@mui/material';
+import { Grid, Container, Grow, TextField } from '@mui/material';
 import NavButton from '../components/NavButton';
 import { ResultContext } from '../contexts/ResultContext';
 import useStyles from '../styles/makeStyle';
@@ -50,32 +50,27 @@ const QuestionTwo = () => {
                 <GridItem answer='Hospitality' />
 
                 <GridItem answer='Other' otherText={handleTextGrow} />
-            </Grid>
-            <Grow in={grow}>
-                <TextField
-                    name='Other business info'
-                    onChange={handleOnChange}
-                    sx={{
-                        marginLeft: '7%',
-                        marginRight: '7%',
-                        marginTop: '10%',
-                        textDecoration: 'none',
-                        boxShadow: 0
-                    }}
-                    label='Tell us about your business'
-                    multiline
-                    rows={4}
-                />
-            </Grow>
-            <Stack
-                direction='row'
-                marginTop={5}
-                justifyContent='space-between'
-                alignContent='space-between'
-            >
+                <Grow in={grow}>
+                    <TextField
+                        name='Other business info'
+                        onChange={handleOnChange}
+                        // sx={{
+                        //     marginLeft: '7%',
+                        //     marginRight: '7%',
+                        //     marginTop: '10%',
+                        //     textDecoration: 'none',
+                        //     boxShadow: 0
+                        // }}
+                        className={classes.gridInput}
+                        label='Tell us about your business'
+                        multiline
+                        rows={4}
+                    />
+                </Grow>
+
                 <NavButton link='/q1' variant='back' clear={clear} />
                 <NavButton link='/q3' variant='next' />
-            </Stack>
+            </Grid>
         </Container>
     );
 };

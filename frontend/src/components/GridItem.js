@@ -6,9 +6,9 @@ import {
     Typography,
     useMediaQuery
 } from '@mui/material';
+import { green } from '@mui/material/colors';
 import { ResultContext } from '../contexts/ResultContext';
 import useStyles from '../styles/makeStyle';
-import useBreakPoint from '../utility/breakPointHelper';
 
 const GridItem = (props) => {
     const { object, setObject } = useContext(ResultContext);
@@ -36,14 +36,7 @@ const GridItem = (props) => {
         // From 960px wide and above, Items take up 25% of the device (3/12), so 4 columns fit the screen.
 
         <Grid item xs={6}>
-            <CardActionArea
-            // className={clicked && classes.customBorder}
-            // sx={{
-            //     m: 0.2,
-            //     width: 156,
-            //     height: 156
-            // }}
-            >
+            <CardActionArea>
                 <Card
                     className={
                         !breakPoint ? classes.gridOption : classes.gridOptionLg
@@ -51,6 +44,9 @@ const GridItem = (props) => {
                     elevation={0}
                     onClick={clickHandler}
                     name={props.answer}
+                    sx={{
+                        ...(clicked && { border: `3.5px solid ${green[500]}` })
+                    }}
                 >
                     <Typography variant='h6' align='center' marginTop='6%'>
                         {props.answer}

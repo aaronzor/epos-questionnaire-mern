@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import GridQuestion from '../components/GridQuestion';
-import { Grid, Stack, Container, TextField } from '@mui/material';
+import { Grid, Container, TextField } from '@mui/material';
 import { ResultContext } from '../contexts/ResultContext';
 import NavButton from '../components/NavButton';
 
@@ -54,16 +54,10 @@ const QuestionThree = () => {
                     question='question4-3'
                     questionText='Are you currently trading?'
                 />
-            </Grid>
-            <Stack
-                direction='row'
-                marginTop={5}
-                justifyContent='space-between'
-                alignContent='space-between'
-            >
+
                 <NavButton link='/q2' variant='back' clear={clear} />
                 <NavButton link='/q4' variant='next' />
-            </Stack>
+            </Grid>
         </Container>
     );
 };

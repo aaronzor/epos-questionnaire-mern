@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Button, Typography, Grid, useMediaQuery } from '@mui/material';
+import { Button, Grid, useMediaQuery } from '@mui/material';
 import {
     MdOutlineArrowBackIosNew,
     MdOutlineArrowForwardIos

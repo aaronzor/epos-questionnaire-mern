@@ -1,7 +1,7 @@
 import React from 'react';
 import GridItem from '../components/GridItem';
 import GridQuestion from '../components/GridQuestion';
-import { Grid, Stack, Container } from '@mui/material';
+import { Grid, Container } from '@mui/material';
 import NavButton from '../components/NavButton';
 
 const QuestionThree = () => {
@@ -28,15 +28,16 @@ const QuestionThree = () => {
                 <GridItem answer='Card Readers' />
                 <GridItem answer='Cloud Software' />
             </Grid>
-            <Stack
-                direction='row'
-                marginTop={5}
-                justifyContent='space-between'
-                alignContent='space-between'
+            <Grid
+                spacing={2}
+                align='center'
+                justifyContent='center'
+                container
+                marginTop='5%'
             >
                 <NavButton link='/q2' variant='back' clear={clear} />
                 <NavButton link='/q4' variant='next' />
-            </Stack>
+            </Grid>
         </Container>
     );
 };

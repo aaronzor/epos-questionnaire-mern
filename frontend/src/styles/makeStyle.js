@@ -26,20 +26,6 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: '0',
         border: `3px solid ${grey[400]}`
     },
-    gridOptionGreen: {
-        width: '155px',
-        height: '155px',
-        boxShadow: 1,
-        borderRadius: '0',
-        border: `3.5px solid ${green[400]}`
-    },
-    gridOptionGreenLg: {
-        width: '200px',
-        height: '200px',
-        boxShadow: 1,
-        borderRadius: '0',
-        border: `3.5px solid ${green[400]}`
-    },
     gridQuestionLg: {
         width: '436px',
         height: '136px',
@@ -98,6 +84,12 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         color: `${grey[800]}`,
         borderRadius: '4px'
+    },
+    // Text inputs
+    gridInput: {
+        width: '345px',
+        padding: '5%',
+        textDecoration: 'none'
     }
 }));
 
