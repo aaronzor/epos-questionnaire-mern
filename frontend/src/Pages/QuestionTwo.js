@@ -1,10 +1,12 @@
 import React, { useState, useContext } from 'react';
 import GridItem from '../components/GridItem';
 import GridQuestion from '../components/GridQuestion';
+import GridText from '../components/GridText';
 import { Grid, Container, Grow, TextField } from '@mui/material';
 import NavButton from '../components/NavButton';
 import { ResultContext } from '../contexts/ResultContext';
 import useStyles from '../styles/makeStyle';
+//import { motion } from 'framer-motion';
 
 const QuestionTwo = () => {
     const classes = useStyles();
@@ -50,24 +52,23 @@ const QuestionTwo = () => {
                 <GridItem answer='Hospitality' />
 
                 <GridItem answer='Other' otherText={handleTextGrow} />
-                <Grow in={grow}>
-                    <TextField
-                        name='Other business info'
-                        onChange={handleOnChange}
-                        // sx={{
-                        //     marginLeft: '7%',
-                        //     marginRight: '7%',
-                        //     marginTop: '10%',
-                        //     textDecoration: 'none',
-                        //     boxShadow: 0
-                        // }}
-                        className={classes.gridInput}
-                        label='Tell us about your business'
-                        multiline
-                        rows={4}
-                    />
-                </Grow>
 
+                <GridText
+                    visable={grow}
+                    name='Other business info'
+                    onChange={handleOnChange}
+                    label='Tell us about your business'
+                    multiline
+                    rows='4'
+                />
+            </Grid>
+            <Grid
+                spacing={2}
+                align='center'
+                justifyContent='center'
+                container
+                marginTop='5%'
+            >
                 <NavButton link='/q1' variant='back' clear={clear} />
                 <NavButton link='/q3' variant='next' />
             </Grid>

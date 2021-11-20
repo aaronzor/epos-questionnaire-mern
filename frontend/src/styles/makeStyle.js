@@ -87,6 +87,7 @@ const useStyles = makeStyles((theme) => ({
     },
     // Text inputs
     gridInput: {
+        border: `3px solid ${grey[400]}`,
         width: '345px',
         padding: '5%',
         textDecoration: 'none'
