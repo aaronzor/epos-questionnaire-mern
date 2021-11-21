@@ -1,47 +1,40 @@
-import React from 'react';
-import GridItem from '../components/GridItem';
-import { Typography, Grid, Stack } from '@mui/material';
-import { BsPhone } from 'react-icons/bs';
-import { GiTabletopPlayers } from 'react-icons/gi';
-
+import React, { useContext } from 'react';
+import { Grid, Container } from '@mui/material';
+import { ResultContext } from '../contexts/ResultContext';
+import GridQuestion from '../components/GridQuestion';
 import NavButton from '../components/NavButton';
 
-const QuestionThree = () => {
+const QuestionFive = () => {
     const clear = {
-        'Single Till': false,
-        'Multiple Tills': false
+        'Other Needs': false
+    };
+
+    const { object, setObject } = useContext(ResultContext);
+
+    const handleOnChange = (event) => {
+        const { name, value } = event.target;
+        setObject({ ...object, [name]: value });
     };
 
     return (
-        <Stack display='flex' justifyContent='center' alignContent='center'>
-            <Typography align='center' m='2%'>
-                Do you require?
-            </Typography>
+        <Container disableGutters maxWidth='xs'>
+            <Grid spacing={2} align='center' container>
+                <GridQuestion
+                    question='question5'
+                    questionText=' Do you have any specific needs or in need of any other advice regarding EPOS and
+Payment solutions?'
+                    textInput={true}
+                    name='Other Needs'
+                    onChange={handleOnChange}
+                    label=''
+                    rows={8}
+                />
 
-            <Grid spacing={1} align='center' justifyContent='center' container>
-                <GridItem
-                    answer='Table Ordering'
-                    image={<GiTabletopPlayers sx={{ fontSize: 60 }} />}
-                />
-                <GridItem
-                    answer='Online Ordering'
-                    image={<BsPhone sx={{ fontSize: 60 }} />}
-                />
-            </Grid>
-            <Stack
-                direction='row'
-                spacing={1}
-                marginTop={20}
-                justifyContent='space-around'
-                alignContent='center'
-                display='flex'
-                sx={{ position: 'relative', bottom: -400 }}
-            >
                 <NavButton link='/q4' variant='back' clear={clear} />
                 <NavButton link='/userdetails' variant='next' />
-            </Stack>
-        </Stack>
+            </Grid>
+        </Container>
     );
 };
 
-export default QuestionThree;
+export default QuestionFive;

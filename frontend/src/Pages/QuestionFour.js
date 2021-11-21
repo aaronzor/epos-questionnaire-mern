@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
-import GridQuestion from '../components/GridQuestion';
-import { Grid, Container, TextField } from '@mui/material';
+import { Grid, Container } from '@mui/material';
 import { ResultContext } from '../contexts/ResultContext';
+import GridQuestion from '../components/GridQuestion';
 import NavButton from '../components/NavButton';
 
 const QuestionThree = () => {
     const clear = {
         'Company Name': false,
-        'Position In Company': false
+        'Position In Company': false,
+        Trading: false
     };
 
     const { object, setObject } = useContext(ResultContext);
@@ -19,44 +20,36 @@ const QuestionThree = () => {
 
     return (
         <Container disableGutters maxWidth='xs'>
-            <Grid
-                spacing={2}
-                align='center'
-                justifyContent='center'
-                container
-                marginTop='5%'
-            >
+            <Grid spacing={1} align='center' container>
                 <GridQuestion
                     question='question4'
                     questionText='What is the name of your business?'
+                    textInput={true}
+                    name='Company Name'
+                    onChange={handleOnChange}
+                    label=''
+                    rows={1}
                 />
-                <Grid Item xs={12}>
-                    <TextField
-                        name='Company Name'
-                        onChange={handleOnChange}
-                        label='Tell us about your business'
-                        multiline
-                        rows={4}
-                    />
-                </Grid>
+
                 <GridQuestion
                     question='question4-2'
                     questionText='What is your position within the business?'
-                />
-                <TextField
+                    textInput={true}
                     name='Position In Company'
                     onChange={handleOnChange}
-                    label='Tell us about your business'
-                    multiline
-                    rows={4}
+                    label=''
+                    rows={1}
                 />
+
                 <GridQuestion
                     question='question4-3'
                     questionText='Are you currently trading?'
+                    radioInput={true}
+                    onChange={handleOnChange}
                 />
 
-                <NavButton link='/q2' variant='back' clear={clear} />
-                <NavButton link='/q4' variant='next' />
+                <NavButton link='/q3' variant='back' clear={clear} />
+                <NavButton link='/q5' variant='next' />
             </Grid>
         </Container>
     );

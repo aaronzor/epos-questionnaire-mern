@@ -91,6 +91,11 @@ const useStyles = makeStyles((theme) => ({
         width: '345px',
         padding: '5%',
         textDecoration: 'none'
+    },
+    questionInput: {
+        border: `3px solid ${grey[400]}`,
+        width: '95%',
+        textDecoration: 'none'
     }
 }));
 
