@@ -20,7 +20,13 @@ const QuestionThree = () => {
 
     return (
         <Container disableGutters maxWidth='xs'>
-            <Grid spacing={1} align='center' container>
+            <Grid
+                spacing={2}
+                align='center'
+                justifyContent='center'
+                container
+                marginTop='5%'
+            >
                 <GridQuestion
                     question='question4'
                     questionText='What is the name of your business?'

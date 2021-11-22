@@ -48,7 +48,7 @@ const GridItem = (props) => {
                         ...(clicked && { border: `3.5px solid ${green[500]}` })
                     }}
                 >
-                    <Typography variant='h6' align='center' marginTop='6%'>
+                    <Typography variant='h6' align='center' marginTop='30%'>
                         {props.answer}
                     </Typography>
                     <Typography align='center' marginTop='11%' variant='h2'>

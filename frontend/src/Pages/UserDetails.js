@@ -20,7 +20,13 @@ const UserDetails = () => {
 
     return (
         <Container disableGutters maxWidth='xs'>
-            <Grid spacing={2} align='center' container>
+            <Grid
+                spacing={2}
+                align='center'
+                justifyContent='center'
+                container
+                marginTop='5%'
+            >
                 <UserInfoInput
                     name='Contact Name'
                     onChange={handleOnChange}

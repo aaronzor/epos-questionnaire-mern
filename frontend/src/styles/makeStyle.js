@@ -16,15 +16,16 @@ const useStyles = makeStyles((theme) => ({
         width: '160px',
         height: '160px',
         boxShadow: 1,
-        borderRadius: '0',
-        border: `3px solid ${grey[400]}`
+        border: `3px solid `,
+        borderColor: '#424242'
     },
     gridOptionLg: {
         width: '205px',
         height: '205px',
         boxShadow: 1,
         borderRadius: '0',
-        border: `3px solid ${grey[400]}`
+        border: `3px solid ${grey[400]}`,
+        borderColor: '#424242'
     },
     gridQuestionLg: {
         width: '436px',
@@ -32,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: 1,
         borderRadius: '0',
         border: `3px solid ${grey[400]}`,
+        borderColor: '#424242',
         //borderTop: 'none'
         marginTop: '60px',
         marginLeft: '1px'
@@ -42,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: 1,
         borderRadius: '0',
         border: `3px solid ${grey[400]}`,
+        borderColor: '#424242',
         //borderTop: 'none'
         marginTop: '40px'
     },
@@ -53,6 +56,7 @@ const useStyles = makeStyles((theme) => ({
         align: 'center',
         fontSize: '20px'
     },
+
     // App Bar
     appbar: {
         alignItems: 'center'
@@ -63,10 +67,9 @@ const useStyles = makeStyles((theme) => ({
     },
     // Progress Bar
     progress: {
-        width: '101.4%',
-        height: '7px',
-        position: 'relative',
-        marginTop: '15px'
+        width: '100%',
+        height: '20%',
+        position: 'relative'
     },
     // Buttons
     navButton: {

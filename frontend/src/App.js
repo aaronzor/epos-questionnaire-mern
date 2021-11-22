@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { CssBaseline } from '@mui/material';
+
 import { ResultContext } from './contexts/ResultContext';
 import { resultObject } from './utility/resultObject';
+import './App.css';
+import useStyles from './styles/makeStyle';
 
 import QuestionOne from './Pages/QuestionOne';
 import QuestionTwo from './Pages/QuestionTwo';
@@ -16,8 +20,24 @@ import EndPage from './Pages/EndPage';
 import TestQuestion from './Pages/TestQuestion';
 
 const darkMode = createTheme({
+    components: {
+        MuiLinearProgress: {
+            styleOverrides: {
+                bar: {
+                    backgroundColor: '#c98ced'
+                },
+                root: {
+                    backgroundColor: '#ECECEC',
+                    height: '0.4rem'
+                }
+            }
+        }
+    },
     palette: {
-        type: 'dark',
+        background: {
+            default: `#ECECEC`,
+            paper: '#ffffff'
+        },
         primary: {
             main: '#424242',
             light: '#6d6d6d',
@@ -36,11 +56,14 @@ const darkMode = createTheme({
 });
 
 const App = () => {
+    const classes = useStyles();
+
     const [object, setObject] = useState(resultObject);
 
     return (
         <ResultContext.Provider value={{ object, setObject }}>
             <ThemeProvider theme={darkMode}>
+                <CssBaseline classes className={classes.lightFont} />
                 <Router>
                     <Layout>
                         <Switch>

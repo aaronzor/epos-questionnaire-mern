@@ -46,18 +46,16 @@ const Layout = ({ children }) => {
         <Box>
             <Header />
             <Toolbar />
+            {location.pathname !== '' && (
+                <LinearProgress
+                    variant='determinate'
+                    value={progValue}
+                    className={classes.progress}
+                />
+            )}
             <Typography align='center' className={classes.subTitle}>
                 Reliable EPOS Solutions
             </Typography>
-            {location.pathname !== '' && (
-                <Container disableGutters maxWidth='xs'>
-                    <LinearProgress
-                        variant='determinate'
-                        value={progValue}
-                        className={classes.progress}
-                    />
-                </Container>
-            )}
             {children}
             <Toolbar />
         </Box>
