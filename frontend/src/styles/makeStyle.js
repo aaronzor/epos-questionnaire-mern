@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: '1px'
     },
     gridQuestion: {
-        width: '345px',
+        width: '355px',
         height: '116px',
         boxShadow: 1,
         borderRadius: '0',
@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     // Text
     subTitle: {
         align: 'center',
-        fontSize: '20px'
+        fontSize: '40px'
     },
 
     // App Bar
@@ -92,6 +92,12 @@ const useStyles = makeStyles((theme) => ({
     gridInput: {
         border: `3px solid ${grey[400]}`,
         width: '345px',
+        padding: '5%',
+        textDecoration: 'none'
+    },
+    gridInputLg: {
+        border: `3px solid ${grey[400]}`,
+        width: '436px',
         padding: '5%',
         textDecoration: 'none'
     },

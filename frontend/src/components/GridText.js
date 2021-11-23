@@ -1,9 +1,11 @@
 import React from 'react';
-import { Grid, TextField } from '@mui/material';
+import { Grid, TextField, useMediaQuery } from '@mui/material';
 import useStyles from '../styles/makeStyle';
 import { motion } from 'framer-motion';
 
 const GridText = (props) => {
+    const breakPoint = useMediaQuery((theme) => theme.breakpoints.up('sm'));
+
     const transition = {
         duration: 1,
         ease: [0.43, 0.13, 0.23, 0.96]
@@ -26,7 +28,11 @@ const GridText = (props) => {
                         sx={{}}
                         name={props.name}
                         onChange={props.onChange}
-                        className={classes.gridInput}
+                        className={
+                            !breakPoint
+                                ? classes.gridInput
+                                : classes.gridInputLg
+                        }
                         label={props.label}
                         multiline
                         rows={props.rows}
