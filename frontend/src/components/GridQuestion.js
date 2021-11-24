@@ -24,14 +24,15 @@ const GridQuestion = (props) => {
                 className={
                     !breakPoint ? classes.gridQuestion : classes.gridQuestionLg
                 }
-                elevation={0}
+                elevation={2}
                 name={props.question}
             >
                 <Typography
+                    className={classes.questionHeader}
                     variant='h6'
                     align='center'
-                    marginTop={!props.textInput ? '6%' : '3%'}
-                    marginBottom={props.textInput && '10%'}
+                    marginTop={!props.textInput && '4%'}
+                    marginBottom={props.textInput && '5%'}
                 >
                     {props.questionText}
                 </Typography>
@@ -47,17 +48,22 @@ const GridQuestion = (props) => {
                 )}
                 {props.radioInput && (
                     <FormControl>
-                        <RadioGroup row aria-label='trading' name='userTrading'>
+                        <RadioGroup
+                            row
+                            aria-label='trading'
+                            name='userTrading'
+                            sx={{ marginTop: '5%' }}
+                        >
                             <FormControlLabel
                                 value={true}
-                                control={<Radio size='large' />}
+                                control={<Radio />}
                                 label='Yes'
                                 name='Trading'
                                 onChange={props.onChange}
                             />
                             <FormControlLabel
                                 value={false}
-                                control={<Radio size='large' />}
+                                control={<Radio />}
                                 label='No'
                                 name='Trading'
                                 onChange={props.onChange}

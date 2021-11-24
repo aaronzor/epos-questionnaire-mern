@@ -19,21 +19,21 @@ const QuestionFive = () => {
     return (
         <Container disableGutters maxWidth='xs'>
             <Grid
-                spacing={2}
+                spacing={5}
                 align='center'
                 justifyContent='center'
                 container
-                marginTop='5%'
+                marginTop='0%'
             >
                 <GridQuestion
                     question='question5'
-                    questionText=' Do you have any specific needs or in need of any other advice regarding EPOS and
-Payment solutions?'
+                    questionText=' Do you have any specific needs or are in need of any other advice regarding EPOS and
+                    Payment solutions?'
                     textInput={true}
                     name='Other Needs'
                     onChange={handleOnChange}
                     label=''
-                    rows={8}
+                    rows={6}
                 />
 
                 <NavButton link='/q4' variant='back' clear={clear} />

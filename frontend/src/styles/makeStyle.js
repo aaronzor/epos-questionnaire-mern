@@ -56,6 +56,11 @@ const useStyles = makeStyles((theme) => ({
         align: 'center',
         fontSize: '40px'
     },
+    questionHeader: {
+        paddingLeft: '1%',
+        paddingRight: '1%',
+        paddingTop: '2%'
+    },
 
     // App Bar
     appbar: {

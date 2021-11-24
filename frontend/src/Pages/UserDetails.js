@@ -1,5 +1,12 @@
 import React, { useContext } from 'react';
-import { Container, Grid } from '@mui/material';
+import {
+    Checkbox,
+    Container,
+    FormControlLabel,
+    FormGroup,
+    Grid,
+    Typography
+} from '@mui/material';
 import NavButton from '../components/NavButton';
 import SubmitButton from '../components/SubmitButton';
 import UserInfoInput from '../components/UserInfoInput';
@@ -25,8 +32,11 @@ const UserDetails = () => {
                 align='center'
                 justifyContent='center'
                 container
-                marginTop='5%'
+                marginTop='15%'
             >
+                <Grid item xs={12}>
+                    <Typography>Please enter your details below</Typography>
+                </Grid>
                 <UserInfoInput
                     name='Contact Name'
                     onChange={handleOnChange}
@@ -45,6 +55,23 @@ const UserDetails = () => {
                     id='userDetailsNumber'
                     label='Contact Number'
                 />
+                <Grid item xs={12}>
+                    <Typography marginTop='5%'>
+                        Please select your preferred contact method(s)
+                    </Typography>
+                </Grid>
+                <Grid item xs={12}>
+                    <FormGroup sx={{ paddingLeft: '5%', marginBottom: '3%' }}>
+                        <FormControlLabel
+                            control={<Checkbox />}
+                            label='Phone'
+                        />
+                        <FormControlLabel
+                            control={<Checkbox />}
+                            label='Email'
+                        />
+                    </FormGroup>
+                </Grid>
                 <NavButton variant='back' link='/q5' clear={clear} />
                 <SubmitButton link='' />
             </Grid>

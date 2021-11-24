@@ -21,11 +21,11 @@ const QuestionThree = () => {
     return (
         <Container disableGutters maxWidth='xs'>
             <Grid
-                spacing={2}
+                spacing={3}
                 align='center'
                 justifyContent='center'
                 container
-                marginTop='5%'
+                marginTop='0%'
             >
                 <GridQuestion
                     question='question4'
