@@ -51,6 +51,7 @@ export const login = asyncHandler(async (req, res, next) => {
     if (!isMatch) {
         return next(new ErrorResponse('Invalid credentials', 401));
     }
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
 
     sendTokenResponse(user, 200, res);
 });

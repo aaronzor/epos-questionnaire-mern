@@ -16,6 +16,7 @@
     "axios": "^0.24.0",
     "axios-cookiejar-support": "^2.0.3",
     "dotenv": "^10.0.0",
+    "fetch": "^1.1.0",
     "framer-motion": "^4.1.17",
     "material-ui-image": "^3.3.2",
     "react": "^17.0.2",

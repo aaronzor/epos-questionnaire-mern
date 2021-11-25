@@ -15,6 +15,7 @@ import cors from 'cors';
 import { results } from './routes/result.js';
 import { users } from './routes/user.js';
 import { auth } from './routes/auth.js';
+
 // Initialise express
 const app = express();
 
@@ -28,31 +29,29 @@ app.use(express.json());
 // Connect to Database
 connectDB();
 
+const corsOptions = {
+    origin: /.*localhost.*/,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    preflightContinue: true,
+    optionsSuccessStatus: 204
+};
+
+app.use(cors(corsOptions));
+
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.header('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Origin, Content-Type, Accept');
+    next();
+});
+
 // Mount routers
 app.use('/api/v1/results', results);
 app.use('/api/v1/users', users);
 app.use('/api/v1/auth', auth);
 
 // Security Middleware
-
-app.use(function (req, res, next) {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
-    res.header(
-        'Access-Control-Allow-Headers',
-        'Origin, X-Requested-With, Content-Type, Accept'
-    );
-    next();
-});
-
-// const corsOptions = {
-//     origin: 'http://localhost',
-//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-//     preflightContinue: true,
-//     optionsSuccessStatus: 204,
-//     credentials: true
-// };
-
-app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 
 // Error handling middleware
 app.use(errorHandler);
