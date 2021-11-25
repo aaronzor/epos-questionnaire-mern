@@ -20,7 +20,7 @@ import Landing from './Pages/Landing';
 import UserDetails from './Pages/UserDetails';
 import EndPage from './Pages/EndPage';
 import TestQuestion from './Pages/TestQuestion';
-import SignIn from './Pages/SignIn';
+import DashboardPage from './Pages/DashboardPage';
 
 const darkMode = createTheme({
     components: {
@@ -103,7 +103,10 @@ const App = () => {
                                         path='/endpage'
                                         component={EndPage}
                                     />
-                                    <Route path='/login' component={SignIn} />
+                                    <Route
+                                        path='/dashboard'
+                                        component={DashboardPage}
+                                    />
                                 </Switch>
                             </Layout>
                         </Router>
