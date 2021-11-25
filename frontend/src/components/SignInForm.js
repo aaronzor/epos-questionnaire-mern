@@ -20,7 +20,7 @@ import Copyright from './Copyright';
 
 const SignInForm = (props) => {
     const { credentials, setCredentials } = useContext(CredentialsContext);
-    const { loggedIn, setLoggedIn } = useContext(LoggedInContext);
+    const { setLoggedIn } = useContext(LoggedInContext);
 
     const handleCredentials = (event) => {
         const { name, value } = event.target;
@@ -85,10 +85,7 @@ const SignInForm = (props) => {
                         autoComplete='current-password'
                         onChange={handleCredentials}
                     />
-                    <FormControlLabel
-                        control={<Checkbox value='remember' color='primary' />}
-                        label='Remember me'
-                    />
+
                     <Button
                         type='submit'
                         fullWidth
@@ -105,7 +102,7 @@ const SignInForm = (props) => {
                         </Grid>
                         <Grid item>
                             <Link href='#' variant='body2'>
-                                {"Don't have an account? Sign Up"}
+                                {'Create new account'}
                             </Link>
                         </Grid>
                     </Grid>
