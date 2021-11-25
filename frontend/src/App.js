@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
 
+import { CredentialsContext } from './contexts/CredentialsContext';
 import { ResultContext } from './contexts/ResultContext';
 import { resultObject } from './utility/resultObject';
 import './App.css';
@@ -18,6 +19,7 @@ import Landing from './Pages/Landing';
 import UserDetails from './Pages/UserDetails';
 import EndPage from './Pages/EndPage';
 import TestQuestion from './Pages/TestQuestion';
+import SignIn from './Pages/SignIn';
 
 const darkMode = createTheme({
     components: {
@@ -58,31 +60,37 @@ const darkMode = createTheme({
 const App = () => {
     const classes = useStyles();
 
+    const [credentials, setCredentials] = useState({ email: '', password: '' });
     const [object, setObject] = useState(resultObject);
 
     return (
         <ResultContext.Provider value={{ object, setObject }}>
-            <ThemeProvider theme={darkMode}>
-                <CssBaseline classes className={classes.lightFont} />
-                <Router>
-                    <Layout>
-                        <Switch>
-                            <Route path='/' exact component={Landing} />
-                            <Route path='/q1' component={QuestionOne} />
-                            <Route path='/q2' component={QuestionTwo} />
-                            <Route path='/q3' component={QuestionThree} />
-                            <Route path='/q4' component={QuestionFour} />
-                            <Route path='/q5' component={QuestionFive} />
-                            <Route path='/test' component={TestQuestion} />
-                            <Route
-                                path='/userdetails'
-                                component={UserDetails}
-                            />
-                            <Route path='/endpage' component={EndPage} />
-                        </Switch>
-                    </Layout>
-                </Router>
-            </ThemeProvider>
+            <CredentialsContext.Provider
+                value={{ credentials, setCredentials }}
+            >
+                <ThemeProvider theme={darkMode}>
+                    <CssBaseline classes className={classes.lightFont} />
+                    <Router>
+                        <Layout>
+                            <Switch>
+                                <Route path='/' exact component={Landing} />
+                                <Route path='/q1' component={QuestionOne} />
+                                <Route path='/q2' component={QuestionTwo} />
+                                <Route path='/q3' component={QuestionThree} />
+                                <Route path='/q4' component={QuestionFour} />
+                                <Route path='/q5' component={QuestionFive} />
+                                <Route path='/test' component={TestQuestion} />
+                                <Route
+                                    path='/userdetails'
+                                    component={UserDetails}
+                                />
+                                <Route path='/endpage' component={EndPage} />
+                                <Route path='/login' component={SignIn} />
+                            </Switch>
+                        </Layout>
+                    </Router>
+                </ThemeProvider>
+            </CredentialsContext.Provider>
         </ResultContext.Provider>
     );
 };
