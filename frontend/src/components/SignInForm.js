@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { CredentialsContext } from '../contexts/CredentialsContext';
+import { LoggedInContext } from '../contexts/LoggedInContext';
 import {
     Avatar,
     Button,
@@ -12,10 +14,32 @@ import {
     Container,
     Typography
 } from '@mui/material';
+import axios from 'axios';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Copyright from './Copyright';
 
 const SignInForm = (props) => {
+    const { credentials, setCredentials } = useContext(CredentialsContext);
+    const { loggedIn, setLoggedIn } = useContext(LoggedInContext);
+
+    const handleCredentials = (event) => {
+        const { name, value } = event.target;
+        setCredentials({ ...credentials, [name]: value });
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        console.log(credentials);
+        axios
+            .post(`${process.env.REACT_APP_URL}/api/v1/auth/login`, {
+                email: credentials.email,
+                password: credentials.password
+            })
+            .then(function (response) {
+                setLoggedIn(response.data.success);
+            });
+    };
+
     return (
         <Container component='main' maxWidth='xs'>
             <CssBaseline />
@@ -35,7 +59,7 @@ const SignInForm = (props) => {
                 </Typography>
                 <Box
                     component='form'
-                    onSubmit={props.submit}
+                    onSubmit={handleSubmit}
                     noValidate
                     sx={{ mt: 1 }}
                 >
@@ -48,7 +72,7 @@ const SignInForm = (props) => {
                         name='email'
                         autoComplete='email'
                         autoFocus
-                        onChange={props.handleCredentials}
+                        onChange={handleCredentials}
                     />
                     <TextField
                         margin='normal'
@@ -59,7 +83,7 @@ const SignInForm = (props) => {
                         type='password'
                         id='password'
                         autoComplete='current-password'
-                        onChange={props.handleCredentials}
+                        onChange={handleCredentials}
                     />
                     <FormControlLabel
                         control={<Checkbox value='remember' color='primary' />}

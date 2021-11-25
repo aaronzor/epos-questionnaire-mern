@@ -5,6 +5,7 @@ import { CssBaseline } from '@mui/material';
 
 import { CredentialsContext } from './contexts/CredentialsContext';
 import { ResultContext } from './contexts/ResultContext';
+import { LoggedInContext } from './contexts/LoggedInContext';
 import { resultObject } from './utility/resultObject';
 import './App.css';
 import useStyles from './styles/makeStyle';
@@ -62,34 +63,52 @@ const App = () => {
 
     const [credentials, setCredentials] = useState({ email: '', password: '' });
     const [object, setObject] = useState(resultObject);
+    const [loggedIn, setLoggedIn] = useState(false);
 
     return (
         <ResultContext.Provider value={{ object, setObject }}>
             <CredentialsContext.Provider
                 value={{ credentials, setCredentials }}
             >
-                <ThemeProvider theme={darkMode}>
-                    <CssBaseline classes className={classes.lightFont} />
-                    <Router>
-                        <Layout>
-                            <Switch>
-                                <Route path='/' exact component={Landing} />
-                                <Route path='/q1' component={QuestionOne} />
-                                <Route path='/q2' component={QuestionTwo} />
-                                <Route path='/q3' component={QuestionThree} />
-                                <Route path='/q4' component={QuestionFour} />
-                                <Route path='/q5' component={QuestionFive} />
-                                <Route path='/test' component={TestQuestion} />
-                                <Route
-                                    path='/userdetails'
-                                    component={UserDetails}
-                                />
-                                <Route path='/endpage' component={EndPage} />
-                                <Route path='/login' component={SignIn} />
-                            </Switch>
-                        </Layout>
-                    </Router>
-                </ThemeProvider>
+                <LoggedInContext.Provider value={{ loggedIn, setLoggedIn }}>
+                    <ThemeProvider theme={darkMode}>
+                        <CssBaseline classes className={classes.lightFont} />
+                        <Router>
+                            <Layout>
+                                <Switch>
+                                    <Route path='/' exact component={Landing} />
+                                    <Route path='/q1' component={QuestionOne} />
+                                    <Route path='/q2' component={QuestionTwo} />
+                                    <Route
+                                        path='/q3'
+                                        component={QuestionThree}
+                                    />
+                                    <Route
+                                        path='/q4'
+                                        component={QuestionFour}
+                                    />
+                                    <Route
+                                        path='/q5'
+                                        component={QuestionFive}
+                                    />
+                                    <Route
+                                        path='/test'
+                                        component={TestQuestion}
+                                    />
+                                    <Route
+                                        path='/userdetails'
+                                        component={UserDetails}
+                                    />
+                                    <Route
+                                        path='/endpage'
+                                        component={EndPage}
+                                    />
+                                    <Route path='/login' component={SignIn} />
+                                </Switch>
+                            </Layout>
+                        </Router>
+                    </ThemeProvider>
+                </LoggedInContext.Provider>
             </CredentialsContext.Provider>
         </ResultContext.Provider>
     );
