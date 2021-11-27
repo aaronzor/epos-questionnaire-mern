@@ -3,7 +3,8 @@ import GridItem from '../components/GridItem';
 import GridQuestion from '../components/GridQuestion';
 import { Grid, Container } from '@mui/material';
 import NavButton from '../components/NavButton';
-import Footer from '../components/Footer';
+import { motion } from 'framer-motion';
+import pageVariants from '../utility/pageVariants';
 
 const QuestionOne = () => {
     //const { object } = useContext(ResultContext);
@@ -23,7 +24,12 @@ const QuestionOne = () => {
     };
 
     return (
-        <div>
+        <motion.div
+            variants={pageVariants}
+            initial='hidden'
+            animate='visible'
+            exit='exit'
+        >
             <Container disableGutters maxWidth='xs'>
                 <Grid
                     spacing={2}
@@ -44,7 +50,7 @@ const QuestionOne = () => {
                     <NavButton link='/q2' variant='next' />
                 </Grid>
             </Container>
-        </div>
+        </motion.div>
     );
 };
 

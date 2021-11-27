@@ -12,6 +12,9 @@ import SubmitButton from '../components/SubmitButton';
 import UserInfoInput from '../components/UserInfoInput';
 import { ResultContext } from '../contexts/ResultContext';
 
+import { motion } from 'framer-motion';
+import pageVariants from '../utility/pageVariants';
+
 const UserDetails = () => {
     const clear = {
         'Online Ordering': false,
@@ -26,56 +29,65 @@ const UserDetails = () => {
     };
 
     return (
-        <Container disableGutters maxWidth='xs'>
-            <Grid
-                spacing={2}
-                align='center'
-                justifyContent='center'
-                container
-                marginTop='15%'
-            >
-                <Grid item xs={12}>
-                    <Typography>Please enter your details below</Typography>
+        <motion.div
+            variants={pageVariants}
+            initial='hidden'
+            animate='visible'
+            exit='exit'
+        >
+            <Container disableGutters maxWidth='xs'>
+                <Grid
+                    spacing={2}
+                    align='center'
+                    justifyContent='center'
+                    container
+                    marginTop='15%'
+                >
+                    <Grid item xs={12}>
+                        <Typography>Please enter your details below</Typography>
+                    </Grid>
+                    <UserInfoInput
+                        name='Contact Name'
+                        onChange={handleOnChange}
+                        id='userDetailsName'
+                        label='Contact Name'
+                    />
+                    <UserInfoInput
+                        name='Email'
+                        onChange={handleOnChange}
+                        id='userDetailsEmail'
+                        label='Email'
+                    />
+                    <UserInfoInput
+                        name='Contact Number'
+                        onChange={handleOnChange}
+                        id='userDetailsNumber'
+                        label='Contact Number'
+                    />
+                    <Grid item xs={12}>
+                        <Typography marginTop='5%'>
+                            Please select your preferred contact method(s)
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <FormGroup
+                            sx={{ paddingLeft: '5%', marginBottom: '3%' }}
+                        >
+                            <FormControlLabel
+                                control={<Checkbox />}
+                                label='Phone'
+                            />
+                            <FormControlLabel
+                                control={<Checkbox />}
+                                label='Email'
+                            />
+                        </FormGroup>
+                    </Grid>
+                    <NavButton variant='back' link='/q5' clear={clear} />
+                    <SubmitButton link='' />
                 </Grid>
-                <UserInfoInput
-                    name='Contact Name'
-                    onChange={handleOnChange}
-                    id='userDetailsName'
-                    label='Contact Name'
-                />
-                <UserInfoInput
-                    name='Email'
-                    onChange={handleOnChange}
-                    id='userDetailsEmail'
-                    label='Email'
-                />
-                <UserInfoInput
-                    name='Contact Number'
-                    onChange={handleOnChange}
-                    id='userDetailsNumber'
-                    label='Contact Number'
-                />
-                <Grid item xs={12}>
-                    <Typography marginTop='5%'>
-                        Please select your preferred contact method(s)
-                    </Typography>
-                </Grid>
-                <Grid item xs={12}>
-                    <FormGroup sx={{ paddingLeft: '5%', marginBottom: '3%' }}>
-                        <FormControlLabel
-                            control={<Checkbox />}
-                            label='Phone'
-                        />
-                        <FormControlLabel
-                            control={<Checkbox />}
-                            label='Email'
-                        />
-                    </FormGroup>
-                </Grid>
-                <NavButton variant='back' link='/q5' clear={clear} />
-                <SubmitButton link='' />
-            </Grid>
-        </Container>
+            </Container>
+        </motion.div>
     );
 };
 

@@ -4,6 +4,9 @@ import { ResultContext } from '../contexts/ResultContext';
 import GridQuestion from '../components/GridQuestion';
 import NavButton from '../components/NavButton';
 
+import { motion } from 'framer-motion';
+import pageVariants from '../utility/pageVariants';
+
 const QuestionFive = () => {
     const clear = {
         'Other Needs': false
@@ -17,29 +20,36 @@ const QuestionFive = () => {
     };
 
     return (
-        <Container disableGutters maxWidth='xs'>
-            <Grid
-                spacing={5}
-                align='center'
-                justifyContent='center'
-                container
-                marginTop='0%'
-            >
-                <GridQuestion
-                    question='question5'
-                    questionText=' Do you have any specific needs or are in need of any other advice regarding EPOS and
+        <motion.div
+            variants={pageVariants}
+            initial='hidden'
+            animate='visible'
+            exit='exit'
+        >
+            <Container disableGutters maxWidth='xs'>
+                <Grid
+                    spacing={5}
+                    align='center'
+                    justifyContent='center'
+                    container
+                    marginTop='0%'
+                >
+                    <GridQuestion
+                        question='question5'
+                        questionText=' Do you have any specific needs or are in need of any other advice regarding EPOS and
                     Payment solutions?'
-                    textInput={true}
-                    name='Other Needs'
-                    onChange={handleOnChange}
-                    label=''
-                    rows={6}
-                />
+                        textInput={true}
+                        name='Other Needs'
+                        onChange={handleOnChange}
+                        label=''
+                        rows={6}
+                    />
 
-                <NavButton link='/q4' variant='back' clear={clear} />
-                <NavButton link='/userdetails' variant='next' />
-            </Grid>
-        </Container>
+                    <NavButton link='/q4' variant='back' clear={clear} />
+                    <NavButton link='/userdetails' variant='next' />
+                </Grid>
+            </Container>
+        </motion.div>
     );
 };
 

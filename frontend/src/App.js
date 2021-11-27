@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    useLocation
+} from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
+import { AnimatePresence } from 'framer-motion';
 
 import { CredentialsContext } from './contexts/CredentialsContext';
 import { ResultContext } from './contexts/ResultContext';
@@ -59,6 +65,8 @@ const darkMode = createTheme({
 });
 
 const App = () => {
+    const location = useLocation();
+
     const classes = useStyles();
 
     const [credentials, setCredentials] = useState({ email: '', password: '' });
@@ -73,8 +81,11 @@ const App = () => {
                 <LoggedInContext.Provider value={{ loggedIn, setLoggedIn }}>
                     <ThemeProvider theme={darkMode}>
                         <CssBaseline classes className={classes.lightFont} />
-                        <Router>
-                            <Layout>
+                        <Layout>
+                            <AnimatePresence
+                                location={location}
+                                key={location.key}
+                            >
                                 <Switch>
                                     <Route path='/' exact component={Landing} />
                                     <Route path='/q1' component={QuestionOne} />
@@ -108,8 +119,8 @@ const App = () => {
                                         component={DashboardPage}
                                     />
                                 </Switch>
-                            </Layout>
-                        </Router>
+                            </AnimatePresence>
+                        </Layout>
                     </ThemeProvider>
                 </LoggedInContext.Provider>
             </CredentialsContext.Provider>
