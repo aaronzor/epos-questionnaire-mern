@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import {
-    Toolbar,
-    LinearProgress,
-    Box,
-    Typography,
-    Container
-} from '@mui/material';
+import { Toolbar, LinearProgress, Box, Typography } from '@mui/material';
 import { useLocation } from 'react-router';
 import Header from './Header';
+import Footer from './Footer';
 import useStyles from '../styles/makeStyle';
 
 const Layout = ({ children }) => {
@@ -53,11 +48,14 @@ const Layout = ({ children }) => {
                     className={classes.progress}
                 />
             )}
-            <Typography align='center' className={classes.subTitle}>
-                Reliable EPOS Solutions
-            </Typography>
+            <Box Container mt={1} mb={-4}>
+                <Typography align='center' fontSize={20} fontWeight={100}>
+                    Reliable EPOS Solutions
+                </Typography>
+            </Box>
             {children}
             <Toolbar />
+            <Footer />
         </Box>
     );
 };

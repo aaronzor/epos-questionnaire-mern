@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     // Text
     subTitle: {
         align: 'center',
-        fontSize: '40px'
+        fontSize: '25rem'
     },
     questionHeader: {
         paddingLeft: '1%',
@@ -110,6 +110,20 @@ const useStyles = makeStyles((theme) => ({
         border: `3px solid ${grey[400]}`,
         width: '95%',
         textDecoration: 'none'
+    },
+    // Footer
+    footerWrap: {
+        display: 'flex',
+        flexDirection: 'column',
+        mt: 'auto',
+        position: 'absolute',
+        width: '100%',
+        bottom: 0
+    },
+    footerMain: {
+        padding: 1.5,
+        px: 1.5,
+        mt: 'auto'
     }
 }));
 

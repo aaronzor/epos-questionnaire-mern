@@ -3,6 +3,7 @@ import GridItem from '../components/GridItem';
 import GridQuestion from '../components/GridQuestion';
 import { Grid, Container } from '@mui/material';
 import NavButton from '../components/NavButton';
+import Footer from '../components/Footer';
 
 const QuestionOne = () => {
     //const { object } = useContext(ResultContext);
@@ -22,26 +23,28 @@ const QuestionOne = () => {
     };
 
     return (
-        <Container disableGutters maxWidth='xs'>
-            <Grid
-                spacing={2}
-                align='center'
-                justifyContent='center'
-                container
-                marginTop='5%'
-            >
-                <GridQuestion
-                    question='question1'
-                    questionText='What sort of service do you need?'
-                />
-                <GridItem answer='Full EPOS Setup' />
-                <GridItem answer='Software Only' />
-                <GridItem answer='System & Applications' />
-                <GridItem answer='Unsure, Need Advice' />
-                <NavButton link='/' variant='back' clear={clear} />
-                <NavButton link='/q2' variant='next' />
-            </Grid>
-        </Container>
+        <div>
+            <Container disableGutters maxWidth='xs'>
+                <Grid
+                    spacing={2}
+                    align='center'
+                    justifyContent='center'
+                    container
+                    marginTop='5%'
+                >
+                    <GridQuestion
+                        question='question1'
+                        questionText='What sort of service do you need?'
+                    />
+                    <GridItem answer='Full EPOS Setup' />
+                    <GridItem answer='Software Only' />
+                    <GridItem answer='System & Applications' />
+                    <GridItem answer='Unsure, Need Advice' />
+                    <NavButton link='/' variant='back' clear={clear} />
+                    <NavButton link='/q2' variant='next' />
+                </Grid>
+            </Container>
+        </div>
     );
 };
 

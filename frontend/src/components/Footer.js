@@ -1,33 +1,36 @@
 import React from 'react';
-import { Container, Toolbar, Typography, Box } from '@mui/material';
-import { makeStyles } from '@mui/styles';
+import { Container, Typography, Box, CssBaseline } from '@mui/material';
+import useStyles from '../styles/makeStyle';
 import { Link } from 'react-router-dom';
-
-const useStyles = makeStyles((theme) => {
-    return {
-        footer: {
-            position: 'sticky',
-            bottom: 0,
-            left: 0,
-            width: '100%'
-        }
-    };
-});
+import Copyright from './Copyright';
 
 const Footer = () => {
     const classes = useStyles();
-
     return (
-        <footer className={classes.footer}>
-            <Box width='100%'>
-                <Container maxWidth='md'>
-                    <Toolbar>
-                        <Typography flexGrow='1'>Made by Me</Typography>
-                        <Link className={classes.link}>Admin Login</Link>
-                    </Toolbar>
+        <Box className={classes.footerWrap}>
+            <CssBaseline />
+            <Box
+                component='footer'
+                sx={{
+                    backgroundColor: (theme) =>
+                        theme.palette.mode === 'light'
+                            ? theme.palette.grey[300]
+                            : theme.palette.grey[800]
+                }}
+                className={classes.footerMain}
+            >
+                <Container maxWidth='sm'>
+                    <Link
+                        to='/dashboard'
+                        style={{ textDecoration: 'none', color: '#c98ced' }}
+                    >
+                        <Typography align='center'>Dashboard Login</Typography>
+                    </Link>
+
+                    <Copyright dev={true} />
                 </Container>
             </Box>
-        </footer>
+        </Box>
     );
 };
 
