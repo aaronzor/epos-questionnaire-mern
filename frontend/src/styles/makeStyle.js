@@ -109,7 +109,8 @@ const useStyles = makeStyles((theme) => ({
     questionInput: {
         border: `3px solid ${grey[400]}`,
         width: '95%',
-        textDecoration: 'none'
+        textDecoration: 'none',
+        marginBottom: '-100px'
     },
     // Footer
     footerWrap: {
@@ -122,7 +123,6 @@ const useStyles = makeStyles((theme) => ({
     },
     footerMain: {
         padding: 1.5,
-        px: 1.5,
         mt: 'auto'
     }
 }));
