@@ -27,6 +27,7 @@ import UserDetails from './Pages/UserDetails';
 import EndPage from './Pages/EndPage';
 import TestQuestion from './Pages/TestQuestion';
 import DashboardPage from './Pages/DashboardPage';
+import SignUpPage from './Pages/SignUpPage';
 
 const darkMode = createTheme({
     components: {
@@ -117,6 +118,10 @@ const App = () => {
                                     <Route
                                         path='/dashboard'
                                         component={DashboardPage}
+                                    />
+                                    <Route
+                                        path='/signup'
+                                        component={SignUpPage}
                                     />
                                 </Switch>
                             </AnimatePresence>

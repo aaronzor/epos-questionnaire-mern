@@ -6,17 +6,14 @@ import {
     Button,
     CssBaseline,
     TextField,
-    FormControlLabel,
-    Checkbox,
-    Link,
     Grid,
     Box,
     Container,
     Typography
 } from '@mui/material';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Copyright from './Copyright';
 
 const SignInForm = (props) => {
     const { credentials, setCredentials } = useContext(CredentialsContext);
@@ -96,19 +93,34 @@ const SignInForm = (props) => {
                     </Button>
                     <Grid container>
                         <Grid item xs>
-                            <Link href='#' variant='body2'>
-                                Forgot password?
+                            <Link
+                                to='#'
+                                style={{
+                                    textDecoration: 'underline',
+                                    color: '#424242'
+                                }}
+                            >
+                                <Typography variant='body2'>
+                                    Forgot password?
+                                </Typography>
                             </Link>
                         </Grid>
                         <Grid item>
-                            <Link href='#' variant='body2'>
-                                {'Create new account'}
+                            <Link
+                                to='/signup'
+                                style={{
+                                    textDecoration: 'underline',
+                                    color: '#424242'
+                                }}
+                            >
+                                <Typography variant='body2'>
+                                    Create new account
+                                </Typography>
                             </Link>
                         </Grid>
                     </Grid>
                 </Box>
             </Box>
-            <Copyright sx={{ mt: 8, mb: 4 }} />
         </Container>
     );
 };
