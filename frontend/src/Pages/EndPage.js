@@ -14,17 +14,11 @@ const EndPage = () => {
             animate='visible'
             exit='exit'
         >
-            <Container>
-                <Stack alignContent='center' justifyContent='center'>
-                    <Typography align='center' margin='5%'>
-                        Thank you for taking our questionnaire, we will be in
-                        touch soon.
-                    </Typography>
-
-                    <Button variant='contained' onClick={clickHandler}>
-                        Submit
-                    </Button>
-                </Stack>
+            <Container maxWidth='xs'>
+                <Typography align='center' marginTop='20%' variant='h6'>
+                    Thank you for taking our questionnaire, we will be in touch
+                    soon.
+                </Typography>
             </Container>
         </motion.div>
     );

@@ -31,6 +31,7 @@ const SubmitButton = (props) => {
                 }}
             >
                 <Button
+                    type='submit'
                     className={
                         !breakPoint ? classes.navButton : classes.navButtonLg
                     }

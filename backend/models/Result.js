@@ -1,6 +1,39 @@
 import mongoose from 'mongoose';
 
 const ResultSchema = new mongoose.Schema({
+    'Phone Contact': {
+        type: String
+    },
+    'Email Contact': {
+        type: String
+    },
+    'System & Applications': {
+        type: Boolean
+    },
+    'Unsure, Need Advice': {
+        type: Boolean
+    },
+    'Software Only': {
+        type: Boolean
+    },
+    'Full EPOS Setup': {
+        type: Boolean
+    },
+    'Cloud Software': {
+        type: Boolean
+    },
+    'Card Readers': {
+        type: Boolean
+    },
+    Trading: {
+        type: Boolean
+    },
+    'Position in Company': {
+        type: String
+    },
+    'Other Needs': {
+        type: String
+    },
     Retail: {
         type: Boolean
     },
@@ -10,31 +43,20 @@ const ResultSchema = new mongoose.Schema({
     'Single Venue': {
         type: Boolean
     },
-    Bar: {
-        type: Boolean
-    },
-    Resturant: {
-        type: Boolean
-    },
     Other: {
         type: Boolean
     },
     'Other business info': {
         type: String
     },
-    'Single Till': {
-        type: Boolean
-    },
-    'Multiple Tills': {
-        type: Boolean
-    },
+
     'Table Ordering': {
         type: Boolean
     },
     'Online Ordering': {
         type: Boolean
     },
-    Company: {
+    'Company Name': {
         type: String
     },
     Name: {
@@ -46,7 +68,7 @@ const ResultSchema = new mongoose.Schema({
     Phone: {
         type: String
     },
-    Contacted: {
+    'Contacted?': {
         type: Boolean
     },
     submittedAt: {

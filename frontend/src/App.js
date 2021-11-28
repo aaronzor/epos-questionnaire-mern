@@ -7,7 +7,7 @@ import { AnimatePresence } from 'framer-motion';
 import { ResultContext } from './contexts/ResultContext';
 import { CredentialsContext } from './contexts/CredentialsContext';
 import { LoggedInContext } from './contexts/LoggedInContext';
-import { resultObject } from './utility/resultObject';
+
 import './App.css';
 import useStyles from './styles/makeStyle';
 
@@ -66,7 +66,7 @@ const App = () => {
     const classes = useStyles();
 
     const [credentials, setCredentials] = useState({ email: '', password: '' });
-    const [object, setObject] = useState(resultObject);
+    const [object, setObject] = useState({});
     const [loggedIn, setLoggedIn] = useState(false);
 
     return (
