@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    useLocation
-} from 'react-router-dom';
+import { Switch, Route, useLocation } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
 import { AnimatePresence } from 'framer-motion';
 
-import { CredentialsContext } from './contexts/CredentialsContext';
 import { ResultContext } from './contexts/ResultContext';
+import { CredentialsContext } from './contexts/CredentialsContext';
 import { LoggedInContext } from './contexts/LoggedInContext';
 import { resultObject } from './utility/resultObject';
 import './App.css';

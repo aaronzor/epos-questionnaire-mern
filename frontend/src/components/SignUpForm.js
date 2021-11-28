@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
     Avatar,
     Button,
@@ -10,12 +10,30 @@ import {
     Container
 } from '@mui/material';
 import { Link } from 'react-router-dom';
-
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
-const SignUp = () => {
-    const handleSubmit = (event) => {
-        event.preventDefault();
+import signUpSchema from '../Validation/SignUpValidation';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import axios from 'axios';
+
+const SignUp = (props) => {
+    const { handleChange } = props;
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors }
+    } = useForm({
+        resolver: yupResolver(signUpSchema)
+    });
+
+    const submitInput = (data) => {
+        axios.post(`${process.env.REACT_APP_URL}/api/v1/auth/register`, {
+            userName: data.name,
+            email: data.email,
+            password: data.password
+        });
     };
 
     return (
@@ -38,42 +56,66 @@ const SignUp = () => {
                 <Box
                     component='form'
                     noValidate
-                    onSubmit={handleSubmit}
+                    onSubmit={handleSubmit(submitInput)}
                     sx={{ mt: 3 }}
                 >
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
                             <TextField
+                                error={errors.name}
+                                helperText={
+                                    errors.name && 'Please enter a name'
+                                }
+                                onChange={handleChange}
                                 autoComplete='given-name'
-                                name='firstName'
+                                name='name'
                                 required
                                 fullWidth
-                                id='firstName'
+                                id='name'
                                 label='Name'
                                 autoFocus
+                                {...register('name')}
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>
                             <TextField
+                                error={errors.signUpCode}
+                                helperText={
+                                    errors.signUpCode && 'Invalid sign up code'
+                                }
+                                onChange={handleChange}
                                 required
                                 fullWidth
                                 id='code'
                                 label='Sign up code'
-                                name='signupCore'
+                                name='signUpCode'
+                                {...register('signUpCode', { required: true })}
                             />
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
+                                error={errors.email}
+                                helperText={
+                                    errors.email && 'Please enter a valid email'
+                                }
+                                onChange={handleChange}
                                 required
                                 fullWidth
                                 id='email'
                                 label='Email Address'
                                 name='email'
                                 autoComplete='email'
+                                {...register('email', { required: true })}
                             />
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
+                                error={errors.password}
+                                helperText={
+                                    errors.password &&
+                                    'Passwords must be at least 8 characters'
+                                }
+                                onChange={handleChange}
                                 required
                                 fullWidth
                                 name='password'
@@ -81,6 +123,7 @@ const SignUp = () => {
                                 type='password'
                                 id='password'
                                 autoComplete='new-password'
+                                {...register('password', { required: true })}
                             />
                         </Grid>
                     </Grid>
