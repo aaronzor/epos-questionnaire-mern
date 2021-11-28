@@ -11,12 +11,12 @@ import { resultObject } from './utility/resultObject';
 import './App.css';
 import useStyles from './styles/makeStyle';
 
+import Layout from './components/Layout';
 import QuestionOne from './Pages/QuestionOne';
 import QuestionTwo from './Pages/QuestionTwo';
 import QuestionThree from './Pages/QuestionThree';
 import QuestionFour from './Pages/QuestionFour';
 import QuestionFive from './Pages/QuestionFive';
-import Layout from './components/Layout';
 import Landing from './Pages/Landing';
 import UserDetails from './Pages/UserDetails';
 import EndPage from './Pages/EndPage';

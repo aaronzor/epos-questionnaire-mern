@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router';
-import { Stack, Typography, Grid, Container } from '@mui/material';
+import { Stack, Grid, Container } from '@mui/material';
 import GridItem from '../components/GridItem';
 import NavButton from '../components/NavButton';
 import GridQuestion from '../components/GridQuestion';
-import useStyles from '../styles/makeStyle';
 
 const TestQuestion = () => {
     const clear = {
@@ -16,9 +15,7 @@ const TestQuestion = () => {
 
     useEffect(() => {
         console.log(location);
-    }, []);
-
-    const classes = useStyles();
+    }, [location]);
 
     return (
         <Container disableGutters maxWidth='xs'>

@@ -27,7 +27,7 @@ const Footer = () => {
                         <Typography align='center'>Dashboard Login</Typography>
                     </Link>
 
-                    <Copyright dev={true} />
+                    <Copyright dev='true' />
                 </Container>
             </Box>
         </Box>
