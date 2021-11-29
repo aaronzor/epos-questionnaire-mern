@@ -11,7 +11,6 @@ import {
     useMediaQuery,
     TextField
 } from '@mui/material';
-import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import NavButton from '../components/NavButton';
 import { ResultContext } from '../contexts/ResultContext';
@@ -25,8 +24,6 @@ import { motion } from 'framer-motion';
 
 const UserDetails = () => {
     const [success, setSuccess] = useState(false);
-    let submitSuccess = false;
-    const history = useHistory();
     const breakPoint = useMediaQuery((theme) => theme.breakpoints.up('sm'));
     const { object, setObject } = useContext(ResultContext);
     const classes = useStyles();

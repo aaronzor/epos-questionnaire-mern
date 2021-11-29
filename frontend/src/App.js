@@ -19,7 +19,6 @@ import QuestionFour from './Pages/QuestionFour';
 import QuestionFive from './Pages/QuestionFive';
 import Landing from './Pages/Landing';
 import UserDetails from './Pages/UserDetails';
-import EndPage from './Pages/EndPage';
 import TestQuestion from './Pages/TestQuestion';
 import DashboardPage from './Pages/DashboardPage';
 import SignUpPage from './Pages/SignUpPage';
@@ -105,10 +104,6 @@ const App = () => {
                                     <Route
                                         path='/userdetails'
                                         component={UserDetails}
-                                    />
-                                    <Route
-                                        path='/endpage'
-                                        component={EndPage}
                                     />
                                     <Route
                                         path='/dashboard'
