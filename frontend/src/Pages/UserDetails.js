@@ -49,22 +49,17 @@ const UserDetails = () => {
         setObject({ ...object, [name]: value });
     };
 
-    const onSubmit = async (data) => {
-        // if (!errors.ContactName && !errors.Email && !errors.ContactNumber) {
-        //     history.push('/endpage');
-        // }
-        const send = object;
-        console.log(send);
+    const onSubmit = async () => {
         const res = await axios.post(
             `${process.env.REACT_APP_URL}/api/v1/results`,
             {
-                send
+                ...object
             }
         );
-        console.log(res);
-        // if (res.statusText === 'Created') {
-        //     setSuccess(true);
-        // }
+
+        if (res.statusText === 'Created') {
+            setSuccess(true);
+        }
     };
     console.log(success);
     return (

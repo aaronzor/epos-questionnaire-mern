@@ -7,6 +7,9 @@ const ResultSchema = new mongoose.Schema({
     'Email Contact': {
         type: String
     },
+    ContactNumber: {
+        type: String
+    },
     'System & Applications': {
         type: Boolean
     },
@@ -59,13 +62,10 @@ const ResultSchema = new mongoose.Schema({
     'Company Name': {
         type: String
     },
-    Name: {
+    ContactName: {
         type: String
     },
     Email: {
-        type: String
-    },
-    Phone: {
         type: String
     },
     'Contacted?': {
