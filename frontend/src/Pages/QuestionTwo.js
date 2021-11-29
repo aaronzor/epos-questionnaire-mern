@@ -72,7 +72,8 @@ const QuestionTwo = () => {
                     align='center'
                     justifyContent='center'
                     container
-                    marginTop='5%'
+                    marginTop='2%'
+                    marginBottom='10%'
                 >
                     <NavButton link='/q1' variant='back' clear={clear} />
                     <NavButton link='/q3' variant='next' />

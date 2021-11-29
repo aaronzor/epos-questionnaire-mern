@@ -80,6 +80,7 @@ const UserDetails = () => {
                                 justifyContent='center'
                                 container
                                 marginTop='15%'
+                                marginBottom='10%'
                             >
                                 <Grid item xs={12}>
                                     <Typography>

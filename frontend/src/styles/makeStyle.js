@@ -117,13 +117,16 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         mt: 'auto',
-        position: 'absolute',
+        position: 'fixed',
         width: '100%',
         bottom: 0
     },
     footerMain: {
         padding: 1.5,
-        mt: 'auto'
+        mt: 'auto',
+        position: 'static',
+        width: '100%',
+        bottom: 0
     }
 }));
 

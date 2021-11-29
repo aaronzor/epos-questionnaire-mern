@@ -35,6 +35,7 @@ const QuestionThree = () => {
                     justifyContent='center'
                     container
                     marginTop='0%'
+                    marginBottom='10%'
                 >
                     <GridQuestion
                         question='question4'
