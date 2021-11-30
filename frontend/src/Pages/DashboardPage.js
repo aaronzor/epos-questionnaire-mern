@@ -9,7 +9,7 @@ import pageVariants from '../utility/pageVariants';
 
 const DashboardPage = () => {
     let { loggedIn } = useContext(LoggedInContext);
-
+    console.log(loggedIn);
     return (
         <motion.div
             variants={pageVariants}

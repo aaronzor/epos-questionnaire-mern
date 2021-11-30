@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { CredentialsContext } from '../contexts/CredentialsContext';
 import { LoggedInContext } from '../contexts/LoggedInContext';
 import {
@@ -14,10 +14,18 @@ import {
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Cookies from 'js-cookie';
 
 const SignInForm = (props) => {
     const { credentials, setCredentials } = useContext(CredentialsContext);
-    const { setLoggedIn } = useContext(LoggedInContext);
+    const { loggedIn, setLoggedIn } = useContext(LoggedInContext);
+    const [invalidLogin, setInvalidLogin] = useState(false);
+
+    axios.defaults.withCredentials = true;
+
+    useEffect(() => {
+        if (Cookies.get('EPOS_QUIZ_AUTH')) setLoggedIn(true);
+    });
 
     const handleCredentials = (event) => {
         const { name, value } = event.target;
@@ -26,15 +34,20 @@ const SignInForm = (props) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log(credentials);
-        axios
-            .post(`${process.env.REACT_APP_URL}/api/v1/auth/login`, {
+
+        const res = await axios.post(
+            `${process.env.REACT_APP_URL}/api/v1/auth/login`,
+            {
                 email: credentials.email,
                 password: credentials.password
-            })
-            .then(function (response) {
-                setLoggedIn(response.data.success);
-            });
+            }
+        );
+
+        let cookie = Cookies.get('EPOS_QUIZ_AUTH');
+        res.data.success && cookie ? setLoggedIn(true) : setInvalidLogin(true);
+        console.log(invalidLogin);
+
+        console.log(res);
     };
 
     return (
