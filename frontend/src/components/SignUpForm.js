@@ -16,8 +16,11 @@ import signUpSchema from '../Validation/SignUpValidation';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
+import Cookies from 'js-cookie';
+import { useSnackbar, withSnackbar } from 'notistack';
 
 const SignUp = (props) => {
+    const { enqueueSnackbar } = useSnackbar();
     const { handleChange } = props;
 
     const {
@@ -29,11 +32,21 @@ const SignUp = (props) => {
     });
 
     const submitInput = (data) => {
-        axios.post(`${process.env.REACT_APP_URL}/api/v1/auth/register`, {
-            userName: data.name,
-            email: data.email,
-            password: data.password
-        });
+        axios
+            .post(`${process.env.REACT_APP_URL}/api/v1/auth/register`, {
+                userName: data.name,
+                email: data.email,
+                password: data.password
+            })
+            .catch(function (error) {});
+
+        let cookie = Cookies.get('EPOS_QUIZ_AUTH');
+
+        if (cookie) {
+            enqueueSnackbar('Success! You can now log in', {
+                variant: 'success'
+            });
+        }
     };
 
     return (
@@ -156,4 +169,4 @@ const SignUp = (props) => {
     );
 };
 
-export default SignUp;
+export default withSnackbar(SignUp);

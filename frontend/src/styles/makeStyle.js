@@ -68,6 +68,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     logo: {
+        paddingTop: '5%',
         width: '10rem'
     },
     // Progress Bar

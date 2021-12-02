@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { CredentialsContext } from '../contexts/CredentialsContext';
 import { LoggedInContext } from '../contexts/LoggedInContext';
 import {
@@ -15,11 +15,12 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Cookies from 'js-cookie';
+import { useSnackbar, withSnackbar } from 'notistack';
 
 const SignInForm = (props) => {
+    const { enqueueSnackbar } = useSnackbar();
     const { credentials, setCredentials } = useContext(CredentialsContext);
-    const { loggedIn, setLoggedIn } = useContext(LoggedInContext);
-    const [invalidLogin, setInvalidLogin] = useState(false);
+    const { setLoggedIn } = useContext(LoggedInContext);
 
     axios.defaults.withCredentials = true;
 
@@ -35,17 +36,26 @@ const SignInForm = (props) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const res = await axios.post(
-            `${process.env.REACT_APP_URL}/api/v1/auth/login`,
-            {
+        const res = await axios
+            .post(`${process.env.REACT_APP_URL}/api/v1/auth/login`, {
                 email: credentials.email,
                 password: credentials.password
-            }
-        );
+            })
+            .catch(function (error) {
+                if (error.response) {
+                    console.log(error.response);
+                }
+            });
 
         let cookie = Cookies.get('EPOS_QUIZ_AUTH');
-        res.data.success && cookie ? setLoggedIn(true) : setInvalidLogin(true);
-        console.log(invalidLogin);
+
+        if (cookie) {
+            setLoggedIn(true);
+        } else if (!cookie) {
+            enqueueSnackbar('Invalid Email or Password', {
+                variant: 'error'
+            });
+        }
 
         console.log(res);
     };
@@ -138,4 +148,4 @@ const SignInForm = (props) => {
     );
 };
 
-export default SignInForm;
+export default withSnackbar(SignInForm);

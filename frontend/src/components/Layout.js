@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
                 setProgValue(80);
                 break;
             case '/userdetails':
-                setProgValue(90);
+                setProgValue(100);
                 break;
             default:
                 setProgValue(0);
@@ -46,6 +46,7 @@ const Layout = ({ children }) => {
                     variant='determinate'
                     value={progValue}
                     className={classes.progress}
+                    sx={{ height: '10px' }}
                 />
             )}
             <Box Container mt={1} mb={-4}>

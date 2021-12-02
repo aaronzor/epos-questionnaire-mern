@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { CssBaseline } from '@mui/material';
+import { CssBaseline, Slide } from '@mui/material';
 import { AnimatePresence } from 'framer-motion';
+import { SnackbarProvider } from 'notistack';
 
 import { ResultContext } from './contexts/ResultContext';
 import { CredentialsContext } from './contexts/CredentialsContext';
@@ -75,47 +76,70 @@ const App = () => {
             >
                 <LoggedInContext.Provider value={{ loggedIn, setLoggedIn }}>
                     <ThemeProvider theme={darkMode}>
-                        <CssBaseline classes className={classes.lightFont} />
-                        <Layout>
-                            <AnimatePresence
-                                location={location}
-                                key={location.key}
-                            >
-                                <Switch>
-                                    <Route path='/' exact component={Landing} />
-                                    <Route path='/q1' component={QuestionOne} />
-                                    <Route path='/q2' component={QuestionTwo} />
-                                    <Route
-                                        path='/q3'
-                                        component={QuestionThree}
-                                    />
-                                    <Route
-                                        path='/q4'
-                                        component={QuestionFour}
-                                    />
-                                    <Route
-                                        path='/q5'
-                                        component={QuestionFive}
-                                    />
-                                    <Route
-                                        path='/test'
-                                        component={TestQuestion}
-                                    />
-                                    <Route
-                                        path='/userdetails'
-                                        component={UserDetails}
-                                    />
-                                    <Route
-                                        path='/dashboard'
-                                        component={DashboardPage}
-                                    />
-                                    <Route
-                                        path='/signup'
-                                        component={SignUpPage}
-                                    />
-                                </Switch>
-                            </AnimatePresence>
-                        </Layout>
+                        <SnackbarProvider
+                            maxSnack={3}
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'center'
+                            }}
+                            TransitionComponent={Slide}
+                            dense
+                        >
+                            <CssBaseline
+                                classes
+                                className={classes.lightFont}
+                            />
+                            <Layout>
+                                <AnimatePresence
+                                    location={location}
+                                    key={location.key}
+                                >
+                                    <Switch>
+                                        <Route
+                                            path='/'
+                                            exact
+                                            component={Landing}
+                                        />
+                                        <Route
+                                            path='/q1'
+                                            component={QuestionOne}
+                                        />
+                                        <Route
+                                            path='/q2'
+                                            component={QuestionTwo}
+                                        />
+                                        <Route
+                                            path='/q3'
+                                            component={QuestionThree}
+                                        />
+                                        <Route
+                                            path='/q4'
+                                            component={QuestionFour}
+                                        />
+                                        <Route
+                                            path='/q5'
+                                            component={QuestionFive}
+                                        />
+                                        <Route
+                                            path='/test'
+                                            component={TestQuestion}
+                                        />
+                                        <Route
+                                            path='/userdetails'
+                                            component={UserDetails}
+                                        />
+                                        <Route
+                                            path='/dashboard'
+                                            component={DashboardPage}
+                                        />
+                                        <Route
+                                            path='/signup'
+                                            component={SignUpPage}
+                                        />
+                                    </Switch>
+                                </AnimatePresence>
+                            </Layout>
+                        </SnackbarProvider>
                     </ThemeProvider>
                 </LoggedInContext.Provider>
             </CredentialsContext.Provider>

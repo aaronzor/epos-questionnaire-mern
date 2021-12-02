@@ -15,7 +15,6 @@ const GridItem = (props) => {
 
     const classes = useStyles();
     const breakPoint = useMediaQuery((theme) => theme.breakpoints.up('sm'));
-    console.log(breakPoint);
 
     // Local state
     const [clicked, setClicked] = useState(false);
