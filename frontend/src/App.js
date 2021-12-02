@@ -23,6 +23,7 @@ import UserDetails from './Pages/UserDetails';
 import TestQuestion from './Pages/TestQuestion';
 import DashboardPage from './Pages/DashboardPage';
 import SignUpPage from './Pages/SignUpPage';
+import PasswordRequest from './Pages/PasswordRequest';
 
 const darkMode = createTheme({
     components: {
@@ -135,6 +136,10 @@ const App = () => {
                                         <Route
                                             path='/signup'
                                             component={SignUpPage}
+                                        />
+                                        <Route
+                                            path='/forgotpassword'
+                                            component={PasswordRequest}
                                         />
                                     </Switch>
                                 </AnimatePresence>

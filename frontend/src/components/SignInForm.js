@@ -115,19 +115,6 @@ const SignInForm = (props) => {
                         Sign In
                     </Button>
                     <Grid container>
-                        <Grid item xs>
-                            <Link
-                                to='#'
-                                style={{
-                                    textDecoration: 'underline',
-                                    color: '#424242'
-                                }}
-                            >
-                                <Typography variant='body2'>
-                                    Forgot password?
-                                </Typography>
-                            </Link>
-                        </Grid>
                         <Grid item>
                             <Link
                                 to='/signup'
