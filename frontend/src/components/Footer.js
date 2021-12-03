@@ -14,7 +14,7 @@ const Footer = () => {
                 sx={{
                     backgroundColor: (theme) =>
                         theme.palette.mode === 'light'
-                            ? theme.palette.grey[300]
+                            ? theme.palette.grey[200]
                             : theme.palette.grey[800]
                 }}
                 className={classes.footerMain}
