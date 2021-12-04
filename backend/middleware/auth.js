@@ -7,7 +7,7 @@ import User from '../models/User.js';
 export const protect = asyncHandler(async (req, res, next) => {
     let token;
 
-    if (req.headers.cookie && req.headers.cookie.startsWith('token')) {
+    if (req.headers.cookie && req.headers.cookie.startsWith('EPOS')) {
         token = req.headers.cookie.split('=')[1];
     } else if (
         req.headers.authorization &&

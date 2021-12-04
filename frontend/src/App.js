@@ -71,21 +71,21 @@ const App = () => {
     const [loggedIn, setLoggedIn] = useState(false);
 
     return (
-        <ResultContext.Provider value={{ object, setObject }}>
-            <CredentialsContext.Provider
-                value={{ credentials, setCredentials }}
-            >
-                <LoggedInContext.Provider value={{ loggedIn, setLoggedIn }}>
-                    <ThemeProvider theme={darkMode}>
-                        <SnackbarProvider
-                            maxSnack={3}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'center'
-                            }}
-                            TransitionComponent={Slide}
-                            dense
-                        >
+        <SnackbarProvider
+            maxSnack={3}
+            anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'center'
+            }}
+            TransitionComponent={Slide}
+            dense
+        >
+            <ResultContext.Provider value={{ object, setObject }}>
+                <CredentialsContext.Provider
+                    value={{ credentials, setCredentials }}
+                >
+                    <LoggedInContext.Provider value={{ loggedIn, setLoggedIn }}>
+                        <ThemeProvider theme={darkMode}>
                             <CssBaseline
                                 classes
                                 className={classes.lightFont}
@@ -144,11 +144,11 @@ const App = () => {
                                     </Switch>
                                 </AnimatePresence>
                             </Layout>
-                        </SnackbarProvider>
-                    </ThemeProvider>
-                </LoggedInContext.Provider>
-            </CredentialsContext.Provider>
-        </ResultContext.Provider>
+                        </ThemeProvider>
+                    </LoggedInContext.Provider>
+                </CredentialsContext.Provider>
+            </ResultContext.Provider>
+        </SnackbarProvider>
     );
 };
 

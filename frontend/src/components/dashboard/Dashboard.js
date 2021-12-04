@@ -1,8 +1,9 @@
 import React from 'react';
 import { ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid, GridRowsProp, GridColDef } from '@mui/x-data-grid';
 import LogoutIcon from '@mui/icons-material/Logout';
+import RefreshIcon from '@mui/icons-material/Refresh';
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiDrawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
@@ -17,6 +18,9 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRigntIcon from '@mui/icons-material/ChevronRight';
 import Cookies from 'js-cookie';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
+
+axios.defaults.withCredentials = true;
 
 const drawerWidth = 200;
 
@@ -51,18 +55,27 @@ const Drawer = styled(MuiDrawer, {
     }
 }));
 
-// const rows: GridRowsProp = [
-//     { id: 1, col1: 'Hello', col2: 'World' },
-//     { id: 2, col1: 'DataGridPro', col2: 'is Awesome' },
-//     { id: 3, col1: 'MUI', col2: 'is Amazing' },
-//   ];
-
-//   const columns = GridColDef[] = [
-//     { field: 'col1', headerName: 'Column 1', width: 150 },
-//     { field: 'col2', headerName: 'Column 2', width: 150 },
-//   ];
-
+const resultsData = () => {
+    axios
+        .get(`${process.env.REACT_APP_URL}/api/v1/auth/me`)
+        .catch(function (error) {
+            error && console.log(error);
+        });
+};
 const DashboardContent = () => {
+    console.log(resultsData);
+
+    const rows = [
+        { id: 1, col1: 'Hello', col2: 'World' },
+        { id: 2, col1: 'DataGridPro', col2: 'is Awesome' },
+        { id: 3, col1: 'MUI', col2: 'is Amazing' }
+    ];
+
+    const columns = [
+        { field: 'col1', headerName: 'Column 1', width: 150 },
+        { field: 'col2', headerName: 'Column 2', width: 150 }
+    ];
+
     // Initialise history for refresh on logout
     const history = useHistory();
 
@@ -104,6 +117,12 @@ const DashboardContent = () => {
                         </ListItemIcon>
                         <ListItemText primary='Logout' />
                     </ListItem>
+                    <ListItem button onClick={resultsData}>
+                        <ListItemIcon>
+                            <RefreshIcon />
+                        </ListItemIcon>
+                        <ListItemText primary='Refresh Data' />
+                    </ListItem>
                 </List>
             </Drawer>
             <Box
@@ -123,15 +142,15 @@ const DashboardContent = () => {
                     <Grid container spacing={3}>
                         {/* Recent Orders */}
                         <Grid item xs={12}>
-                            <Paper
+                            {/* <Paper
                                 sx={{
                                     p: 2,
                                     display: 'flex',
                                     flexDirection: 'column'
                                 }}
-                            >
-                                {/* <DataGrid  /> */}
-                            </Paper>
+                            > */}
+                            <DataGrid rows={rows} columns={columns} />
+                            {/* </Paper> */}
                         </Grid>
                     </Grid>
                 </Container>

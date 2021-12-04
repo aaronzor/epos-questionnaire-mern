@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Avatar,
     Button,
@@ -9,14 +9,13 @@ import {
     Typography,
     Container
 } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 import signUpSchema from '../Validation/SignUpValidation';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
-import Cookies from 'js-cookie';
 import { useSnackbar, withSnackbar } from 'notistack';
 
 const SignUp = (props) => {
@@ -31,22 +30,38 @@ const SignUp = (props) => {
         resolver: yupResolver(signUpSchema)
     });
 
-    const submitInput = (data) => {
-        axios
+    const history = useHistory();
+
+    const submitInput = async (data) => {
+        await axios
             .post(`${process.env.REACT_APP_URL}/api/v1/auth/register`, {
                 userName: data.name,
                 email: data.email,
                 password: data.password
             })
-            .catch(function (error) {});
-
-        let cookie = Cookies.get('EPOS_QUIZ_AUTH');
-
-        if (cookie) {
-            enqueueSnackbar('Success! You can now log in', {
-                variant: 'success'
+            .then((response) => {
+                if (response) {
+                    enqueueSnackbar(
+                        'Success! You will now be redirected to log in',
+                        {
+                            variant: 'success'
+                        }
+                    );
+                    setTimeout(() => {
+                        history.goBack();
+                    }, 3000);
+                }
+            })
+            .catch(function (error) {
+                if (error.response.data.error.startsWith('Duplicate')) {
+                    enqueueSnackbar(
+                        'Failed! A user with this email already exists',
+                        {
+                            variant: 'error'
+                        }
+                    );
+                }
             });
-        }
     };
 
     return (

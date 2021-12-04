@@ -2,6 +2,7 @@ import crypto from 'crypto';
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import beautifyUnique from 'mongoose-beautiful-unique-validation';
 
 const UserSchema = new mongoose.Schema({
     userName: {
@@ -13,12 +14,13 @@ const UserSchema = new mongoose.Schema({
         match: [
             /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
             'Please add a valid email'
-        ]
+        ],
+        unique: true
     },
     role: {
         type: String,
         enum: ['user', 'admin'],
-        default: 'user'
+        default: 'admin'
         // For this application the user role 'admin' will mostly be used, however because of
         // the privilages tied to user accounts with admin roles, this role
         // will have to be set directly in the database manually. This
@@ -40,6 +42,9 @@ const UserSchema = new mongoose.Schema({
         default: Date.now
     }
 });
+
+// Enable beautifying on this schema
+UserSchema.plugin(beautifyUnique);
 
 // Encrypt password using bcrypt
 UserSchema.pre('save', async function (next) {

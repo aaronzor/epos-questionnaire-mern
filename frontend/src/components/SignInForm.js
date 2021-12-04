@@ -24,6 +24,7 @@ const SignInForm = (props) => {
 
     axios.defaults.withCredentials = true;
 
+    // Check for logged in user on component render
     useEffect(() => {
         if (Cookies.get('EPOS_QUIZ_AUTH')) setLoggedIn(true);
     });
@@ -36,14 +37,23 @@ const SignInForm = (props) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const res = await axios
+        await axios
             .post(`${process.env.REACT_APP_URL}/api/v1/auth/login`, {
                 email: credentials.email,
                 password: credentials.password
             })
+            .then((response) => {
+                console.log(response);
+            })
             .catch(function (error) {
-                if (error.response) {
-                    console.log(error.response);
+                if (error) {
+                    enqueueSnackbar(
+                        'Invalid Email or Password',
+                        {
+                            variant: 'error'
+                        },
+                        [enqueueSnackbar]
+                    );
                 }
             });
 
@@ -51,13 +61,7 @@ const SignInForm = (props) => {
 
         if (cookie) {
             setLoggedIn(true);
-        } else if (!cookie) {
-            enqueueSnackbar('Invalid Email or Password', {
-                variant: 'error'
-            });
         }
-
-        console.log(res);
     };
 
     return (
@@ -135,4 +139,4 @@ const SignInForm = (props) => {
     );
 };
 
-export default withSnackbar(SignInForm);
+export default SignInForm;
