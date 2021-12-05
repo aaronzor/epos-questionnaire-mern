@@ -1,5 +1,10 @@
-import React from 'react';
-import { ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import React, { useState } from 'react';
+import {
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+    Typography
+} from '@mui/material';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import { DataGrid, GridRowsProp, GridColDef } from '@mui/x-data-grid';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -19,6 +24,7 @@ import ChevronRigntIcon from '@mui/icons-material/ChevronRight';
 import Cookies from 'js-cookie';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import cookies from 'js-cookie';
 
 axios.defaults.withCredentials = true;
 
@@ -55,15 +61,37 @@ const Drawer = styled(MuiDrawer, {
     }
 }));
 
-const resultsData = () => {
-    axios
-        .get(`${process.env.REACT_APP_URL}/api/v1/auth/me`)
-        .catch(function (error) {
-            error && console.log(error);
-        });
-};
 const DashboardContent = () => {
-    console.log(resultsData);
+    // Set cookie value
+    const cookie = cookies.get('EPOS_QUIZ_AUTH');
+
+    // Request logged in user and find users name
+    const [user, setUser] = useState('');
+    React.useEffect(() => {
+        axios
+            .get(`${process.env.REACT_APP_URL}/api/v1/auth/me`, {
+                headers: { Authorization: 'Bearer ' + cookie }
+            })
+            .then((response) => {
+                response && setUser(response.data.data.userName);
+            })
+            .catch(function (error) {});
+    }, [cookie]);
+
+    // Request results data function
+    const resultsData = () => {
+        console.log(user);
+        axios
+            .get(`${process.env.REACT_APP_URL}/api/v1/results`, {
+                headers: { Authorization: 'Bearer ' + cookie }
+            })
+            .then((response) => {
+                response && console.log(response);
+            })
+            .catch(function (error) {
+                error && console.log(error.response);
+            });
+    };
 
     const rows = [
         { id: 1, col1: 'Hello', col2: 'World' },
@@ -137,6 +165,11 @@ const DashboardContent = () => {
                     overflow: 'auto'
                 }}
             >
+                <Paper elevation={0}>
+                    <Typography align='left' variant='h6' py={1} ml={2}>
+                        Welcome back {user}
+                    </Typography>
+                </Paper>
                 <Toolbar />
                 <Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
                     <Grid container spacing={3}>
