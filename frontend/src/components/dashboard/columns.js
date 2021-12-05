@@ -11,7 +11,7 @@ export const columns = [
     {
         field: 'Contacted?',
         title: 'Contacted?',
-        width: 50,
+        width: 30,
         filterPlaceholder: 'Filter Contacted'
     },
     {
@@ -72,7 +72,8 @@ export const columns = [
         field: 'Full EPOS Setup',
         title: 'Full EPOS Setup',
         width: 150,
-        filtering: false
+        filtering: false,
+        hidden: true
     },
     {
         field: 'System & Applications',

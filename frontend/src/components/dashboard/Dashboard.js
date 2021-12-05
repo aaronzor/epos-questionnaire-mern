@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { Button, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import MaterialTable from 'material-table';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -145,19 +145,36 @@ const DashboardContent = () => {
                 }}
             >
                 <MaterialTable
-                    editable={{
-                        onRowUpdate: (newRow, oldRow) =>
-                            new Promise((resolve, reject) => {
-                                console.log(newRow, oldRow);
-                                setTimeout(() => resolve(), 500);
-                            })
-                    }}
+                    // editable={{
+                    //     onRowUpdate: async (newRow, oldRow) => {
+                    //         axios
+                    //             .put(
+                    //                 `${process.env.REACT_APP_URL}/api/v1/results/${oldRow.tableData._id}`,
+                    //                 ...newRow
+                    //             )
+                    //             .then((response) => {
+                    //                 response && console.log(response);
+                    //             })
+                    //             .catch((error) => {
+                    //                 error && console.log(error);
+                    //             });
+                    //     }
+                    // }}
                     title={'Welcome Back ' + user}
                     style={{ margin: '0.3%' }}
                     icons={tableIcons}
                     data={tableData}
                     columns={columns}
+                    actions={[
+                        {
+                            icon: () => (
+                                <Button variant='outlined'>View Results</Button>
+                            ),
+                            onClick: (e, rowData) => console.log(rowData._id)
+                        }
+                    ]}
                     options={{
+                        actionsColumnIndex: 12,
                         filtering: true,
                         exportButton: true,
                         exportAllData: true,
