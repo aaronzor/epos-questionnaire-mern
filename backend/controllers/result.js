@@ -96,30 +96,37 @@ export const deleteResult = asyncHandler(async (req, res, next) => {
     });
 });
 
-// // @desc      Update Result
-// // @route     PUT /api/v1/results/:id
-// // @access    Private
-// export const updateResult = asyncHandler(async (req, res, next) => {
-//     const result = await Result.findByIdAndUpdate(req.params.id, req.body, {
-//         runValidators: true
-//     });
+// @desc      Update Result
+// @route     PUT /api/v1/results/:id
+// @access    Private
+export const updateResult = asyncHandler(async (req, res, next) => {
+    let result = await Result.findById(req.params.id);
 
-//     if (!result) {
-//         return next(
-//             new ErrorResponse(
-//                 `result not found with ID of ${req.params.id}`,
-//                 404
-//             )
-//         );
-//     }
+    if (!result) {
+        return next(
+            new ErrorResponse(
+                `result not found with ID of ${req.params.id}`,
+                404
+            )
+        );
+    }
 
-//     // Make sure user admin
-//     if (req.user.role !== 'admin') {
-//         return next(
-//             new ErrorResponse(
-//                 `The user with role ${req.user.role} is not authorized to delete results`,
-//                 401
-//             )
-//         );
-//     }
-// });
+    // Make sure user admin
+    if (req.user.role !== 'admin') {
+        return next(
+            new ErrorResponse(
+                `The user with role ${req.user.role} is not authorized to delete results`,
+                401
+            )
+        );
+    }
+
+    result = await Result.findByIdAndUpdate(req.params.id, req.body, {
+        runValidators: true
+    });
+
+    res.status(200).json({
+        success: true,
+        data: result
+    });
+});

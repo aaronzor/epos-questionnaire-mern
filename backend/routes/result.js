@@ -5,8 +5,8 @@ import {
     getResults,
     getResult,
     createResult,
-    deleteResult
-    //updateResult
+    deleteResult,
+    updateResult
 } from '../controllers/result.js';
 
 // Import Model
@@ -37,7 +37,7 @@ router
     .route('/:id')
     .get(advancedResults(Result))
     .get(protect, authorize('admin'), getResult)
-    .delete(protect, authorize('admin'), deleteResult);
-//.put(protect, authorize('admin'), updateResult);
+    .delete(protect, authorize('admin'), deleteResult)
+    .put(protect, authorize('admin'), updateResult);
 
 export { router as results };
