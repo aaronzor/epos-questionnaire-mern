@@ -47,14 +47,15 @@ const UserDetails = () => {
     };
 
     const onSubmit = async () => {
-        const res = await axios.post(
-            `${process.env.REACT_APP_URL}/api/v1/results`,
-            {
+        const res = await axios
+            .post(`${process.env.REACT_APP_URL}/api/v1/results`, {
                 ...object
-            }
-        );
+            })
+            .catch((error) => {
+                error && console.log(error);
+            });
 
-        if (res.statusText === 'Created') {
+        if (res && res.statusText === 'Created') {
             setSuccess(true);
         }
     };
