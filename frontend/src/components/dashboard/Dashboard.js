@@ -4,8 +4,18 @@ import {
     ListItem,
     ListItemIcon,
     ListItemText,
-    Typography
+    Typography,
+    Modal,
+    Card,
+    CardContent,
+    Table,
+    TableHead,
+    TableRow,
+    CardHeader,
+    TableBody,
+    TableCell
 } from '@mui/material';
+import { grey } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 import MaterialTable from 'material-table';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -24,6 +34,7 @@ import axios from 'axios';
 import cookies from 'js-cookie';
 import { columns } from './columns';
 import { tableIcons } from './tableIcons';
+import ResultsModal from './ResultsModal';
 
 axios.defaults.withCredentials = true;
 
@@ -107,11 +118,47 @@ const DashboardContent = () => {
         setOpen(!open);
     };
 
+    //Set inital modal data
+    const [modalData, setModalData] = useState({});
+
+    // Set initial state of modal
+    const [modalOpen, setModalOpen] = React.useState(false);
+
+    // Toggle modal state
+    const handleOpen = () => setModalOpen(true);
+    const handleClose = () => setModalOpen(false);
+
+    // Modal style
+    const style = {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        bgcolor: 'background.paper',
+        border: '2px solid #000',
+        boxShadow: 24,
+        p: 4
+    };
+
     // Logout function
     const logout = () => {
         Cookies.remove('EPOS_QUIZ_AUTH');
         history.go(0);
     };
+
+    let id = 0;
+    function createData(name, fat, price) {
+        id += 1;
+        return { id, name, fat, price };
+    }
+
+    const rows = [
+        createData('Frozen yoghurt', 159, 4.0),
+        createData('Ice cream sandwich', 237, 4.3),
+        createData('Eclair', 16.0, 6.0),
+        createData('Cupcake', 3.7, 4.3),
+        createData('Gingerbread', 16.0, 3.9)
+    ];
 
     return (
         <Box sx={{ display: 'flex', height: '100%' }}>
@@ -150,21 +197,6 @@ const DashboardContent = () => {
                 }}
             >
                 <MaterialTable
-                    // editable={{
-                    //     onRowUpdate: async (newRow, oldRow) => {
-                    //         axios
-                    //             .put(
-                    //                 `${process.env.REACT_APP_URL}/api/v1/results/${oldRow.tableData._id}`,
-                    //                 ...newRow
-                    //             )
-                    //             .then((response) => {
-                    //                 response && console.log(response);
-                    //             })
-                    //             .catch((error) => {
-                    //                 error && console.log(error);
-                    //             });
-                    //     }
-                    // }}
                     title={'Welcome Back ' + user}
                     style={{ margin: '0.3%', padding: '0.3%' }}
                     icons={tableIcons}
@@ -182,7 +214,11 @@ const DashboardContent = () => {
                                     </Typography>
                                 </Button>
                             ),
-                            onClick: (e, rowData) => console.log(rowData._id)
+                            onClick: (e, rowData) => {
+                                setModalData(rowData);
+                                handleOpen();
+                                console.log(modalData);
+                            }
                         }
                     ]}
                     options={{
@@ -195,6 +231,13 @@ const DashboardContent = () => {
                     }}
                 />
                 <Toolbar />
+                <ResultsModal
+                    open={modalOpen}
+                    close={handleClose}
+                    data={resultsData}
+                    aria-labelledby='modal-modal-title'
+                    aria-describedby='modal-modal-description'
+                />
             </Box>
         </Box>
     );
