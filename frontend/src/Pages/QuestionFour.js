@@ -9,8 +9,8 @@ import pageVariants from '../utility/pageVariants';
 
 const QuestionThree = () => {
     const clear = {
-        'Company Name': false,
-        'Position In Company': false,
+        companyName: false,
+        positionInCompany: false,
         Trading: false
     };
 
@@ -41,7 +41,7 @@ const QuestionThree = () => {
                         question='question4'
                         questionText='What is the name of your business?'
                         textInput={true}
-                        name='Company Name'
+                        name='companyName'
                         onChange={handleOnChange}
                         label=''
                         rows={1}
@@ -51,7 +51,7 @@ const QuestionThree = () => {
                         question='question4-2'
                         questionText='What is your position within the business?'
                         textInput={true}
-                        name='Position In Company'
+                        name='positionInCompany'
                         onChange={handleOnChange}
                         label=''
                         rows={1}

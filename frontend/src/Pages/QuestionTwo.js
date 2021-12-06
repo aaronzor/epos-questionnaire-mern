@@ -11,10 +11,10 @@ import pageVariants from '../utility/pageVariants';
 
 const QuestionTwo = () => {
     const clear = {
-        Retail: false,
-        Hospitality: false,
-        Other: false,
-        'Other business info': false
+        retail: false,
+        hospitality: false,
+        other: false,
+        otherBusinessInfo: false
     };
 
     const { object, setObject } = useContext(ResultContext);
@@ -53,18 +53,22 @@ const QuestionTwo = () => {
                         question='question1'
                         questionText='Which industry best describes your business?'
                     />
-                    <GridItem answer='Retail' />
-                    <GridItem answer='Hospitality' />
+                    <GridItem name='retail' answer='Retail' />
+                    <GridItem name='hospitality' answer='Hospitality' />
 
-                    <GridItem answer='Other' otherText={handleTextGrow} />
+                    <GridItem
+                        name='otherIndustry'
+                        otherText={handleTextGrow}
+                        answer='Other'
+                    />
 
                     <GridText
                         visable={grow}
-                        name='Other business info'
+                        name='otherIndustryInfo'
                         onChange={handleOnChange}
-                        label='Tell us about your business'
+                        label='Tell us your industry'
                         multiline
-                        rows='4'
+                        rows='2'
                     />
                 </Grid>
                 <Grid

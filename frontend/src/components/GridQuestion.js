@@ -58,14 +58,14 @@ const GridQuestion = (props) => {
                                 value={true}
                                 control={<Radio />}
                                 label='Yes'
-                                name='Trading'
+                                name='trading'
                                 onChange={props.onChange}
                             />
                             <FormControlLabel
                                 value={false}
                                 control={<Radio />}
                                 label='No'
-                                name='Trading'
+                                name='trading'
                                 onChange={props.onChange}
                             />
                         </RadioGroup>

@@ -28,9 +28,9 @@ const UserDetails = () => {
     const { object, setObject } = useContext(ResultContext);
     const classes = useStyles();
     const clear = {
-        ContactName: null,
-        Email: null,
-        ContactNumber: null
+        contactName: null,
+        email: null,
+        contactNumber: null
     };
     const {
         register,
@@ -90,47 +90,47 @@ const UserDetails = () => {
                                 </Grid>
                                 <Grid item xs={12}>
                                     <TextField
-                                        error={errors.ContactName}
+                                        error={errors.contactName}
                                         helperText={
-                                            errors.ContactName &&
+                                            errors.contactName &&
                                             'Please enter a name'
                                         }
                                         autoFocus
-                                        name='ContactName'
+                                        name='contactName'
                                         id='userDetailsName'
                                         label='Contact Name'
                                         // onChange MUST be below the register when using react-hook-form v7+
-                                        {...register('ContactName')}
+                                        {...register('contactName')}
                                         onChange={handleOnChange}
                                         className={classes.questionInput}
                                     />
                                 </Grid>
                                 <Grid item xs={12}>
                                     <TextField
-                                        error={errors.Email}
+                                        error={errors.email}
                                         helperText={
-                                            errors.Email &&
+                                            errors.email &&
                                             'Please enter a valid email'
                                         }
-                                        name='Email'
+                                        name='email'
                                         id='userDetailsEmail'
                                         label='Email'
-                                        {...register('Email')}
+                                        {...register('email')}
                                         onChange={handleOnChange}
                                         className={classes.questionInput}
                                     />
                                 </Grid>
                                 <Grid item xs={12}>
                                     <TextField
-                                        error={errors.ContactNumber}
+                                        error={errors.contactNumber}
                                         helperText={
-                                            errors.ContactNumber &&
+                                            errors.contactNumber &&
                                             'Please enter a contact number'
                                         }
-                                        name='ContactNumber'
+                                        name='contactNumber'
                                         id='userDetailsNumber'
                                         label='Contact Number'
-                                        {...register('ContactNumber')}
+                                        {...register('contactNumber')}
                                         onChange={handleOnChange}
                                         className={classes.questionInput}
                                     />
@@ -155,7 +155,7 @@ const UserDetails = () => {
                                                 />
                                             }
                                             label='Phone'
-                                            name='Phone Contact'
+                                            name='phoneContact'
                                         />
                                         <FormControlLabel
                                             control={
@@ -164,7 +164,7 @@ const UserDetails = () => {
                                                 />
                                             }
                                             label='Email'
-                                            name='Email Contact'
+                                            name='emailContact'
                                         />
                                     </FormGroup>
                                 </Grid>

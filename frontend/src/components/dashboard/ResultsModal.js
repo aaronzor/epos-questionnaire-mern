@@ -31,7 +31,7 @@ const ResultsModal = (props) => {
             <Card className={'MuiElevatedCard--01'}>
                 <CardHeader
                     className={'MuiCardHeader-root'}
-                    title={modalData.ContactName}
+                    title={modalData.contactName}
                     subheader={'Select your favourite'}
                     classes={{
                         title: 'MuiCardHeader-title',

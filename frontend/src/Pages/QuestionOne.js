@@ -17,10 +17,10 @@ const QuestionOne = () => {
     // };
 
     const clear = {
-        'Full EPOS Setup': false,
-        'Software Only': false,
-        'System & Applications': false,
-        'Unsure, Need Advice': false
+        fullEposSetup: false,
+        softwareOnly: false,
+        systemApplications: false,
+        unsureNeedAdvice: false
     };
 
     return (
@@ -42,10 +42,16 @@ const QuestionOne = () => {
                         question='question1'
                         questionText='What sort of service do you need?'
                     />
-                    <GridItem answer='Full EPOS Setup' />
-                    <GridItem answer='Software Only' />
-                    <GridItem answer='System & Applications' />
-                    <GridItem answer='Unsure, Need Advice' />
+                    <GridItem name='fullEposSetup' answer='Full EPOS Setup' />
+                    <GridItem name='softwareOnly' answer='Software Only' />
+                    <GridItem
+                        name='systemApplications'
+                        answer='System & Applications'
+                    />
+                    <GridItem
+                        name='unsureNeedAdvice'
+                        answer='Unsure, Need Advice'
+                    />
                     <NavButton link='/' variant='back' clear={clear} />
                     <NavButton link='/q2' variant='next' />
                 </Grid>

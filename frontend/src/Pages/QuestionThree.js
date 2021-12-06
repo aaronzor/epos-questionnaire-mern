@@ -9,9 +9,9 @@ import pageVariants from '../utility/pageVariants';
 
 const QuestionThree = () => {
     const clear = {
-        'Online Ordering': false,
-        'Card Readers': false,
-        'Cloud Software': false
+        onlineOrdering: false,
+        cardReaders: false,
+        cloudSoftware: false
     };
 
     return (
@@ -33,9 +33,9 @@ const QuestionThree = () => {
                         question='question1'
                         questionText='Please select anything else you would like information/quotations for'
                     />
-                    <GridItem answer='Online Ordering' />
-                    <GridItem answer='Card Readers' />
-                    <GridItem answer='Cloud Software' />
+                    <GridItem name='onlineOrdering' answer='Online Ordering' />
+                    <GridItem name='cardReaders' answer='Card Readers' />
+                    <GridItem name='cloudSoftware' answer='Cloud Software' />
                 </Grid>
                 <Grid
                     spacing={2}

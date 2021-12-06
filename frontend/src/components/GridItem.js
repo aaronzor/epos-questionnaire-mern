@@ -19,14 +19,15 @@ const GridItem = (props) => {
     // Local state
     const [clicked, setClicked] = useState(false);
 
-    const clickHandler = () => {
+    const clickHandler = (event) => {
         setClicked((prev) => !prev);
 
         props.otherText && props.otherText((prev) => !prev);
 
+        const { value } = event.target;
         setObject({
             ...object,
-            [props.answer]: !clicked
+            [props.name]: !clicked
         });
     };
 
@@ -42,7 +43,7 @@ const GridItem = (props) => {
                     }
                     elevation={0}
                     onClick={clickHandler}
-                    name={props.answer}
+                    name={props.name}
                     sx={{
                         ...(clicked && { border: `3.5px solid ${green[500]}` })
                     }}

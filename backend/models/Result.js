@@ -1,74 +1,73 @@
 import mongoose from 'mongoose';
 
 const ResultSchema = new mongoose.Schema({
-    'Phone Contact': {
+    phoneContact: {
         type: String
     },
-    'Email Contact': {
+    emailContact: {
         type: String
     },
-    ContactNumber: {
+    contactNumber: {
         type: String
     },
-    'System & Applications': {
+    systemApplications: {
         type: Boolean
     },
-    'Unsure, Need Advice': {
+    unsureNeedAdvice: {
         type: Boolean
     },
-    'Software Only': {
+    softwareOnly: {
         type: Boolean
     },
-    'Full EPOS Setup': {
+    fullEposSetup: {
         type: Boolean
     },
-    'Cloud Software': {
+    cloudSoftware: {
         type: Boolean
     },
-    'Card Readers': {
+    cardReaders: {
         type: Boolean
     },
-    Trading: {
+    trading: {
         type: Boolean
     },
-    'Position in Company': {
+    positionInCompany: {
         type: String
     },
-    'Other Needs': {
+    otherNeeds: {
         type: String
     },
-    Retail: {
+    retail: {
         type: Boolean
     },
-    Hospitality: {
+    hospitality: {
         type: Boolean
     },
-    'Single Venue': {
+    singleVenue: {
         type: Boolean
     },
-    Other: {
+    otherIndustry: {
         type: Boolean
     },
-    'Other business info': {
+    otherIndustryInfo: {
         type: String
     },
-
-    'Table Ordering': {
+    tableOrdering: {
         type: Boolean
     },
-    'Online Ordering': {
+    onlineOrdering: {
         type: Boolean
     },
-    'Company Name': {
+    companyName: {
         type: String
     },
-    ContactName: {
+    contactName: {
         type: String
     },
-    Email: {
+    email: {
         type: String
     },
-    'Contacted?': {
+    contacted: {
         type: Boolean
     },
     submittedAt: {

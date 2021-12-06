@@ -9,7 +9,7 @@ import pageVariants from '../utility/pageVariants';
 
 const QuestionFive = () => {
     const clear = {
-        'Other Needs': false
+        otherNeeds: false
     };
 
     const { object, setObject } = useContext(ResultContext);
@@ -39,7 +39,7 @@ const QuestionFive = () => {
                         questionText=' Do you have any specific needs or are in need of any other advice regarding EPOS and
                     Payment solutions?'
                         textInput={true}
-                        name='Other Needs'
+                        name='otherNeeds'
                         onChange={handleOnChange}
                         label=''
                         rows={6}
