@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
     Modal,
     Card,
@@ -11,8 +11,15 @@ import {
     TableBody
 } from '@mui/material';
 
+// Import Modal Data Context
+import { ModalDataContext } from '../../contexts/ModalDataContext';
+
 const ResultsModal = (props) => {
+    // Destructing props
     const { open, close } = props;
+
+    // Set context
+    const { modalData } = useContext(ModalDataContext);
 
     return (
         <Modal
@@ -24,7 +31,7 @@ const ResultsModal = (props) => {
             <Card className={'MuiElevatedCard--01'}>
                 <CardHeader
                     className={'MuiCardHeader-root'}
-                    title={'Title'}
+                    title={modalData.ContactName}
                     subheader={'Select your favourite'}
                     classes={{
                         title: 'MuiCardHeader-title',

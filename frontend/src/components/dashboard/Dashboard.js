@@ -1,21 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
     Button,
     ListItem,
     ListItemIcon,
     ListItemText,
-    Typography,
-    Modal,
-    Card,
-    CardContent,
-    Table,
-    TableHead,
-    TableRow,
-    CardHeader,
-    TableBody,
-    TableCell
+    Typography
 } from '@mui/material';
-import { grey } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 import MaterialTable from 'material-table';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -35,6 +25,7 @@ import cookies from 'js-cookie';
 import { columns } from './columns';
 import { tableIcons } from './tableIcons';
 import ResultsModal from './ResultsModal';
+import { ModalDataContext } from '../../contexts/ModalDataContext';
 
 axios.defaults.withCredentials = true;
 
@@ -119,7 +110,7 @@ const DashboardContent = () => {
     };
 
     //Set inital modal data
-    const [modalData, setModalData] = useState({});
+    const { setModalData } = useContext(ModalDataContext);
 
     // Set initial state of modal
     const [modalOpen, setModalOpen] = React.useState(false);
@@ -128,37 +119,11 @@ const DashboardContent = () => {
     const handleOpen = () => setModalOpen(true);
     const handleClose = () => setModalOpen(false);
 
-    // Modal style
-    const style = {
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        bgcolor: 'background.paper',
-        border: '2px solid #000',
-        boxShadow: 24,
-        p: 4
-    };
-
     // Logout function
     const logout = () => {
         Cookies.remove('EPOS_QUIZ_AUTH');
         history.go(0);
     };
-
-    let id = 0;
-    function createData(name, fat, price) {
-        id += 1;
-        return { id, name, fat, price };
-    }
-
-    const rows = [
-        createData('Frozen yoghurt', 159, 4.0),
-        createData('Ice cream sandwich', 237, 4.3),
-        createData('Eclair', 16.0, 6.0),
-        createData('Cupcake', 3.7, 4.3),
-        createData('Gingerbread', 16.0, 3.9)
-    ];
 
     return (
         <Box sx={{ display: 'flex', height: '100%' }}>
@@ -217,16 +182,12 @@ const DashboardContent = () => {
                             onClick: (e, rowData) => {
                                 setModalData(rowData);
                                 handleOpen();
-                                console.log(modalData);
                             }
                         }
                     ]}
                     options={{
                         actionsColumnIndex: 12,
                         filtering: true,
-                        exportButton: true,
-                        exportAllData: true,
-                        exportFileName: 'EPOS-QUIZ Table Data',
                         pageSize: '10'
                     }}
                 />
@@ -235,8 +196,8 @@ const DashboardContent = () => {
                     open={modalOpen}
                     close={handleClose}
                     data={resultsData}
-                    aria-labelledby='modal-modal-title'
-                    aria-describedby='modal-modal-description'
+                    aria-labelledby='Results Modal'
+                    aria-describedby='Popup modal to show detailed results for selected questionnaire report'
                 />
             </Box>
         </Box>
