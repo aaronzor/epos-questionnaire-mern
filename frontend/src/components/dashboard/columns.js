@@ -2,7 +2,7 @@ export const columns = [
     {
         field: 'submittedAt',
         title: 'Date',
-        width: 40,
+        cellStyle: { width: '50px' },
         type: 'date',
         dateSetting: { locale: 'en-GB' },
         defaultSort: 'desc',
@@ -11,59 +11,66 @@ export const columns = [
     {
         field: 'Contacted?',
         title: 'Contacted?',
-        width: 30,
+        emptyValue: () => 'No',
+        cellStyle: { width: '150px' },
         filterPlaceholder: 'Filter Contacted'
     },
     {
         field: 'ContactName',
         title: 'Contact Name',
-        width: 85,
+        cellStyle: { width: '150px' },
+        filtering: false,
         filterPlaceholder: 'Filter Name'
     },
     {
         field: 'Company Name',
         title: 'Company Name',
-        width: 100,
+        cellStyle: { width: '150px' },
+        filtering: false,
         filterPlaceholder: 'Filter Company'
     },
     {
         field: 'Position in Company',
         title: 'Position in Company',
-        width: 85,
+        cellStyle: { width: '150px' },
         emptyValue: () => <em>N/A</em>,
         filtering: false
     },
-    {
-        field: 'Trading',
-        title: 'Currently Trading?',
-        width: 85,
-        lookup: { true: 'Yes', false: 'No' },
-        filterPlaceholder: 'Filter Trading'
-    },
+
     {
         field: 'Email',
         title: 'Email',
-        width: 85,
+        cellStyle: { width: '150px' },
+        filtering: false,
         filterPlaceholder: 'Filter Email'
     },
     {
         field: 'ContactNumber',
         title: 'Phone',
-        width: 60,
+        cellStyle: { width: '150px' },
+        filtering: false,
         filterPlaceholder: 'Filter Phone'
+    },
+    {
+        field: 'Trading',
+        title: 'Currently Trading?',
+        cellStyle: { width: '150px' },
+        lookup: { true: 'Yes', false: 'No' },
+        filterPlaceholder: 'Filter Trading'
     },
     {
         field: 'Phone Contact',
         title: 'Phone Contact?',
-        width: 40,
+        cellStyle: { width: '150px' },
         lookup: { on: 'Yes' },
         emptyValue: () => 'No',
         filterPlaceholder: 'Filter Contact'
     },
+
     {
         field: 'Email Contact',
         title: 'Email Contact?',
-        width: 40,
+        cellStyle: { width: '150px' },
         lookup: { on: 'Yes' },
         emptyValue: () => 'No',
         filterPlaceholder: 'Filter Contact'
