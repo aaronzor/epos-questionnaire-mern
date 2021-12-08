@@ -36,6 +36,7 @@ const GridText = (props) => {
                         label={props.label}
                         multiline
                         rows={props.rows}
+                        inputProps={{ maxLength: 100 }}
                     />
                 </motion.div>
             )}

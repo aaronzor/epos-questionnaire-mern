@@ -236,11 +236,9 @@ const ResultsModal = (props) => {
                         <Collapse in={industryExpanded} timeout='auto'>
                             <CardContent sx={{ marginX: '20%' }}>
                                 <Typography variant='overline'>
-                                    {modalData.otherIndustryInfo !== '' ? (
-                                        modalData.otherIndustryInfo
-                                    ) : (
-                                        <em>N/A</em>
-                                    )}
+                                    {modalData.otherIndustryInfo !== ''
+                                        ? modalData.otherIndustryInfo
+                                        : 'N/A'}
                                 </Typography>
                             </CardContent>
                         </Collapse>
@@ -260,11 +258,9 @@ const ResultsModal = (props) => {
                         <Collapse in={otherInfoExpanded} timeout='auto'>
                             <CardContent sx={{ marginX: '20%' }}>
                                 <Typography variant='overline'>
-                                    {modalData.otherNeeds !== '' ? (
-                                        modalData.otherNeeds
-                                    ) : (
-                                        <em>N/A</em>
-                                    )}
+                                    {modalData.otherNeeds !== ''
+                                        ? modalData.otherNeeds
+                                        : 'N/A'}
                                 </Typography>
                             </CardContent>
                         </Collapse>

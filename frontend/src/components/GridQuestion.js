@@ -44,6 +44,7 @@ const GridQuestion = (props) => {
                         label={props.label}
                         multiline
                         rows={props.rows}
+                        inputProps={{ maxLength: 250 }}
                     />
                 )}
                 {props.radioInput && (
