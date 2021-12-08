@@ -78,15 +78,14 @@ export const deleteResult = asyncHandler(async (req, res, next) => {
         );
     }
 
-    // Make sure user admin
-    if (req.user.role !== 'admin') {
-        return next(
-            new ErrorResponse(
-                `The user with role ${req.user.role} is not authorized to delete results`,
-                401
-            )
-        );
-    }
+    // if (req.user.role !== 'admin') {
+    //     return next(
+    //         new ErrorResponse(
+    //             `The user with role ${req.user.role} is not authorized to view results`,
+    //             401
+    //         )
+    //     );
+    // }
 
     result.remove();
 
