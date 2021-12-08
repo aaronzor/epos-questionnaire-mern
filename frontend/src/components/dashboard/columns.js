@@ -13,6 +13,7 @@ export const columns = [
         title: 'Contacted?',
         emptyValue: () => 'No',
         cellStyle: { width: '150px' },
+        lookup: { true: 'Yes', false: 'No' },
         filterPlaceholder: 'Filter Contacted'
     },
     {

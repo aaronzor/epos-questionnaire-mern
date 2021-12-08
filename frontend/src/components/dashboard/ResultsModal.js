@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 
 // Import MUI
 import {
@@ -15,9 +15,10 @@ import {
     Button
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Box } from '@mui/system';
 
 // Import Material Table
-import MaterialTable from 'material-table';
+import MaterialTable from '@material-table/core';
 import { tableIcons } from './tableIcons';
 
 // Import Modal Data Context
@@ -27,7 +28,7 @@ import useModalDataObject from './useModalDataObject';
 
 // Import Axios
 import axios from 'axios';
-import { Box } from '@mui/system';
+import cookies from 'js-cookie';
 
 // Create expandable section for card content
 const ExpandMore = styled((props) => {
@@ -43,22 +44,28 @@ const ExpandMore = styled((props) => {
 
 const ResultsModal = (props) => {
     // Destructing props
-    const { open, close } = props;
+    const { open, close, tableData } = props;
+
+    // Declare Cookie for auth purposes
+    const cookie = cookies.get('EPOS_QUIZ_AUTH');
+
+    // Set global headers for requests
+    axios.defaults.headers.common['Authorization'] = 'Bearer ' + cookie;
+
+    // Set context
+    const { modalData } = useContext(ModalDataContext);
 
     // Initialise state for expanding card content
     const [industryExpanded, setIndustryExpanded] = useState(false);
     const [otherInfoExpanded, setOtherInfoExpanded] = useState(false);
 
+    // Handlers for expandable sections on modal
     const handleIndustry = () => {
         setIndustryExpanded(!industryExpanded);
     };
-
     const handleOtherInfo = () => {
         setOtherInfoExpanded(!otherInfoExpanded);
     };
-
-    // Set context
-    const { modalData } = useContext(ModalDataContext);
 
     // Load data with custom hook
     let data = useModalDataObject();
@@ -82,12 +89,104 @@ const ResultsModal = (props) => {
         borderRadius: 1
     };
 
+    // Contacted function
+    const toggleContacted = () => {
+        if (modalData.contacted === true) {
+            axios
+                .put(
+                    `${process.env.REACT_APP_URL}/api/v1/results/${modalData._id}`,
+                    { contacted: false }
+                )
+                .catch((error) => {})
+                .then(
+                    setTimeout(() => {
+                        close();
+                    }, 1000)
+                )
+                .then(
+                    setTimeout(() => {
+                        axios
+                            .get(
+                                `${process.env.REACT_APP_URL}/api/v1/results`,
+                                {
+                                    headers: {
+                                        Authorization: 'Bearer ' + cookie
+                                    }
+                                }
+                            )
+                            .then((response) => {
+                                //response && console.log(response.data.data);
+                                response && tableData(response.data.data);
+                            })
+                            .catch(function (error) {
+                                //error && console.log(error.response);
+                            });
+                    }, 500)
+                );
+        } else if (modalData.contacted === false) {
+            axios
+                .put(
+                    `${process.env.REACT_APP_URL}/api/v1/results/${modalData._id}`,
+                    { contacted: true }
+                )
+                .catch((error) => {})
+                .then(
+                    setTimeout(() => {
+                        close();
+                    }, 1000)
+                )
+                .then(
+                    setTimeout(() => {
+                        axios
+                            .get(
+                                `${process.env.REACT_APP_URL}/api/v1/results`,
+                                {
+                                    headers: {
+                                        Authorization: 'Bearer ' + cookie
+                                    }
+                                }
+                            )
+                            .then((response) => {
+                                response && console.log(response.data.data);
+                                response && tableData(response.data.data);
+                            })
+                            .catch(function (error) {
+                                //error && console.log(error.response);
+                            });
+                    }, 500)
+                );
+        }
+    };
+
+    // Delete function
     const deleteRecord = async () => {
         axios
             .delete(
-                `${process.env.REACT_APP_URL}/api/v1/results/${modalData._id}`
+                `${process.env.REACT_APP_URL}/api/v1/results/${modalData._id}`,
+                { headers: { Authorization: 'Bearer ' + cookie } }
             )
-            .catch((error) => {});
+            .catch((error) => {})
+            .then(
+                setTimeout(() => {
+                    handleClose();
+                    close();
+                }, 1000)
+            )
+            .then(
+                setTimeout(() => {
+                    axios
+                        .get(`${process.env.REACT_APP_URL}/api/v1/results`, {
+                            headers: { Authorization: 'Bearer ' + cookie }
+                        })
+                        .then((response) => {
+                            //response && console.log(response.data.data);
+                            response && tableData(response.data.data);
+                        })
+                        .catch(function (error) {
+                            //error && console.log(error.response);
+                        });
+                }, 500)
+            );
     };
 
     return (
@@ -170,11 +269,20 @@ const ResultsModal = (props) => {
                             </CardContent>
                         </Collapse>
                         <Stack
+                            spacing={3}
                             marginTop={4}
                             direction='row'
                             alignContent='center'
                             justifyContent='center'
                         >
+                            <Button
+                                onClick={toggleContacted}
+                                variant='outlined'
+                            >
+                                {modalData.contacted === false
+                                    ? 'Set Contacted'
+                                    : 'Set Uncontacted'}
+                            </Button>
                             <Button
                                 onClick={handleOpen}
                                 variant='primary'

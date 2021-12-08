@@ -7,7 +7,7 @@ import {
     Typography
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import MaterialTable from 'material-table';
+import MaterialTable from '@material-table/core';
 import LogoutIcon from '@mui/icons-material/Logout';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import MuiDrawer from '@mui/material/Drawer';
@@ -90,11 +90,11 @@ const DashboardContent = () => {
                 headers: { Authorization: 'Bearer ' + cookie }
             })
             .then((response) => {
-                response && console.log(response.data.data);
+                //response && console.log(response.data.data);
                 response && setTableData(response.data.data);
             })
             .catch(function (error) {
-                error && console.log(error.response);
+                //error && console.log(error.response);
             });
     };
 
@@ -196,6 +196,7 @@ const DashboardContent = () => {
                     open={modalOpen}
                     close={handleClose}
                     data={resultsData}
+                    tableData={setTableData}
                     aria-labelledby='Results Modal'
                     aria-describedby='Popup modal to show detailed results for selected questionnaire report'
                 />

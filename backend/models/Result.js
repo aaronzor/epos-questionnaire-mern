@@ -68,7 +68,9 @@ const ResultSchema = new mongoose.Schema({
         type: String
     },
     contacted: {
-        type: Boolean
+        type: Boolean,
+        required: true,
+        default: false
     },
     submittedAt: {
         type: Date,
