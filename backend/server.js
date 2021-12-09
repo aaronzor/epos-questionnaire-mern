@@ -44,7 +44,7 @@ const corsOptions = {
     optionsSuccessStatus: 204
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -56,10 +56,6 @@ app.use(function (req, res, next) {
     res.header(
         'Access-Control-Allow-Headers',
         'Origin, Content-Type, Accept, Authorization'
-    );
-    res.header(
-        'Content-Security-Policy',
-        'script-src self sha256-base64 encoded hash'
     );
     next();
 });
