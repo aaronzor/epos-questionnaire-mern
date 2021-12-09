@@ -47,14 +47,6 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use(function (req, res, next) {
-    res.setHeader(
-        'content-security-policy-report-only',
-        'default-src *; script-src *; script-src-elem *; script-src-attr *; style-src *; style-src-elem *; style-src-attr *; img-src *; font-src *; connect-src *; media-src *; object-src *; prefetch-src *; child-src *; frame-src *; worker-src *; frame-ancestors *; form-action * report-uri https://61b1439014685c32c23474ef.endpoint.csper.io?v=0;',
-        next()
-    );
-});
-
-app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Credentials', true);
     res.header(
