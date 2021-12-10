@@ -38,16 +38,20 @@ app.use(
 app.use(express.json());
 
 const corsOptions = {
-    origin: /.*localhost.*/,
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    origin: true,
+    methods: 'GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS',
     preflightContinue: true,
-    optionsSuccessStatus: 204
+    optionsSuccessStatus: 204,
+    allowedHeaders: 'Origin, Content-Type, Accept, Authorization'
 };
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.use(function (req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header(
+        'Access-Control-Allow-Origin',
+        'https://qube-epos-quiz.netlify.app/'
+    );
     res.header('Access-Control-Allow-Credentials', true);
     res.header(
         'Access-Control-Allow-Methods',
@@ -81,7 +85,11 @@ app.use(limiter);
 // Error handling middleware
 app.use(errorHandler);
 
-const __dirname = path.resolve();
+app.get('/', (req, res) => {
+    res.send('API is running...');
+});
+
+//const __dirname = path.resolve();
 
 // if (process.env.NODE_ENV === 'production') {
 //     app.use(express.static(path.join(__dirname, '/frontend/build')));
