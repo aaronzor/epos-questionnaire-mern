@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: '1px'
     },
     gridQuestion: {
-        width: '355px',
+        width: '365px',
         height: '116px',
         boxShadow: 1,
         borderRadius: '0',
@@ -117,15 +117,16 @@ const useStyles = makeStyles((theme) => ({
     footerWrap: {
         display: 'flex',
         flexDirection: 'column',
-        mt: 'auto',
-        position: 'fixed',
+        mt: '10%',
+        position: 'relative',
         width: '100%',
-        bottom: 0
+        bottom: 0,
+        marginTop: '5%'
     },
     footerMain: {
         padding: 1.5,
         mt: 'auto',
-        position: 'static',
+        position: 'fixed',
         width: '100%',
         bottom: 0
     }

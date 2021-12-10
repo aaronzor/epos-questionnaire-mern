@@ -95,7 +95,6 @@ const UserDetails = () => {
                                             errors.contactName &&
                                             'Please enter a name'
                                         }
-                                        autoFocus
                                         name='contactName'
                                         id='userDetailsName'
                                         label='Contact Name'

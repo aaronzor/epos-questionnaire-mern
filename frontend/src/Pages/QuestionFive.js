@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Grid, Container } from '@mui/material';
+import { Grid, Container, Box } from '@mui/material';
 import { ResultContext } from '../contexts/ResultContext';
 import GridQuestion from '../components/GridQuestion';
 import NavButton from '../components/NavButton';

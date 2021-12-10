@@ -20,7 +20,8 @@ const QuestionOne = () => {
                     align='center'
                     justifyContent='center'
                     container
-                    marginTop='15%'
+                    marginTop='4%'
+                    marginBottom='10%'
                 >
                     <Grid item xs={12}>
                         <GridQuestion questionText='Welcome to the QUBE Epos questionnaire' />

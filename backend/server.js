@@ -50,7 +50,7 @@ app.use(cors(corsOptions));
 app.use(function (req, res, next) {
     res.header(
         'Access-Control-Allow-Origin',
-        'https://qube-epos-quiz.netlify.app/'
+        'https://qube-epos-quiz.netlify.app'
     );
     res.header('Access-Control-Allow-Credentials', true);
     res.header(
