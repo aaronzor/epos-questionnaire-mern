@@ -38,7 +38,7 @@ app.use(
 app.use(express.json());
 
 const corsOptions = {
-    origin: true,
+    origin: 'https://qube-epos-quiz.netlify.app',
     methods: 'GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS',
     preflightContinue: true,
     optionsSuccessStatus: 204,
