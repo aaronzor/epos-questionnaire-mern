@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
+
+// Material UI imports
 import {
     Avatar,
     Button,
@@ -9,19 +11,25 @@ import {
     Typography,
     Container
 } from '@mui/material';
-import { Link, useHistory } from 'react-router-dom';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
-import signUpSchema from '../Validation/SignUpValidation';
+// Other imports
+import { Link, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import axios from 'axios';
 import { useSnackbar, withSnackbar } from 'notistack';
+import axios from 'axios';
+import Cookies from 'js-cookie';
+
+// Validation import
+import signUpSchema from '../Validation/SignUpValidation';
 
 const SignUp = (props) => {
+    // Destructuring
     const { enqueueSnackbar } = useSnackbar();
     const { handleChange } = props;
 
+    // Validation useForm hook
     const {
         register,
         handleSubmit,
@@ -30,9 +38,13 @@ const SignUp = (props) => {
         resolver: yupResolver(signUpSchema)
     });
 
+    // Initialise history for redirect
     const history = useHistory();
 
+    // Create account function
     const submitInput = async (data) => {
+        let token;
+
         await axios
             .post(`${process.env.REACT_APP_URL}/api/v1/auth/register`, {
                 userName: data.name,
@@ -41,6 +53,11 @@ const SignUp = (props) => {
             })
             .then((response) => {
                 if (response) {
+                    if (response.data.success === true) {
+                        token = response.data.token;
+                        Cookies.set('EPOS_QUIZ_AUTH', token);
+                    }
+
                     enqueueSnackbar(
                         'Success! You will now be redirected to log in',
                         {

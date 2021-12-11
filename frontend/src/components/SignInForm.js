@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
-import { CredentialsContext } from '../contexts/CredentialsContext';
-import { LoggedInContext } from '../contexts/LoggedInContext';
+
+// Material UI imports
 import {
     Avatar,
     Button,
@@ -11,17 +11,25 @@ import {
     Container,
     Typography
 } from '@mui/material';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+
+// Other imports
+import { Link } from 'react-router-dom';
+import { useSnackbar } from 'notistack';
 import Cookies from 'js-cookie';
-import { useSnackbar, withSnackbar } from 'notistack';
+import axios from 'axios';
+
+// Context imports
+import { CredentialsContext } from '../contexts/CredentialsContext';
+import { LoggedInContext } from '../contexts/LoggedInContext';
 
 const SignInForm = (props) => {
+    // Destructuring
     const { enqueueSnackbar } = useSnackbar();
     const { credentials, setCredentials } = useContext(CredentialsContext);
     const { setLoggedIn } = useContext(LoggedInContext);
 
+    // Set axios default header
     axios.defaults.withCredentials = true;
 
     // Check for logged in user on component render
@@ -29,14 +37,16 @@ const SignInForm = (props) => {
         if (Cookies.get('EPOS_QUIZ_AUTH')) setLoggedIn(true);
     });
 
+    // Update credentials context on text input
     const handleCredentials = (event) => {
         const { name, value } = event.target;
         setCredentials({ ...credentials, [name]: value });
     };
 
+    // Function for logging in
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+        let token;
         await axios
             .post(`${process.env.REACT_APP_URL}/api/v1/auth/login`, {
                 email: credentials.email,
@@ -44,6 +54,11 @@ const SignInForm = (props) => {
             })
             .then((response) => {
                 console.log(response);
+
+                if (response.data.success === true) {
+                    token = response.data.token;
+                    Cookies.set('EPOS_QUIZ_AUTH', token);
+                }
             })
             .catch(function (error) {
                 if (error) {
@@ -58,7 +73,6 @@ const SignInForm = (props) => {
             });
 
         let cookie = Cookies.get('EPOS_QUIZ_AUTH');
-
         if (cookie) {
             setLoggedIn(true);
         }
