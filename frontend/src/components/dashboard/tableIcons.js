@@ -1,5 +1,8 @@
+// This file defines what icons to use in the Material-Table component
+
 import { forwardRef } from 'react';
 
+// Import Icons from MUI
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
 import Check from '@material-ui/icons/Check';

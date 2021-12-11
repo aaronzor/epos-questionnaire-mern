@@ -1,4 +1,6 @@
 import React, { useState, useContext } from 'react';
+
+// Material UI imports
 import {
     Button,
     ListItem,
@@ -6,31 +8,40 @@ import {
     ListItemText,
     Typography
 } from '@mui/material';
-import { styled } from '@mui/material/styles';
-import MaterialTable from '@material-table/core';
-import LogoutIcon from '@mui/icons-material/Logout';
-import RefreshIcon from '@mui/icons-material/Refresh';
-import MuiDrawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
+import MuiDrawer from '@mui/material/Drawer';
+import { styled } from '@mui/material/styles';
+
+// Icon Imports
+import LogoutIcon from '@mui/icons-material/Logout';
+import RefreshIcon from '@mui/icons-material/Refresh';
 import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRigntIcon from '@mui/icons-material/ChevronRight';
-import Cookies from 'js-cookie';
+import { tableIcons } from './tableIcons';
+
+// Ohter imports
 import { useHistory } from 'react-router-dom';
+import { columns } from './columns';
+import MaterialTable from '@material-table/core';
+import Cookies from 'js-cookie';
 import axios from 'axios';
 import cookies from 'js-cookie';
-import { columns } from './columns';
-import { tableIcons } from './tableIcons';
+
+// Results modal components and context import
 import ResultsModal from './ResultsModal';
 import { ModalDataContext } from '../../contexts/ModalDataContext';
 
+// Set axios default headers
 axios.defaults.withCredentials = true;
 
+// Set drawer width
 const drawerWidth = 200;
 
+// Style Drawer
 const Drawer = styled(MuiDrawer, {
     shouldForwardProp: (prop) => prop !== 'open'
 })(({ theme, open }) => ({
@@ -63,6 +74,7 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 const DashboardContent = () => {
+    // Initialise table data state
     const [tableData, setTableData] = useState([]);
 
     // Set cookie value
@@ -70,7 +82,6 @@ const DashboardContent = () => {
 
     // Request logged in user and find users name
     const [user, setUser] = useState('');
-
     React.useEffect(() => {
         axios
             .get(`${process.env.REACT_APP_URL}/api/v1/auth/me`, {
@@ -163,7 +174,6 @@ const DashboardContent = () => {
             >
                 <MaterialTable
                     title={'Welcome Back ' + user}
-                    style={{ margin: '0.3%', padding: '0.3%' }}
                     icons={tableIcons}
                     data={tableData}
                     columns={columns}

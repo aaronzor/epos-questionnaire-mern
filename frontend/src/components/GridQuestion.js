@@ -1,4 +1,6 @@
 import React from 'react';
+
+// MUI imports
 import {
     Grid,
     Card,
@@ -10,6 +12,8 @@ import {
     FormControl,
     FormControlLabel
 } from '@mui/material';
+
+// Import styling
 import useStyles from '../styles/makeStyle';
 
 const GridQuestion = (props) => {

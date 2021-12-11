@@ -1,4 +1,6 @@
 import { React, useState, useContext } from 'react';
+
+// MUI imports
 import {
     CardActionArea,
     Card,
@@ -7,8 +9,12 @@ import {
     useMediaQuery
 } from '@mui/material';
 import { green } from '@mui/material/colors';
-import { ResultContext } from '../contexts/ResultContext';
+
+// Import Styling
 import useStyles from '../styles/makeStyle';
+
+// Import context
+import { ResultContext } from '../contexts/ResultContext';
 
 const GridItem = (props) => {
     const { object, setObject } = useContext(ResultContext);

@@ -14,25 +14,26 @@ export const columns = [
         emptyValue: () => 'No',
         cellStyle: { width: '150px' },
         lookup: { true: 'Yes', false: 'No' },
-        filterPlaceholder: 'Filter Contacted'
+        filterPlaceholder: 'Filter Contacted',
+        filtering: false
     },
     {
         field: 'contactName',
-        title: 'Contact Name',
+        title: 'Name',
         cellStyle: { width: '150px' },
         filtering: false,
         filterPlaceholder: 'Filter Name'
     },
     {
         field: 'companyName',
-        title: 'Company Name',
+        title: 'Company',
         cellStyle: { width: '150px' },
         filtering: false,
         filterPlaceholder: 'Filter Company'
     },
     {
         field: 'positionInCompany',
-        title: 'Position in Company',
+        title: 'Position',
         cellStyle: { width: '150px' },
         emptyValue: () => <em>N/A</em>,
         filtering: false
@@ -54,10 +55,11 @@ export const columns = [
     },
     {
         field: 'trading',
-        title: 'Currently Trading?',
+        title: 'Trading?',
         cellStyle: { width: '150px' },
         lookup: { true: 'Yes', false: 'No' },
-        filterPlaceholder: 'Filter Trading'
+        filterPlaceholder: 'Filter Trading',
+        filtering: false
     },
     {
         field: 'phoneContact',
@@ -65,7 +67,8 @@ export const columns = [
         cellStyle: { width: '150px' },
         lookup: { on: 'Yes' },
         emptyValue: () => 'No',
-        filterPlaceholder: 'Filter Contact'
+        filterPlaceholder: 'Filter Contact',
+        filtering: false
     },
 
     {
@@ -74,7 +77,8 @@ export const columns = [
         cellStyle: { width: '150px' },
         lookup: { on: 'Yes' },
         emptyValue: () => 'No',
-        filterPlaceholder: 'Filter Contact'
+        filterPlaceholder: 'Filter Contact',
+        filtering: false
     },
     {
         field: 'fullEposSetup',
