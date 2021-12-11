@@ -42,7 +42,7 @@ const corsOptions = {
     methods: 'GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS',
     preflightContinue: true,
     optionsSuccessStatus: 204,
-    allowedHeaders: 'Origin, Content-Type, Accept, Authorization'
+    allowedHeaders: 'Origin, Content-Type, Accept, Authorization, Set-Cookie'
 };
 
 app.use(cors(corsOptions));
@@ -59,7 +59,7 @@ app.use(function (req, res, next) {
     );
     res.header(
         'Access-Control-Allow-Headers',
-        'Origin, Content-Type, Accept, Authorization'
+        'Origin, Content-Type, Accept, Authorization, Set-Cookie'
     );
     next();
 });
