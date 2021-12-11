@@ -49,6 +49,22 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
+const isPreflight = (req) => {
+    let isHttpOptions = req.method === 'OPTIONS';
+    let hasOriginHeader = req.headers['origin'];
+    let hasReqMethod = req.headers['access-control-request-method'];
+    return isHttpOptions && hasOriginHeader && hasReqMethod;
+};
+
+app.use((req, res, next) => {
+    if (isPreflight(req)) {
+        console.log('Preflight request recieved');
+        res.status(204).end();
+        return;
+    }
+    next();
+});
+
 // Trust proxy for Heroku
 app.enable('trust proxy', 1);
 
