@@ -40,7 +40,7 @@ app.use(express.json());
 
 // CORS Configuration
 const corsOptions = {
-    origin: 'https://qube-epos-quiz.netlify.app',
+    origin: `${process.env.FRONTEND_URL}`,
     methods: 'GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS',
     preflightContinue: true,
     optionsSuccessStatus: 204,
@@ -82,10 +82,7 @@ app.use(
 
 // Set response headers
 app.use(function (req, res, next) {
-    res.header(
-        'Access-Control-Allow-Origin',
-        'https://qube-epos-quiz.netlify.app'
-    );
+    res.header('Access-Control-Allow-Origin', `${process.env.FRONTEND_URL}`);
     res.header('Access-Control-Allow-Credentials', true);
     res.header(
         'Access-Control-Allow-Methods',
