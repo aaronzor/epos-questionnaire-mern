@@ -7,6 +7,7 @@ import path from 'path';
 
 // import middleware
 import errorHandler from './middleware/errorHandler.js';
+import session from 'express-session';
 
 // Import Routes
 import { results } from './routes/result.js';
