@@ -37,6 +37,7 @@ app.use(
 );
 app.use(express.json());
 
+// CORS Configuration
 const corsOptions = {
     origin: 'https://qube-epos-quiz.netlify.app',
     methods: 'GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS',
@@ -44,11 +45,22 @@ const corsOptions = {
     optionsSuccessStatus: 204,
     allowedHeaders: 'Origin, Content-Type, Accept, Authorization, Set-Cookie'
 };
-
 app.use(cors(corsOptions));
 
-app.enable('trust proxy');
+// Trust proxy for Heroku
+app.enable('trust proxy', 1);
 
+// Session config
+app.use(
+    session({
+        cookie: {
+            sameSite: 'none',
+            secure: true
+        }
+    })
+);
+
+// Set response headers
 app.use(function (req, res, next) {
     res.header(
         'Access-Control-Allow-Origin',
