@@ -47,6 +47,8 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+app.enable('trust proxy');
+
 app.use(function (req, res, next) {
     res.header(
         'Access-Control-Allow-Origin',
@@ -61,6 +63,7 @@ app.use(function (req, res, next) {
         'Access-Control-Allow-Headers',
         'Origin, Content-Type, Accept, Authorization, Set-Cookie'
     );
+
     next();
 });
 
