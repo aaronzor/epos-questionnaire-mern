@@ -49,12 +49,6 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-app.use((req, res, next) => {
-    if (req.method === 'OPTIONS') {
-        res.sendStatus(200);
-    }
-});
-
 // Trust proxy for Heroku
 app.enable('trust proxy', 1);
 
