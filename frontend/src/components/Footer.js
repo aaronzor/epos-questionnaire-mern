@@ -1,37 +1,32 @@
 import React from 'react';
-import { Container, Typography, Box, CssBaseline } from '@mui/material';
-import useStyles from '../styles/makeStyle';
+
+// MUI imports
+import { Container, Typography, Box } from '@mui/material';
+import { grey } from '@mui/material/colors';
+
+// Other imports
 import { Link } from 'react-router-dom';
 import Copyright from './Copyright';
 
-const Footer = () => {
-    const classes = useStyles();
+const FooterComponent = ({ toggleDrawer }) => {
     return (
-        <Box className={classes.footerWrap}>
-            <CssBaseline />
-            <Box
-                component='footer'
-                sx={{
-                    backgroundColor: (theme) =>
-                        theme.palette.mode === 'light'
-                            ? theme.palette.grey[200]
-                            : theme.palette.grey[800]
-                }}
-                className={classes.footerMain}
-            >
-                <Container maxWidth='sm'>
-                    <Link
-                        to='/dashboard'
-                        style={{ textDecoration: 'none', color: '#c98ced' }}
-                    >
-                        <Typography align='center'>Dashboard Login</Typography>
-                    </Link>
+        <Box
+            background={grey[400]}
+            onClick={toggleDrawer}
+            onKeyDown={toggleDrawer}
+        >
+            <Container maxWidth='sm'>
+                <Link
+                    to='/dashboard'
+                    style={{ textDecoration: 'none', color: '#c98ced' }}
+                >
+                    <Typography align='center'>Dashboard Login</Typography>
+                </Link>
 
-                    <Copyright dev='true' />
-                </Container>
-            </Box>
+                <Copyright dev='true' />
+            </Container>
         </Box>
     );
 };
 
-export default Footer;
+export default FooterComponent;

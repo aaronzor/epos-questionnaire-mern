@@ -1,12 +1,20 @@
 import React from 'react';
+
+// MUI imports
 import { Typography, Grid, Container, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-import { motion } from 'framer-motion';
-import pageVariants from '../utility/pageVariants';
+// Import Components
 import GridQuestion from '../components/GridQuestion';
 
+// Other Imports
+import { motion } from 'framer-motion';
+import pageVariants from '../utility/pageVariants';
+import useStyles from '../styles/makeStyle';
+
 const QuestionOne = () => {
+    const classes = useStyles();
+
     return (
         <motion.div
             variants={pageVariants}
@@ -21,13 +29,11 @@ const QuestionOne = () => {
                     justifyContent='center'
                     container
                     marginTop='4%'
-                    marginBottom='10%'
+                    marginBottom='2%'
+                    className={classes.grid}
                 >
                     <Grid item xs={12}>
-                        <GridQuestion questionText='Welcome to the QUBE Epos questionnaire' />
-                        {/* <Typography variant='h5' mt={5} mb={7}>
-                            Welcome to the QUBE Epos questionnaire
-                        </Typography> */}
+                        <GridQuestion questionText='Welcome to the QUBE EPoS questionnaire' />
                         <Typography my={3} px={2}>
                             This short questionnaire will help us get an idea of
                             which of our services or products you might be

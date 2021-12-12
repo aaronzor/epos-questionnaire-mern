@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: '1px'
     },
     gridQuestion: {
-        width: '365px',
+        width: '95%',
         height: '116px',
         boxShadow: 1,
         borderRadius: '0',
@@ -47,9 +47,6 @@ const useStyles = makeStyles((theme) => ({
         borderColor: '#424242',
         //borderTop: 'none'
         marginTop: '40px'
-    },
-    root: {
-        flexGrow: 1
     },
     // Text
     subTitle: {
@@ -64,7 +61,8 @@ const useStyles = makeStyles((theme) => ({
 
     // App Bar
     appbar: {
-        alignItems: 'center'
+        //alignItems: 'center',
+        //justifyContent: 'space-between'
     },
 
     logo: {
@@ -124,11 +122,22 @@ const useStyles = makeStyles((theme) => ({
         marginTop: '5%'
     },
     footerMain: {
+        flexShrink: 0,
         padding: 1.5,
         mt: 'auto',
-        position: 'fixed',
         width: '100%',
         bottom: 0
+    },
+    // Flex containers
+    root: {
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100vh'
+    },
+
+    //Grid Content
+    grid: {
+        flex: '1 0 auto'
     }
 }));
 
