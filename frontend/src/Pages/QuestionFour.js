@@ -1,13 +1,26 @@
 import React, { useContext } from 'react';
-import { Grid, Container } from '@mui/material';
-import { ResultContext } from '../contexts/ResultContext';
+import {
+    Grid,
+    Container,
+    Typography,
+    TextField,
+    FormControl,
+    Radio,
+    RadioGroup,
+    FormControlLabel
+} from '@mui/material';
 import GridQuestion from '../components/GridQuestion';
 import NavButton from '../components/NavButton';
+import { ResultContext } from '../contexts/ResultContext';
 
+// Other Imports
 import { motion } from 'framer-motion';
 import pageVariants from '../utility/pageVariants';
+import useStyles from '../styles/makeStyle';
 
 const QuestionThree = () => {
+    const classes = useStyles();
+
     const clear = {
         companyName: false,
         positionInCompany: false,
@@ -30,40 +43,68 @@ const QuestionThree = () => {
         >
             <Container disableGutters maxWidth='xs'>
                 <Grid
-                    spacing={3}
+                    spacing={5}
                     align='center'
                     justifyContent='center'
                     container
                     marginTop='0%'
                     marginBottom='10%'
                 >
-                    <GridQuestion
-                        question='question4'
-                        questionText='What is the name of your business?'
-                        textInput={true}
-                        name='companyName'
-                        onChange={handleOnChange}
-                        label=''
-                        rows={1}
-                    />
+                    <Grid item xs={12}>
+                        <Typography mb={2} mt={8}>
+                            What is the name of your business?
+                        </Typography>
 
-                    <GridQuestion
-                        question='question4-2'
-                        questionText='What is your position within the business?'
-                        textInput={true}
-                        name='positionInCompany'
-                        onChange={handleOnChange}
-                        label=''
-                        rows={1}
-                    />
+                        <TextField
+                            name='companyName'
+                            id='companyName'
+                            label='Company Name'
+                            onChange={handleOnChange}
+                            className={classes.questionInput}
+                        />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Typography mb={2} mt={5}>
+                            What is your position within the business?
+                        </Typography>
 
-                    <GridQuestion
-                        question='question4-3'
-                        questionText='Are you currently trading?'
-                        radioInput={true}
-                        onChange={handleOnChange}
-                    />
+                        <TextField
+                            name='positionInCompany'
+                            id='positionInCompany'
+                            label='Position in Company'
+                            onChange={handleOnChange}
+                            className={classes.questionInput}
+                        />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Typography mb={2} mt={3}>
+                            Are you currently trading?
+                        </Typography>
 
+                        <FormControl>
+                            <RadioGroup
+                                row
+                                aria-label='trading'
+                                name='userTrading'
+                                sx={{ marginBottom: '2rem' }}
+                            >
+                                <FormControlLabel
+                                    value={true}
+                                    control={<Radio />}
+                                    label='Yes'
+                                    name='trading'
+                                    onChange={handleOnChange}
+                                />
+                                <FormControlLabel
+                                    value={false}
+                                    control={<Radio />}
+                                    label='No'
+                                    name='trading'
+                                    onChange={handleOnChange}
+                                />
+                            </RadioGroup>
+                        </FormControl>
+                    </Grid>
                     <NavButton link='/q3' variant='back' clear={clear} />
                     <NavButton link='/q5' variant='next' />
                 </Grid>

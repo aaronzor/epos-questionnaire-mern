@@ -1,13 +1,16 @@
 import React, { useContext } from 'react';
-import { Grid, Container, Box } from '@mui/material';
+import { Grid, Container, Typography, TextField } from '@mui/material';
 import { ResultContext } from '../contexts/ResultContext';
-import GridQuestion from '../components/GridQuestion';
+
 import NavButton from '../components/NavButton';
 
 import { motion } from 'framer-motion';
 import pageVariants from '../utility/pageVariants';
+import useStyles from '../styles/makeStyle';
 
 const QuestionFive = () => {
+    const classes = useStyles();
+
     const clear = {
         otherNeeds: false
     };
@@ -34,16 +37,22 @@ const QuestionFive = () => {
                     container
                     marginTop='0%'
                 >
-                    <GridQuestion
-                        question='question5'
-                        questionText=' Do you have any specific needs or are in need of any other advice regarding EPOS and
-                    Payment solutions?'
-                        textInput={true}
-                        name='otherNeeds'
-                        onChange={handleOnChange}
-                        label=''
-                        rows={6}
-                    />
+                    <Grid item xs={12}>
+                        <Typography mb={2} mt={8} paddingX={2}>
+                            Do you have any specific needs or are in need of any
+                            other advice regarding EPoS and Payment solutions?
+                        </Typography>
+
+                        <TextField
+                            name='otherNeeds'
+                            id='otherNeeds'
+                            onChange={handleOnChange}
+                            className={classes.questionInput}
+                            multiline
+                            rows={8}
+                            inputProps={{ maxLength: 150 }}
+                        />
+                    </Grid>
 
                     <NavButton link='/q4' variant='back' clear={clear} />
                     <NavButton link='/userdetails' variant='next' />
