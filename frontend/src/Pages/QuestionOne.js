@@ -30,7 +30,13 @@ const QuestionOne = () => {
             animate='visible'
             exit='exit'
         >
-            <Container disableGutters maxWidth='xs'>
+            <Container
+                disableGutters
+                maxWidth='xs'
+                sx={{
+                    width: '375px'
+                }}
+            >
                 <Grid
                     spacing={2}
                     align='center'

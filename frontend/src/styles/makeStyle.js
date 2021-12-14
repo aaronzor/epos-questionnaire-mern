@@ -6,6 +6,9 @@ const useStyles = makeStyles((theme) => ({
     customBorder: {
         border: `3px solid ${green[500]}`
     },
+    gridContainer: {
+        width: '375px'
+    },
     gridBox: {
         width: '155px',
         height: '100%',
@@ -13,8 +16,8 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: '0'
     },
     gridOption: {
-        width: '160px',
-        height: '160px',
+        width: '97%',
+        height: '170px',
         boxShadow: 1,
         border: `3px solid `,
         borderColor: '#424242'
@@ -39,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: '1px'
     },
     gridQuestion: {
-        width: '95%',
+        width: '98.5%',
         height: '116px',
         boxShadow: 1,
         borderRadius: '0',

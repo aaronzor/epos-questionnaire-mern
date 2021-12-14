@@ -23,8 +23,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { motion } from 'framer-motion';
 
 const UserDetails = () => {
+    //const breakPoint = useMediaQuery((theme) => theme.breakpoints.up('sm'));
     const [success, setSuccess] = useState(false);
-    const breakPoint = useMediaQuery((theme) => theme.breakpoints.up('sm'));
     const { object, setObject } = useContext(ResultContext);
     const classes = useStyles();
     const clear = {
@@ -69,7 +69,13 @@ const UserDetails = () => {
                     animate='visible'
                     exit='exit'
                 >
-                    <Container disableGutters maxWidth='xs'>
+                    <Container
+                        disableGutters
+                        maxWidth='xs'
+                        sx={{
+                            width: '375px'
+                        }}
+                    >
                         <Box
                             component='form'
                             onSubmit={handleSubmit(onSubmit)}
@@ -175,11 +181,7 @@ const UserDetails = () => {
                                 <Grid item xs={6}>
                                     <Button
                                         type='submit'
-                                        className={
-                                            !breakPoint
-                                                ? classes.navButton
-                                                : classes.navButtonLg
-                                        }
+                                        className={classes.navButton}
                                         variant='contained'
                                     >
                                         Submit

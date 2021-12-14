@@ -58,13 +58,13 @@ const Layout = ({ children }) => {
                     variant='determinate'
                     value={progValue}
                     className={classes.progress}
-                    sx={{ height: '10px' }}
+                    sx={{ height: '20px' }}
                 />
             )}
             <Box Container mt={1} mb={-4}>
-                <Typography align='center' fontSize={20} fontWeight={100}>
+                {/* <Typography align='center' fontSize={20} fontWeight={100}>
                     Reliable EPoS Solutions
-                </Typography>
+                </Typography> */}
             </Box>
             {children}
             <Toolbar />

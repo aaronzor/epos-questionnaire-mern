@@ -19,15 +19,13 @@ import useStyles from '../styles/makeStyle';
 const GridQuestion = (props) => {
     const classes = useStyles();
 
-    const breakPoint = useMediaQuery((theme) => theme.breakpoints.up('sm'));
+    //const breakPoint = useMediaQuery((theme) => theme.breakpoints.up('sm'));
 
     return (
         <Grid item xs={12}>
             <Card
                 sx={{ ...(props.textInput && { height: '90%' }) }}
-                className={
-                    !breakPoint ? classes.gridQuestion : classes.gridQuestionLg
-                }
+                className={classes.gridQuestion}
                 elevation={2}
                 name={props.question}
             >

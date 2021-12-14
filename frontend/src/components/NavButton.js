@@ -11,7 +11,7 @@ import useStyles from '../styles/makeStyle';
 const NavButton = (props) => {
     const classes = useStyles();
 
-    const breakPoint = useMediaQuery((theme) => theme.breakpoints.up('sm'));
+    //const breakPoint = useMediaQuery((theme) => theme.breakpoints.up('sm'));
 
     const { object, setObject } = useContext(ResultContext);
 
@@ -31,11 +31,7 @@ const NavButton = (props) => {
                     }}
                 >
                     <Button
-                        className={
-                            !breakPoint
-                                ? classes.navButton
-                                : classes.navButtonLg
-                        }
+                        className={classes.navButton}
                         variant='contained'
                         endIcon={<MdOutlineArrowForwardIos />}
                     >
@@ -54,11 +50,7 @@ const NavButton = (props) => {
                     }}
                 >
                     <Button
-                        className={
-                            !breakPoint
-                                ? classes.navButton
-                                : classes.navButtonLg
-                        }
+                        className={classes.navButton}
                         onClick={clearHandler}
                         clear={props.clear}
                         variant='contained'

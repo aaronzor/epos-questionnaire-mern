@@ -10,7 +10,7 @@ const SubmitButton = (props) => {
 
     const classes = useStyles();
 
-    const breakPoint = useMediaQuery((theme) => theme.breakpoints.up('sm'));
+    //const breakPoint = useMediaQuery((theme) => theme.breakpoints.up('sm'));
 
     const clickHandler = () => {
         try {
@@ -32,9 +32,7 @@ const SubmitButton = (props) => {
             >
                 <Button
                     type='submit'
-                    className={
-                        !breakPoint ? classes.navButton : classes.navButtonLg
-                    }
+                    className={classes.navButton}
                     onClick={clickHandler}
                     variant='contained'
                 >

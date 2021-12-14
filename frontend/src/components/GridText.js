@@ -4,7 +4,7 @@ import useStyles from '../styles/makeStyle';
 import { motion } from 'framer-motion';
 
 const GridText = (props) => {
-    const breakPoint = useMediaQuery((theme) => theme.breakpoints.up('sm'));
+    // const breakPoint = useMediaQuery((theme) => theme.breakpoints.up('sm'));
 
     const transition = {
         duration: 1,
@@ -28,11 +28,7 @@ const GridText = (props) => {
                         sx={{}}
                         name={props.name}
                         onChange={props.onChange}
-                        className={
-                            !breakPoint
-                                ? classes.gridInput
-                                : classes.gridInputLg
-                        }
+                        className={classes.gridInput}
                         label={props.label}
                         multiline
                         rows={props.rows}

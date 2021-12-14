@@ -20,7 +20,7 @@ const GridItem = (props) => {
     const { object, setObject } = useContext(ResultContext);
 
     const classes = useStyles();
-    const breakPoint = useMediaQuery((theme) => theme.breakpoints.up('sm'));
+    //const breakPoint = useMediaQuery((theme) => theme.breakpoints.up('sm'));
 
     // Local state
     const [clicked, setClicked] = useState(false);
@@ -44,9 +44,7 @@ const GridItem = (props) => {
         <Grid item xs={6}>
             <CardActionArea>
                 <Card
-                    className={
-                        !breakPoint ? classes.gridOption : classes.gridOptionLg
-                    }
+                    className={classes.gridOption}
                     elevation={0}
                     onClick={clickHandler}
                     name={props.name}
