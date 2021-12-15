@@ -1,6 +1,9 @@
 import mongoose from 'mongoose';
 
 const ResultSchema = new mongoose.Schema({
+    meeting: {
+        type: Boolean
+    },
     phoneContact: {
         type: String
     },

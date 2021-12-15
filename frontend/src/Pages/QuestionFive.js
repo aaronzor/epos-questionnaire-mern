@@ -1,5 +1,14 @@
 import React, { useContext } from 'react';
-import { Grid, Container, Typography, TextField } from '@mui/material';
+import {
+    Grid,
+    Container,
+    Typography,
+    TextField,
+    FormControl,
+    RadioGroup,
+    FormControlLabel,
+    Radio
+} from '@mui/material';
 import { ResultContext } from '../contexts/ResultContext';
 
 import NavButton from '../components/NavButton';
@@ -50,7 +59,7 @@ const QuestionFive = () => {
                         <Typography
                             mb={2}
                             mt='40px'
-                            paddingX={2}
+                            paddingX={1}
                             fontWeight={600}
                         >
                             Do you have any specific needs or are in need of any
@@ -64,8 +73,43 @@ const QuestionFive = () => {
                             className={classes.questionInput}
                             multiline
                             rows={8}
-                            inputProps={{ maxLength: 150 }}
+                            inputProps={{ maxLength: 500 }}
                         />
+                        <Grid item xs={12}>
+                            <Typography
+                                mb={2}
+                                mt={3}
+                                fontWeight={600}
+                                paddingX={1}
+                            >
+                                Would you be willing to attend a face to face
+                                consultation?
+                            </Typography>
+
+                            <FormControl>
+                                <RadioGroup
+                                    row
+                                    aria-label='trading'
+                                    name='userTrading'
+                                    sx={{ marginBottom: '2rem' }}
+                                >
+                                    <FormControlLabel
+                                        value={true}
+                                        control={<Radio />}
+                                        label='Yes'
+                                        name='meeting'
+                                        onChange={handleOnChange}
+                                    />
+                                    <FormControlLabel
+                                        value={false}
+                                        control={<Radio />}
+                                        label='No'
+                                        name='meeting'
+                                        onChange={handleOnChange}
+                                    />
+                                </RadioGroup>
+                            </FormControl>
+                        </Grid>
                     </Grid>
 
                     <NavButton link='/q4' variant='back' clear={clear} />

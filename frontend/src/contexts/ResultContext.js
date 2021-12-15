@@ -3,6 +3,7 @@ import { createContext } from 'react';
 export const ResultContext = createContext({});
 
 export const resultObject = {
+    meeting: false,
     phoneContact: false,
     emailContact: false,
     contactNumber: '',
