@@ -40,18 +40,18 @@ const QuestionOne = () => {
                 >
                     <Grid item xs={12}>
                         <GridQuestion questionText='Welcome to the QUBE EPoS questionnaire' />
-                        <Typography my={3} px={2}>
+                        <Typography mt={5} px={0} align='left'>
                             This short questionnaire will help us get an idea of
                             which of our services or products you might be
-                            interested in
+                            interested in.
                             <Typography my={3}>
                                 On each question, select any options that are
-                                applicable to you
+                                applicable to you.
                             </Typography>
                             <Typography my={3}>
                                 Use the navigation buttons to advance to the
                                 next question, or to go back and change an
-                                answer
+                                answer.
                             </Typography>
                             <Typography my={3}>
                                 Click on 'Start' when you are ready to begin!
@@ -59,7 +59,17 @@ const QuestionOne = () => {
                         </Typography>
                     </Grid>
                     <Link to='/q1' style={{ textDecoration: 'none' }}>
-                        <Button variant='contained'>Start</Button>
+                        <Button
+                            variant='contained'
+                            sx={{
+                                width: '175px',
+                                height: '60px',
+                                marginLeft: '15px',
+                                marginTop: '20px'
+                            }}
+                        >
+                            Start
+                        </Button>
                     </Link>
                 </Grid>
             </Container>

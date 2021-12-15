@@ -44,7 +44,15 @@ const QuestionFive = () => {
                     marginTop='0%'
                 >
                     <Grid item xs={12}>
-                        <Typography mb={2} mt={8} paddingX={2}>
+                        <Typography variant='overline'>Step 5 of 6</Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Typography
+                            mb={2}
+                            mt='40px'
+                            paddingX={2}
+                            fontWeight={600}
+                        >
                             Do you have any specific needs or are in need of any
                             other advice regarding EPoS and Payment solutions?
                         </Typography>

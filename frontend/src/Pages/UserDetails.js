@@ -86,11 +86,16 @@ const UserDetails = () => {
                                 align='center'
                                 justifyContent='center'
                                 container
-                                marginTop='15%'
+                                marginTop='10%'
                                 marginBottom='10%'
                             >
                                 <Grid item xs={12}>
-                                    <Typography>
+                                    <Typography variant='overline'>
+                                        Step 6 of 6
+                                    </Typography>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <Typography mt='40px' fontWeight={600}>
                                         Please enter your details below
                                     </Typography>
                                 </Grid>

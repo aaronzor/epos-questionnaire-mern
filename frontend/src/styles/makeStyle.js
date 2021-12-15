@@ -20,7 +20,12 @@ const useStyles = makeStyles((theme) => ({
         height: '170px',
         boxShadow: 1,
         border: `3px solid `,
-        borderColor: '#424242'
+        borderColor: '#424242',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        textAlign: 'center',
+        verticalAlign: 'middle'
     },
     gridOptionLg: {
         width: '205px',
@@ -49,7 +54,13 @@ const useStyles = makeStyles((theme) => ({
         border: `3px solid ${grey[400]}`,
         borderColor: '#424242',
         //borderTop: 'none'
-        marginTop: '40px'
+        marginTop: '40px',
+        padding: '20px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        textAlign: 'center',
+        verticalAlign: 'middle'
     },
     // Text
     subTitle: {
@@ -63,24 +74,24 @@ const useStyles = makeStyles((theme) => ({
     },
 
     // App Bar
-    appbar: {
-        //alignItems: 'center',
-        //justifyContent: 'space-between'
-    },
+    // appbar: {
+    //     justifyContent: 'space-between'
+    // },
 
     logo: {
         paddingTop: '5%',
-        width: '10rem'
+        width: '10rem',
+        flexGrow: 1
     },
     // Progress Bar
     progress: {
         width: '100%',
-        height: '20%',
-        position: 'relative'
+        height: '20%'
+        //position: 'relative'
     },
     // Buttons
     navButton: {
-        width: '162px',
+        width: '98%',
         height: '55px',
         marginTop: '25px',
         alignItems: 'center',

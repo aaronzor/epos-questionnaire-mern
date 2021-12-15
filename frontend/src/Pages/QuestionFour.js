@@ -57,7 +57,10 @@ const QuestionThree = () => {
                     marginBottom='10%'
                 >
                     <Grid item xs={12}>
-                        <Typography mb={2} mt={8}>
+                        <Typography variant='overline'>Step 4 of 6</Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Typography mb={2} mt='40px' fontWeight={600}>
                             What is the name of your business?
                         </Typography>
 
@@ -70,7 +73,7 @@ const QuestionThree = () => {
                         />
                     </Grid>
                     <Grid item xs={12}>
-                        <Typography mb={2} mt={5}>
+                        <Typography mb={2} mt={5} fontWeight={600}>
                             What is your position within the business?
                         </Typography>
 
@@ -83,7 +86,7 @@ const QuestionThree = () => {
                         />
                     </Grid>
                     <Grid item xs={12}>
-                        <Typography mb={2} mt={3}>
+                        <Typography mb={2} mt={3} fontWeight={600}>
                             Are you currently trading?
                         </Typography>
 

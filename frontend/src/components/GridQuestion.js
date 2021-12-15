@@ -31,10 +31,12 @@ const GridQuestion = (props) => {
             >
                 <Typography
                     className={classes.questionHeader}
-                    variant='h6'
+                    variant='subtitle'
+                    fontWeight='600'
+                    fontSize={22}
                     align='center'
-                    marginTop={!props.textInput && '4%'}
-                    marginBottom={props.textInput && '5%'}
+                    // marginTop={!props.textInput && '7.5%'}
+                    // marginBottom={props.textInput && '5%'}
                 >
                     {props.questionText}
                 </Typography>

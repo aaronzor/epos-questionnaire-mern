@@ -3,6 +3,17 @@ import { createTheme } from '@mui/material/styles';
 
 export const baseTheme = createTheme({
     components: {
+        // MuiPaper: {
+        //     styleOverrides: {
+        //         root: {
+        //             display: 'flex',
+        //             justifyContent: 'center',
+        //             alignItems: 'center',
+        //             textAlign: 'center',
+        //             verticalAlign: 'middle'
+        //         }
+        //     }
+        // },
         MuiLinearProgress: {
             styleOverrides: {
                 bar: {

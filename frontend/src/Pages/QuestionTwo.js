@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import GridItem from '../components/GridItem';
 import GridQuestion from '../components/GridQuestion';
 import GridText from '../components/GridText';
-import { Grid, Container } from '@mui/material';
+import { Grid, Container, Typography } from '@mui/material';
 import NavButton from '../components/NavButton';
 import { ResultContext } from '../contexts/ResultContext';
 
@@ -55,6 +55,9 @@ const QuestionTwo = () => {
                     container
                     marginTop='5%'
                 >
+                    <Grid item xs={12}>
+                        <Typography variant='overline'>Step 2 of 6</Typography>
+                    </Grid>
                     <GridQuestion
                         question='question1'
                         questionText='Which industry best describes your business?'

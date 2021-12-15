@@ -1,7 +1,7 @@
 import React from 'react';
 import GridItem from '../components/GridItem';
 import GridQuestion from '../components/GridQuestion';
-import { Grid, Container } from '@mui/material';
+import { Grid, Container, Typography } from '@mui/material';
 import NavButton from '../components/NavButton';
 
 import { motion } from 'framer-motion';
@@ -35,9 +35,12 @@ const QuestionThree = () => {
                     container
                     marginTop='5%'
                 >
+                    <Grid item xs={12}>
+                        <Typography variant='overline'>Step 3 of 6</Typography>
+                    </Grid>
                     <GridQuestion
                         question='question1'
-                        questionText='Please select anything else you would like information/quotations for'
+                        questionText='Please select anything else you would like information on'
                     />
                     <GridItem name='onlineOrdering' answer='Online Ordering' />
                     <GridItem name='cardReaders' answer='Card Readers' />
