@@ -83,6 +83,9 @@ const useStyles = makeStyles((theme) => ({
         width: '10rem',
         flexGrow: 1
     },
+    qubeTick: {
+        width: '75%'
+    },
     // Progress Bar
     progress: {
         width: '100%',

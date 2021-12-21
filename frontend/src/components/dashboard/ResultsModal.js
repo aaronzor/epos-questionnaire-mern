@@ -228,7 +228,7 @@ const ResultsModal = (props) => {
                             options={{
                                 showTitle: false,
                                 search: false,
-                                pageSize: 10,
+                                pageSize: 11,
                                 maxBodyHeight: '20vh',
                                 toolbar: false
                             }}

@@ -21,6 +21,7 @@ import useStyles from '../styles/makeStyle';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { motion } from 'framer-motion';
+import qubeTick from '../assets/qube-tick.png';
 
 const UserDetails = () => {
     //const breakPoint = useMediaQuery((theme) => theme.breakpoints.up('sm'));
@@ -203,11 +204,48 @@ const UserDetails = () => {
                     animate='visible'
                     exit='exit'
                 >
-                    <Container maxWidth='xs'>
-                        <Typography align='center' marginTop='20%' variant='h6'>
-                            Thank you for taking our questionnaire, we will be
-                            in touch soon.
-                        </Typography>
+                    <Container
+                        disableGutters
+                        maxWidth='xs'
+                        sx={{
+                            width: '375px'
+                        }}
+                    >
+                        <Grid
+                            spacing={3}
+                            align='center'
+                            justifyContent='center'
+                            marginTop='10%'
+                            marginBottom='10%'
+                        >
+                            <Grid item xs={12}>
+                                <Typography
+                                    variant='h4'
+                                    marginBottom={4}
+                                    marginTop={8}
+                                    fontWeight={700}
+                                >
+                                    Enquiry Successful!
+                                </Typography>
+                                <img
+                                    className={classes.qubeTick}
+                                    src={qubeTick}
+                                    alt='Success confirmation checkmark'
+                                />
+                                <Typography
+                                    marginTop='8%'
+                                    marginX={2}
+                                    fontWeight={400}
+                                >
+                                    DONT WORRY YOU WONT RECIEVE ANY SPAM EMAILS
+                                    FROM US! YOUR QUOTE IS BEING BUILT AND A
+                                    MEMBER OF THE TEAM WILL CONTACT YOU ASAP
+                                </Typography>
+                                <Typography marginTop='8%' fontWeight={600}>
+                                    THANK YOU, THE QUBE TEAM
+                                </Typography>
+                            </Grid>
+                        </Grid>
                     </Container>
                 </motion.div>
             )}
