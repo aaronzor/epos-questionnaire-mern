@@ -39,23 +39,14 @@ const QuestionOne = () => {
                     className={classes.grid}
                 >
                     <Grid item xs={12}>
-                        <GridQuestion questionText='Welcome to the QUBE EPoS questionnaire' />
-                        <Typography mt={5} px={0} align='left'>
-                            This short questionnaire will help us get an idea of
-                            which of our services or products you might be
-                            interested in.
-                            <Typography my={3}>
-                                On each question, select any options that are
-                                applicable to you.
-                            </Typography>
-                            <Typography my={3}>
-                                Use the navigation buttons to advance to the
-                                next question, or to go back and change an
-                                answer.
-                            </Typography>
-                            <Typography my={3}>
-                                Click on 'Start' when you are ready to begin!
-                            </Typography>
+                        <GridQuestion questionText='EPOS to fit your needs' />
+                        <Typography my={5} px={1} align='left'>
+                            This short questionnaire will help define your
+                            requirements to help you manage and drive your
+                            business through EPOS hardware and software
+                        </Typography>
+                        <Typography mt={6}>
+                            Click Start, it only takes 60 seconds!
                         </Typography>
                     </Grid>
                     <Link to='/q1' style={{ textDecoration: 'none' }}>

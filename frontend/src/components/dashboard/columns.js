@@ -2,7 +2,7 @@ export const columns = [
     {
         field: 'submittedAt',
         title: 'Date',
-        cellStyle: { width: '50px' },
+        //cellStyle: { width: '50px' },
         type: 'date',
         dateSetting: { locale: 'en-GB' },
         defaultSort: 'desc',
@@ -10,9 +10,9 @@ export const columns = [
     },
     {
         field: 'contacted',
-        title: 'Contacted?',
+        title: 'Contacted',
         emptyValue: () => 'No',
-        cellStyle: { width: '150px' },
+        //cellStyle: { width: '150px' },
         lookup: { true: 'Yes', false: 'No' },
         filterPlaceholder: 'Filter Contacted',
         filtering: false
@@ -20,21 +20,21 @@ export const columns = [
     {
         field: 'contactName',
         title: 'Name',
-        cellStyle: { width: '150px' },
+        //cellStyle: { width: '150px' },
         filtering: false,
         filterPlaceholder: 'Filter Name'
     },
     {
         field: 'companyName',
         title: 'Company',
-        cellStyle: { width: '150px' },
+        //cellStyle: { width: '150px' },
         filtering: false,
         filterPlaceholder: 'Filter Company'
     },
     {
         field: 'positionInCompany',
         title: 'Position',
-        cellStyle: { width: '150px' },
+        //cellStyle: { width: '150px' },
         emptyValue: () => <em>N/A</em>,
         filtering: false
     },
@@ -42,21 +42,21 @@ export const columns = [
     {
         field: 'email',
         title: 'Email',
-        cellStyle: { width: '150px' },
+        //cellStyle: { width: '150px' },
         filtering: false,
         filterPlaceholder: 'Filter Email'
     },
     {
         field: 'contactNumber',
         title: 'Phone',
-        cellStyle: { width: '150px' },
+        //cellStyle: { width: '150px' },
         filtering: false,
         filterPlaceholder: 'Filter Phone'
     },
     {
         field: 'trading',
-        title: 'Trading?',
-        cellStyle: { width: '150px' },
+        title: 'Trading',
+        //cellStyle: { width: '150px' },
         lookup: { true: 'Yes', false: 'No' },
         filterPlaceholder: 'Filter Trading',
         filtering: false
@@ -64,32 +64,44 @@ export const columns = [
     {
         field: 'phoneContact',
         title: 'Phone Contact?',
-        cellStyle: { width: '150px' },
+        //cellStyle: { width: '150px' },
         lookup: { on: 'Yes' },
         emptyValue: () => 'No',
         filterPlaceholder: 'Filter Contact',
-        filtering: false
+        filtering: false,
+        hidden: true
     },
 
     {
         field: 'emailContact',
         title: 'Email Contact?',
-        cellStyle: { width: '150px' },
+        //cellStyle: { width: '150px' },
         lookup: { on: 'Yes' },
         emptyValue: () => 'No',
         filterPlaceholder: 'Filter Contact',
-        filtering: false
+        filtering: false,
+        hidden: true
     },
     {
-        field: 'fullEposSetup',
-        title: 'Full EPOS Setup',
+        field: 'meeting',
+        title: 'Consultation',
+        //cellStyle: { width: '150px' },
+        lookup: { on: 'Yes' },
+        emptyValue: () => 'No',
+        filterPlaceholder: 'Filter Consultation',
+        filtering: false,
+        hidden: true
+    },
+    {
+        field: 'updateEpos',
+        title: 'Update Existing EPOS',
         width: 150,
         filtering: false,
         hidden: true
     },
     {
-        field: 'systemApplications',
-        title: 'System & Applications',
+        field: 'newToEpos',
+        title: 'New to EPOS',
         width: 150,
         hidden: true
     },
@@ -115,12 +127,18 @@ export const columns = [
         hidden: true
     },
     {
-        field: 'cloudSoftware',
-        title: 'Cloud Software',
+        field: 'cloudReporting',
+        title: 'Cloud Reporing',
         width: 150,
         hidden: true
     },
-    { field: 'cardReaders', title: 'Card Readers', width: 150, hidden: true },
+    { field: 'stockControl', title: 'Stock Control', width: 150, hidden: true },
+    {
+        field: 'tableOrdering',
+        title: 'Table Ordering',
+        width: 150,
+        hidden: true
+    },
     {
         field: 'onlineOrdering',
         title: 'Online Ordering',

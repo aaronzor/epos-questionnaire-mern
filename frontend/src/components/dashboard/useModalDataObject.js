@@ -23,28 +23,32 @@ const useModalDataObject = () => {
             answer: modalData.unsureNeedAdvice
         },
         {
-            selection: 'Full EPOS Setup',
-            answer: modalData.fullEposSetup
+            selection: 'Update Existing EPOS',
+            answer: modalData.updateEpos
         },
         {
             selection: 'Software Only',
             answer: modalData.softwareOnly
         },
         {
-            selection: 'System & Applications',
-            answer: modalData.systemApplications
+            selection: 'New to EPOS',
+            answer: modalData.newToEpos
         },
         {
             selection: 'Online Ordering',
             answer: modalData.onlineOrdering
         },
         {
-            selection: 'Card Readers',
-            answer: modalData.cardReaders
+            selection: 'Stock Control',
+            answer: modalData.stockControl
         },
         {
-            selection: 'Cloud Software',
-            answer: modalData.cloudSoftware
+            selection: 'Cloud Reporting',
+            answer: modalData.cloudReporting
+        },
+        {
+            selection: 'Table Ordering',
+            answer: modalData.tableOrdering
         }
     ]);
 };

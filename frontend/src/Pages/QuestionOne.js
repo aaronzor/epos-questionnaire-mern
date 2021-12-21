@@ -51,12 +51,9 @@ const QuestionOne = () => {
                         question='question1'
                         questionText='What sort of service do you need?'
                     />
-                    <GridItem name='fullEposSetup' answer='Full EPOS Setup' />
+                    <GridItem name='updateEpos' answer='Update existing EPOS' />
                     <GridItem name='softwareOnly' answer='Software Only' />
-                    <GridItem
-                        name='systemApplications'
-                        answer='System & Applications'
-                    />
+                    <GridItem name='newToEpos' answer='New to EPOS?' />
                     <GridItem
                         name='unsureNeedAdvice'
                         answer='Unsure, Need Advice'

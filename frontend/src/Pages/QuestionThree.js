@@ -43,8 +43,9 @@ const QuestionThree = () => {
                         questionText='Please select anything else you would like information on'
                     />
                     <GridItem name='onlineOrdering' answer='Online Ordering' />
-                    <GridItem name='cardReaders' answer='Card Readers' />
-                    <GridItem name='cloudSoftware' answer='Cloud Software' />
+                    <GridItem name='stockControl' answer='Stock Control' />
+                    <GridItem name='cloudReporting' answer='Cloud Reporting' />
+                    <GridItem name='tableOrdering' answer='Table Ordering' />
                 </Grid>
                 <Grid
                     spacing={2}

@@ -16,6 +16,8 @@ import {
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Box } from '@mui/system';
+import CheckIcon from '@mui/icons-material/Check';
+import CloseIcon from '@mui/icons-material/Close';
 
 // Import Material Table
 import MaterialTable from '@material-table/core';
@@ -30,6 +32,9 @@ import useModalDataObject from './useModalDataObject';
 import axios from 'axios';
 import cookies from 'js-cookie';
 
+// Import classes
+import useStyles from '../../styles/makeStyle';
+
 // Create expandable section for card content
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -43,6 +48,9 @@ const ExpandMore = styled((props) => {
 }));
 
 const ResultsModal = (props) => {
+    // Declare classes
+    const classes = useStyles();
+
     // Destructing props
     const { open, close, tableData } = props;
 
@@ -195,6 +203,10 @@ const ResultsModal = (props) => {
             onClose={close}
             aria-labelledby='modal-modal-title'
             aria-describedby='modal-modal-description'
+            classes={{
+                scrollPaper: classes.topScrollPaper,
+                paperScrollBody: classes.topPaperScrollBody
+            }}
         >
             <Card className={'MuiElevatedCard--01'}>
                 <CardHeader
@@ -217,9 +229,51 @@ const ResultsModal = (props) => {
                                 showTitle: false,
                                 search: false,
                                 pageSize: 10,
-                                maxBodyHeight: '30vh'
+                                maxBodyHeight: '20vh',
+                                toolbar: false
                             }}
                         ></MaterialTable>
+                        <Stack
+                            direction='row'
+                            my={2}
+                            alignContent='space-evenly'
+                            justifyContent='space-evenly'
+                            spacing={5}
+                        >
+                            {/* {modalData.meeting === true ? (
+                                <Stack direction='row' spacing={2}>
+                                    <Typography>Consultation</Typography>
+                                    <CheckIcon />
+                                </Stack>
+                            ) : (
+                                <Stack direction='row' spacing={2}>
+                                    <Typography>Consultation</Typography>
+                                    <CloseIcon />
+                                </Stack>
+                            )} */}
+                            {modalData.phoneContact === 'on' ? (
+                                <Stack direction='row' spacing={2}>
+                                    <Typography>Phone Contact</Typography>
+                                    <CheckIcon />
+                                </Stack>
+                            ) : (
+                                <Stack direction='row' spacing={2}>
+                                    <Typography>Phone Contact</Typography>
+                                    <CloseIcon />
+                                </Stack>
+                            )}
+                            {modalData.emailContact === 'on' ? (
+                                <Stack direction='row' spacing={2}>
+                                    <Typography>Email Contact</Typography>
+                                    <CheckIcon />
+                                </Stack>
+                            ) : (
+                                <Stack direction='row' spacing={2}>
+                                    <Typography>Email Contact</Typography>
+                                    <CloseIcon />
+                                </Stack>
+                            )}
+                        </Stack>
                         <CardActions sx={{ marginTop: '10px', marginX: '20%' }}>
                             <Typography variant='overline'>
                                 Other Industry

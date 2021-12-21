@@ -13,7 +13,7 @@ const ResultSchema = new mongoose.Schema({
     contactNumber: {
         type: String
     },
-    systemApplications: {
+    newToEpos: {
         type: Boolean
     },
     unsureNeedAdvice: {
@@ -22,7 +22,7 @@ const ResultSchema = new mongoose.Schema({
     softwareOnly: {
         type: Boolean
     },
-    fullEposSetup: {
+    updateEpos: {
         type: Boolean
     },
     cloudSoftware: {
@@ -56,6 +56,12 @@ const ResultSchema = new mongoose.Schema({
         type: String
     },
     tableOrdering: {
+        type: Boolean
+    },
+    stockControl: {
+        type: Boolean
+    },
+    cloudReporting: {
         type: Boolean
     },
     onlineOrdering: {

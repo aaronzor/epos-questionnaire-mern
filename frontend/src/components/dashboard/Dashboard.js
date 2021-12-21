@@ -169,7 +169,9 @@ const DashboardContent = () => {
             </Drawer>
             <Box
                 sx={{
-                    flexGrow: 1
+                    flexGrow: 1,
+                    justifyContent: 'center',
+                    alignContent: 'center'
                 }}
             >
                 <MaterialTable
@@ -177,6 +179,7 @@ const DashboardContent = () => {
                     icons={tableIcons}
                     data={tableData}
                     columns={columns}
+                    style={{ width: '99%', margin: 'auto' }}
                     actions={[
                         {
                             icon: () => (

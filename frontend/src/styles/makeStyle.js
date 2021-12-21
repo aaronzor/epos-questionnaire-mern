@@ -152,6 +152,13 @@ const useStyles = makeStyles((theme) => ({
     //Grid Content
     grid: {
         flex: '1 0 auto'
+    },
+    // Modal
+    topScrollPaper: {
+        alignItems: 'flex-start'
+    },
+    topPaperScrollBody: {
+        verticalAlign: 'top'
     }
 }));
 

@@ -62,8 +62,8 @@ const QuestionFive = () => {
                             paddingX={1}
                             fontWeight={600}
                         >
-                            Do you have any specific needs or are in need of any
-                            other advice regarding EPoS and Payment solutions?
+                            Payment Solutions – Do you have any specific needs
+                            or require additional advice?
                         </Typography>
 
                         <TextField
@@ -75,7 +75,9 @@ const QuestionFive = () => {
                             rows={8}
                             inputProps={{ maxLength: 500 }}
                         />
-                        <Grid item xs={12}>
+
+                        {/* CONSULTATION QUESTION - NOT USED */}
+                        {/* <Grid item xs={12}>
                             <Typography
                                 mb={2}
                                 mt={3}
@@ -109,7 +111,7 @@ const QuestionFive = () => {
                                     />
                                 </RadioGroup>
                             </FormControl>
-                        </Grid>
+                        </Grid> */}
                     </Grid>
 
                     <NavButton link='/q4' variant='back' clear={clear} />

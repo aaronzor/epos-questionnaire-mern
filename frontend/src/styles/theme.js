@@ -3,17 +3,6 @@ import { createTheme } from '@mui/material/styles';
 
 export const baseTheme = createTheme({
     components: {
-        // MuiPaper: {
-        //     styleOverrides: {
-        //         root: {
-        //             display: 'flex',
-        //             justifyContent: 'center',
-        //             alignItems: 'center',
-        //             textAlign: 'center',
-        //             verticalAlign: 'middle'
-        //         }
-        //     }
-        // },
         MuiLinearProgress: {
             styleOverrides: {
                 bar: {
@@ -30,7 +19,7 @@ export const baseTheme = createTheme({
                 root: {
                     '&.MuiElevatedCard--01': {
                         margin: 'auto',
-                        marginTop: '8%',
+                        marginTop: '3%',
                         borderRadius: 5,
                         transition: '0.3s',
                         boxShadow: '0px 14px 80px rgba(34, 35, 58, 0.2)',
@@ -65,7 +54,7 @@ export const baseTheme = createTheme({
                         '& .MuiCardContent-root': {
                             textAlign: 'left',
                             '& .MuiCardContent-inner': {
-                                paddingTop: '38px',
+                                paddingTop: '30px',
                                 overflowX: 'auto'
                             }
                         }
