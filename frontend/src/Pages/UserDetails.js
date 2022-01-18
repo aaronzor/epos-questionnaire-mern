@@ -237,9 +237,10 @@ const UserDetails = () => {
                                     marginX={2}
                                     fontWeight={400}
                                 >
-                                    DONT WORRY YOU WONT RECIEVE ANY SPAM EMAILS
-                                    FROM US! YOUR QUOTE IS BEING BUILT AND A
-                                    MEMBER OF THE TEAM WILL CONTACT YOU ASAP
+                                    Don't worry, you won't receive any spam
+                                    emails from us! Your quote is being built
+                                    and a member of the team will contact you as
+                                    soon as possible
                                 </Typography>
                                 <Typography marginTop='8%' fontWeight={600}>
                                     THANK YOU, THE QUBE TEAM
