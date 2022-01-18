@@ -20,8 +20,6 @@ This application is intended to generate potential sales leads for a company spe
 -   User registration and login
 -   Portal for company members to view / sort leads
 -   Validation
--   Dashboard to Create, Read & Delete generated URLs
--   Link Analytics Dashboard
 
 <h2 align="center">
  What else ?
@@ -73,7 +71,7 @@ Tech Stack,
  Screenshots
 </h2>
 
-<p>
-  <img src="frontend/src/assets/question1.png" width=100%/>
-  <img src="frontend/src/assets/question4.png" width=100%/>
+<p align="center">
+  <img src="frontend/src/assets/question1screen.png" width=50% />
+  <img src="frontend/src/assets/question4screen.png" width=50%/>
 </p>
